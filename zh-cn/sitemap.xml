@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://Sazerac-kk.github.io/</loc>
-    <lastmod>2024-09-17T16:20:55+08:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,27 +15,14 @@
                 href="https://Sazerac-kk.github.io/"
                 />
   </url><url>
-    <loc>https://Sazerac-kk.github.io/p/a/</loc>
-    <lastmod>2024-09-17T16:20:55+08:00</lastmod>
+    <loc>https://Sazerac-kk.github.io/page/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Sazerac-kk.github.io/post/</loc>
-    <lastmod>2024-09-17T16:20:55+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://Sazerac-kk.github.io/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://Sazerac-kk.github.io/post/"
-                />
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/p/myfirstblog/</loc>
-    <lastmod>2024-09-17T14:53:30+08:00</lastmod>
+    <loc>https://Sazerac-kk.github.io/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/categories/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -47,51 +34,6 @@
                 href="https://Sazerac-kk.github.io/categories/"
                 />
   </url><url>
-    <loc>https://Sazerac-kk.github.io/p/test-chinese/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://Sazerac-kk.github.io/en/p/test-chinese/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://Sazerac-kk.github.io/p/test-chinese/"
-                />
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/categories/test/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://Sazerac-kk.github.io/en/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://Sazerac-kk.github.io/categories/test/"
-                />
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://Sazerac-kk.github.io/en/categories/%E6%B5%8B%E8%AF%95/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://Sazerac-kk.github.io/categories/%E6%B5%8B%E8%AF%95/"
-                />
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/page/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://Sazerac-kk.github.io/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -102,6 +44,9 @@
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/p/markdown-syntax-guide/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/post/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/categories/syntax/</loc>
@@ -132,6 +77,9 @@
     <loc>https://Sazerac-kk.github.io/tags/tag-with-whitespaces/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/test/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://Sazerac-kk.github.io/categories/test-with-whitespaces/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
@@ -141,15 +89,9 @@
     <loc>https://Sazerac-kk.github.io/p/math-typesetting/</loc>
     <lastmod>2019-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Sazerac-kk.github.io/tags/emoji/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/p/emoji-support/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/p/</loc>
-  </url><url>
     <loc>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</loc>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
   </url><url>
     <loc>https://Sazerac-kk.github.io/%E5%85%B3%E4%BA%8E/</loc>
   </url><url>
