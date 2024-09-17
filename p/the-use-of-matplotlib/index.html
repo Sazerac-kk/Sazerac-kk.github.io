@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="无">
+<title>The use of matplotlib</title>
+
+<link rel='canonical' href='https://Sazerac-kk.github.io/p/the-use-of-matplotlib/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="The use of matplotlib">
+<meta property='og:description' content="无">
+<meta property='og:url' content='https://Sazerac-kk.github.io/p/the-use-of-matplotlib/'>
+<meta property='og:site_name' content='Sazerac'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='og:image' content='https://Sazerac-kk.github.io/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+<meta name="twitter:title" content="The use of matplotlib">
+<meta name="twitter:description" content="无"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Sazerac-kk.github.io/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar1_hu69203435282132153.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">✨</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sazerac</a></h1>
+            <h2 class="site-description">一条不愿翻身的咸鱼</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Sazerac-kk'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='http://www.sazerac.asia/'
+                        target="_blank"
+                        title="MyBlog"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" ?><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g data-name="Health Education-Article-Computer-Knowledge-Blog" id="Health_Education-Article-Computer-Knowledge-Blog"><path d="M57,15V41H7V15a4,4,0,0,1,4-4H53A4,4,0,0,1,57,15Z" style="fill:#5aaae7"/><path d="M42,28a1.992,1.992,0,0,1-3.72,1H35.91a5.949,5.949,0,0,1-1.02,2.47l1.67,1.68a2,2,0,1,1-1.41,1.41l-1.68-1.67A5.949,5.949,0,0,1,31,33.91v2.37a2,2,0,1,1-2,0V33.91a5.949,5.949,0,0,1-2.47-1.02l-1.68,1.67a2,2,0,1,1-1.41-1.41l1.67-1.68A5.949,5.949,0,0,1,24.09,29H21.72a2,2,0,1,1,0-2h2.37a5.949,5.949,0,0,1,1.02-2.47l-1.67-1.68a1.807,1.807,0,0,1-.51.08,2.005,2.005,0,0,1-1.42-3.42,1.995,1.995,0,0,1,3.34,1.93l1.68,1.67A5.949,5.949,0,0,1,29,22.09V19.72a2,2,0,1,1,2,0v2.37a5.949,5.949,0,0,1,2.47,1.02l1.68-1.67a2,2,0,0,1,.51-1.93,2,2,0,1,1,1.41,3.42,1.807,1.807,0,0,1-.51-.08l-1.67,1.68A5.949,5.949,0,0,1,35.91,27h2.37A1.992,1.992,0,0,1,42,28Z" style="fill:#3d9ae2"/><path d="M57,41v4a4,4,0,0,1-4,4H11a4,4,0,0,1-4-4V41Z" style="fill:#c6c5ca"/><path d="M57,15v9.48A8.8,8.8,0,0,1,54,25a8.944,8.944,0,0,1-5.35-1.77L44,24l2.16-3.59A8.926,8.926,0,0,1,45,16a8.962,8.962,0,0,1,1.53-5H53A4,4,0,0,1,57,15Z" style="fill:#3d9ae2"/><path d="M52,5a8.981,8.981,0,0,0-8.48,6A8.8,8.8,0,0,0,43,14a8.926,8.926,0,0,0,1.16,4.41L42,22l4.65-.77A9,9,0,1,0,52,5Z" style="fill:#ffd422"/><path d="M43.41,57.59A1.955,1.955,0,0,1,44,59a2.006,2.006,0,0,1-2,2H22a2.015,2.015,0,0,1-2-2,2.006,2.006,0,0,1,2-2H42A1.955,1.955,0,0,1,43.41,57.59Z" style="fill:#898890"/><polygon points="40 57 24 57 25 49 39 49 40 57" style="fill:#acabb1"/><path d="M22,11v4a2.006,2.006,0,0,1-2,2H18v4l-4-4H7V15a4,4,0,0,1,4-4Z" style="fill:#3d9ae2"/><path d="M18,3H5A2.006,2.006,0,0,0,3,5v8a2.006,2.006,0,0,0,2,2h7l4,4V15h2a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,18,3Z" style="fill:#00ccb3"/><circle cx="28" cy="26" r="5" style="fill:#d80027"/><polygon points="39.25 51 24.75 51 25 49 39 49 39.25 51" style="fill:#898890"/><path d="M56,40H8V18H6V45a5.006,5.006,0,0,0,5,5H23.867l-.75,6H22a3,3,0,0,0,0,6H42a3,3,0,0,0,0-6H40.883l-.75-6H53a5.006,5.006,0,0,0,5-5V25H56ZM43,59a1,1,0,0,1-1,1H22a1,1,0,0,1,0-2H42A1,1,0,0,1,43,59Zm-4.133-3H25.133l.75-6H38.117ZM53,48H11a3,3,0,0,1-3-3V42H56v3A3,3,0,0,1,53,48Z"/><rect height="2" width="17" x="23" y="10"/><rect height="2" width="2" x="50" y="44"/><path d="M52,4a9.994,9.994,0,0,0-8.99,14.372l-1.867,3.113a1,1,0,0,0,1.021,1.5l4.243-.708A9.9,9.9,0,0,0,52,24,10,10,0,0,0,52,4Zm0,18a7.937,7.937,0,0,1-4.755-1.578,1,1,0,0,0-.6-.2,1.016,1.016,0,0,0-.164.013l-2.513.419,1.042-1.737a1,1,0,0,0,.013-1.005A8,8,0,1,1,52,22Z"/><polygon points="53 10 51 10 51 13 48 13 48 15 51 15 51 18 53 18 53 15 56 15 56 13 53 13 53 10"/><path d="M15.293,19.707A1,1,0,0,0,16,20a.987.987,0,0,0,.383-.076A1,1,0,0,0,17,19V16h1a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5v8a3,3,0,0,0,3,3h6.586ZM4,13V5A1,1,0,0,1,5,4H18a1,1,0,0,1,1,1v8a1,1,0,0,1-1,1H16a1,1,0,0,0-1,1v1.586l-2.293-2.293A1,1,0,0,0,12,14H5A1,1,0,0,1,4,13Z"/><rect height="2" width="9" x="7" y="6"/><rect height="2" width="9" x="7" y="10"/><rect height="2" width="2" x="27" y="25"/><path d="M19.514,17.515a2,2,0,0,0,1.415,3.413,2.024,2.024,0,0,0,.511-.075l1.675,1.676A5.964,5.964,0,0,0,22.09,25H19.722a2,2,0,1,0,0,2H22.09a5.964,5.964,0,0,0,1.025,2.471l-1.676,1.676a2,2,0,0,0-1.924.51h0a2,2,0,1,0,3.339.9l1.676-1.676A5.964,5.964,0,0,0,27,31.91v2.368a2,2,0,1,0,2,0V31.91a5.964,5.964,0,0,0,2.471-1.025l1.676,1.676a2,2,0,1,0,1.414-1.414l-1.676-1.676A5.964,5.964,0,0,0,33.91,27h2.368a2,2,0,1,0,0-2H33.91a5.964,5.964,0,0,0-1.025-2.471l1.676-1.676a2.016,2.016,0,0,0,.51.075,2.005,2.005,0,1,0-1.924-1.489l-1.676,1.676A5.964,5.964,0,0,0,29,20.09V17.722a2,2,0,1,0-2,0V20.09a5.964,5.964,0,0,0-2.471,1.025l-1.676-1.676a1.993,1.993,0,0,0-.509-1.924h0A2,2,0,0,0,19.514,17.515ZM28,22a3.947,3.947,0,0,1,2.019.567l-.726.726,1.414,1.414.726-.726a3.878,3.878,0,0,1,0,4.038l-.726-.726-1.414,1.414.726.726a3.878,3.878,0,0,1-4.038,0l.726-.726-1.414-1.414-.726.726a3.878,3.878,0,0,1,0-4.038l.726.726,1.414-1.414-.726-.726A3.947,3.947,0,0,1,28,22Z"/><rect height="2" width="2" x="42" y="28"/><rect height="2" width="6" x="46" y="28"/><rect height="2" width="10" x="42" y="32"/></g></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>文档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://Sazerac-kk.github.io/en/" >English</option>
+                                
+                                    <option value="https://Sazerac-kk.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1显示窗口和隐式窗口">1、显示窗口和隐式窗口</a></li>
+    <li><a href="#2管理图像和轴">2、管理图像和轴</a>
+      <ol>
+        <li><a href="#1axes将axes添加到当前图形并使其成为当前axes">1)axes:将Axes添加到当前图形并使其成为当前Axes。</a></li>
+        <li><a href="#2其他">2）其他:</a></li>
+      </ol>
+    </li>
+    <li><a href="#3将数据添加到图中">3、将数据添加到图中</a></li>
+    <li><a href="#4轴配置">4、轴配置：</a></li>
+    <li><a href="#5布局">5、布局：</a></li>
+    <li><a href="#6颜色映射">6、颜色映射：</a></li>
+    <li><a href="#7输出">7、输出：</a></li>
+    <li><a href="#8其他详见">8、其他详见：</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/the-use-of-matplotlib/">
+                
+                    <img src="/helena-hertz-wWZzXlDpMog-unsplash.jpg" loading="lazy" alt="Featured image of post The use of matplotlib" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/test/" style="background-color: #2a9d8f; color: #fff;">
+                Test
+            </a>
+        
+            <a href="/categories/%E6%B5%8B%E8%AF%95/" >
+                测试
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/the-use-of-matplotlib/">The use of matplotlib</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            无
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><a class="link" href="https://matplotlib.org/stable/api/pyplot_summary.html#module-matplotlib.pyplot"  target="_blank" rel="noopener"
+    ><strong>matplotlib.pyplot</strong></a>是 matplotlib 的基于状态的接口。它提供了一种隐式的、类似 MATLAB 的绘图方式。它还会在屏幕上打开图形，并充当图形 GUI 管理器。</p>
+<h2 id="1显示窗口和隐式窗口">1、显示窗口和隐式窗口
+</h2><p>1）pyplot 主要用于交互式绘图和程序化绘图生成的简单情况，而对于复杂绘图，建议使用显示的面向对象的API，此时pyplot用于创建图形有一集图形中的轴。</p>
+<p>2）请参阅<a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure"  target="_blank" rel="noopener"
+    ><strong>pyplot.figure</strong></a>、<a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots"  target="_blank" rel="noopener"
+    ><strong>pyplot.subplots</strong></a>、 和 <a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_mosaic.html#matplotlib.pyplot.subplot_mosaic"  target="_blank" rel="noopener"
+    ><strong>pyplot.subplot_mosaic</strong></a>创建图形，以及 <a class="link" href="https://matplotlib.org/stable/api/axes_api.html"  target="_blank" rel="noopener"
+    >轴 API</a>以了解轴上的绘图方法。有关隐式接口和显式接口之间权衡的说明，请参阅<a class="link" href="https://matplotlib.org/stable/users/explain/figure/api_interfaces.html#api-interfaces"  target="_blank" rel="noopener"
+    >Matplotlib 应用程序接口 (API) 。</a></p>
+<h2 id="2管理图像和轴">2、管理图像和轴
+</h2><h3 id="1axes将axes添加到当前图形并使其成为当前axes">1)axes:将Axes添加到当前图形并使其成为当前Axes。
+</h3><p>Call signatures:</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfIAAABkCAIAAADyuyVtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABA0SURBVHhe7d1vaBRnHgfwqdwL20BLcXMxEUnu3BcJip40IMHSeukK0hbvRRdfSPYWqRzBFy2HNk252qDxSkgjR/tCQilInGCvkkIVWyxOUy1KLrKeZzFsKJt0l2JibjeUC6b0Vbzn38w8z&#43;7MJpM/k8n4/RDIM7OzM888M/PbZ5&#43;ZfZ4nHj16pAEAQFisE/8BACAUENYBAEIFYR0AIFQQ1gEAQgVhHQAgVBDWAQBCBWEdACBUENYBAELF28&#43;RHj58ODExMTMzMzc3J2YBAECQeAjrJKaPjo5WVVU9&#43;&#43;yz69ahmg8AEEQewvoPP/zw5JNPbtiwQUwDAEDweKh0z8zMkHq6mAAAgEDyENbn5ubQ9gIAEHAI0wAAoYKwDgAQKgjrAAChgrAOABAqCOsAAKGCsA4AECoI6wAAoYKwDgAQKgjrAAChgrAOABAqCOsAAKGCsA4AECoI6wAAoYKwDgAQKgjrAAChsmphPd2X5Dqv5sWsgMobJ5P6iJggSM7lSQCAQFm1sN6Q7CPam8WkrWB0JvW0mFh96b5jem17YquYJBpeSWS7O42CmAQACBQ0wpQ1oncNxtqTDWKSi8SOt9XpZ4yAf8sAgMfTSof1vHGSVGzTumhxKV8NZ4sd1TOa0cUXT85bKbbWnEz2iXWz5h1zQ7Tub7fz5K&#43;SKU7OCW1mManzPzdibQk1qDNb9yU0/QqaYgAgeJ549OiRSM7n1q1b27ZtExMLRSLmMX0smjh9PBahAbdLa&#43;&#43;TKr9kzkBNz/G9lWKaIIH46GS8zymYlkj36VqSL0nie5fW1sdaS9hGa8mGIiQx1GSuf0RPdpPN0&#43;VJfKcvvBcjL9D0RFzOlVA2J67vAgBYVX40wsTaaEwnGhpjWu7&#43;MrZdNIiYTpONzVp2gq&#43;7MvZee2xwwLh6RdcSreZnRjplV70r98ZjY0N3ra8CgymHrxFTk5kt1SzjDipr6pZ3XwAAloXvbetjk8t5r5FUwE1dg2Ie05Boq9P7s4kjtD7O5O/nNKNbLEwWN8R8EuKPtzeLZh/5sZz8RFakHFVVR5d3XwAAloPvYd29/utZwejsJhVw&#43;kRN8UM19CWtnUT2o0prvrUwI75DEPyxHLKOuv5jVmSn9fEyytblAQBWi59hPa13G9GmHVI7upPIpjrNSJXejXxw4eAHFRUfX5gS01y0uor9p4&#43;ssASVN87oWsu&#43;hq0JWg0Xt1IrdzRFje7y92wj1VtEiipbH6d1&#43;dpN8&#43;wLAIDv/LllKiaiLdbdUXqH02oGIaSX&#43;L1N/qK410qRsK4fuvjM2fG/HOCRnKD3YHk035JI1OpD9O6rRreoJfjtUHbbU880i/u09D5nf4a9gb6FLaPkUDOXZOhL9h1XBX1p8jV&#43;hxYAIED8COtrOPxJD88oyPzPq8UnBwBAkPjetr62KM04JtpwL9&#43;MBQAIEIT1eTQkexK5LqVPmC/1OvORTQCAoFnpRhgAAPAVausAAKGCsA4AECoI6wAAobJqYZ31s1j8e/1AyhcNoxFOrBuGldhN3msmBh6xBOfML1y6fOq5Afr34aiY5Y8HFw5eGBZp2ffdB7&#43;Rf25IL73AxIe0HqRxIMpbtbC&#43;dofRWB4B280l8/nDL3/jDRKPvjWj0ejAc5dvqL8/DizXM38ZkHJgYVr8WeXjLLL/1Xdvx1s71otpH5CA/vGFqY21f7DSfP733RUk0P&#43;2js7n6cBp2NeS7Tq5NkZZQCNMWY7DaITS1gSJNSvxq7HKvcdXaM2R3bP37og0mNbv&#43;SpOgjX7&#43;2O9mBkYGw&#43;c36/99YPmE7nmCj37pvWL8e1ts/XXK/RDJ/79&#43;4p/1Y0f2MVnBwrtE7BW7w166wLlw69Me7Uj8cmjvKuAWNEvNtX&#43;1ot7FFA6D3AmvcX83T/rUcDcEOs8QDN7JpA6D5BzQn8Ka/YfUDy/&#43;Cey/PelR7ReOtyH3NmAtBKlBwKlx4IY7RF&#43;EbvphOQk1dhTM8BXbve&#43;4JpDabui4wS2sOingWLZE2mXslLewjdqd&#43;FgMjNjbbFoB51yQmemGk9XD/Bs2/Mdkdr69QexzQVDi3&#43;0K0JrqZmNX736PA0SJH1P1FJ3b26lr2ranW9PfVfd&#43;rtM74lfyVSk48XW/WLdhUuX&#43;UxN2xBfXBx0OxDOuymoZz4jFax9IFyPpiO5HBTSbpK4ryxAX/ox&#43;u6b8q47lSFBivHwNEsVr8QD3gsISagdgdBK&#43;tcnaKJ2cFaEdXpNmb138MKMtdMzRB0FgRcRK17ppLVPOV7UrVovf8kuW96zCEsy5nlecobzNEXfstDRIFYTCesLNDw8POtZ9uLb8Xi8/WKOTqTOxONnUmy&#43;QOa0f5EVE1zuYnu8V1nIXeqMtWSqNx7vvcXTbKN0QzRhr/8WXYQvn/2iPf72Rf4CTau5EhxzQldCsPl0gdJdUzZKV&#43;64O1520xnPCd&#43;olBOXHMq5sspHJhega1mx&#43;eaGFHSd9tsVZM3yW9xyQjNgblTNjIPs16/39d2Yvf3&#43;Z1&#43;Pk8nbffU8Qeef/lSsnKTfef82Td64/E69nL7MUko69&#43;ln77w&#43;6LBn83I&#43;EPMUeMmZn&#43;q1FpAK3&#43;VourHKQTU&#43;2CfKxGE36RxeMqbb71tlKBkfPG2tXC5DT8bO/ukfZ8dnBzvODpppZqhDY3M6Lo2LNGWVIT0fzOIqOp1YEfHzM3ex1yxS&#43;aSl1ybBileaLx0g5awuWb&#43;CvqvsmRkIfjTChG4YDVIRYOuJ7GjakpmkrYPplN1WUxl7LZYZusuykr7Sn3EeNm9ZkDog36idE64khyNX9LFYXBRFZexIIuq4yyaXsqKjAEZbWj1/sZCVy4mZbeloTn1zsOKDCvmv&#43;3u6BFf/QsW1f0oNyHfuXbu5YY&#43;oiVc&#43;/7fNkXOTdq2TV0h3VtdrswVWVqPfTdd/Imrokf3R&#43;pv5UbsMvSg9EB4LnOxywqqGbyXXSfa&#43;3Xdo6fk23K2WidSz6a/XXjbb1t8YFuuo2hU3v51EdlVGbv7i1i&#43;ppWCMFy1TGM5rHbtEDX3ntj27pxfTArbxwHlSQ3&#43;Q&#43;4&#43;V5vO3t9Ea&#43;n&#43;zdD5P2&#43;6SenrWrjWb3ayad6fsvlQjsYR5sVfubFK6XzUPkD2/cHdoLNq0ky1PC1y&#43;fDJDd9yiVOWmWivOBNdvxH/fsDIVZb900tclItoiEvQiaatLdmfJ9WBuiw2jMZi0lyZXC/tHm8wmkl3sFfk7FxtGo5qnFVuadoi4Rj4/&#43;uj/wv2sZhjyurewddP50abFfVf1jp5tW1nmS3M4QmYuvHd4t7IqTI5pda8t&#43;eh56ae&#43;6qXzsy&#43;JtAMSX87eG5UP0&#43;6nFr6bhTFt9NzAKTFJrN8oEktCD0SNt90k1LYscXJSpUdT29X21mwbS5VwbB6hbVbXbooJTdsg/ruof/PFPW9c733uJ5r&#43;JB7fSWcWfvy1cO76KdZMwtUfEgnPSEA/IJKK7W3nRcqW6dczpDR4/KVIYM2kpsjlOVnXrJEPP1I20RpeQHJrKhET/8kCVn/gkdhxXoS0A3AavmPkeh9J0eYd0fzYQIJG59FjyX6SVpsfmUhNNDOxnDFsJfh&#43;y3QZh54gH9erOIxGMXIGSHhDKj11/FNXU/ZUkysv5IuISLlyKiu1P/pF85KT8rV1cpTqY7PXLv1PTBFyVXRi/mopCVvmDUbyt9j2YpU4EF52M3&#43;1k90Q4trtgOSsTG3dweiH169pm1v5Pn61eQEXYOXzH4mFC4cHBsxaeaTjRamsRLhfaaSm1dOiyRcyCazZifTdIa3xlerJO/nCRIYXOH1oTUv08CI8nYjypV3RkznTf4w&#43;akrDiBS&#43;aeinelqyXSWPq5HNmZ8iweVnWA/VMBoK&#43;u24pKNHqqGxOaOfcXooym036VfLZNLjc1T5q73kK3&#43;jfGu3CP2aaQyITyzelrKvqBoicSurMmVIv5wa5ZsZOG85YbX1t2blv7bt4iUusj8aMfLiMNEGlulrl8TKb5ydjnRsc78LSj4S1o8ednkKcIkHwuNuUmaNJ91n3mh1RWvrSrHI9x4dbXmGrTx/4&#43;8/LeiU5qr4u6j6FzYUTgw7P0W6qLJaODEspbL&#43;&#43;5O1jQ2RTdrQlVTODAKEGNmGRoB5Ki4jtIVWfAa4PKnlVLGjX2TnqT8FwBOPMIyG/MVNedJAvhFvkm67q9z2VPlybd&#43;FJxx3U6zH4dtfMaUBSlreNYdSmTs8UEFf1ZyfhLHKipLnK0dNWr&#43;Yr&#43;SQsHbTMSdk5kC1&#43;vSCUvIK9iTMIVFhHP1wYOCc1fggPcXx523iAY873546&#43;5T5RIfyuIj0iIj61MfSD4Trbjqe&#43;XLpJer6h0RRuB5NRy5PwkwN974sonl9x&#43;bCiV/20Gd&#43;ilpmrOKSCpB8akpPDUlPwhDyg0MLLitv5AuQb4KdQlO0wPmlxC4uc7v8YmfvjLUksv3ikRWXc4mvUEwQ4tpUjqZ8YTJ0E2vgSRg/wnoIh9FYSfRMzZV/vI/xdsHPS4mqQKzSgViTFlpWwVF01BZ2pbt8QgQOfo5UluMwGiuHnFvJ1bk88lcHDK1uE2I6t3oHYu1Zm2XFHoiwpVPGvLf96P2PnP1kXZChtj6voO5CUXVjUWglSzQQlXzfhAVajgMBvlMbYaRmRhfk62yqMfDNL9xKh3UAAPAVGmEAAEIFYR0AIFQQ1gEAQgVhHQAgVFYtrKcfk9GRCkbnGul6HwDCYdXC&#43;uMyOlIkFq/Vj/n25DsAPPbQCFPWcoyO1JDsSeS6MJgnAPhjpcN63jjZaRTS9IdoVPlqOFuM9upgdPHFk&#43;S94jUX1pqTSbNGzJp3zA3Rur/dzpNnwyUzck5oM4tJnf&#43;52rUbI63EzJ66FSUDFO2BnawKTTEA4AN/uvoSv2Ckv2nUlE6myJziPha8dKaT7tM1MZIGie9WT1Vso7VkQxGSsPvqGrG7faD9VZEX2O/KaHoiXtL1lUtOCoZ&#43;ZwfvrV9eCVt51uyHqLRzCZI99LgCAH7woxEmVKMjuY3AsjVBe4X&#43;0nCs4JO3VSujFwEArBTf29YX2IP5ArFuhjipv3WCjo6k92cTR6x&#43;HtiIP91iYbK41fmm6M2ZzZUfyynqDMgktdgo49uS9bQmcrrL/dW1MVYWAISA72F9jY&#43;OVGYEFvLSUFN7Itfl9Mjm2uh9HwBCwM&#43;wHpbRkRxHYGHPzMT3NsSOJLT&#43;3pI7vYXJMWkMFwCAFYPRkZQczj86El8hS9ojsLAMWyMfsVyp/dySBdB3KwD4Av2tl0Xj9dJHR1rjhQAAa4rvbetry3KMjrTU36kCAHiBsD6Ppf5GtGAM5BI9S/udKgDAwmF0JACAUEFtHQAgVBDWAQBCBWEdACBUENYBAEIFYR0AIFQQ1gEAQgVhHQAgVBDWAQBCBWEdACBUENYBAEIFYR0AIFQQ1gEAQgVhHQAgVDyE9XXr1s3NzYkJAAAIJA9h/emnn/7555/FBAAABJKHsF5TUzM1NTU9PY06OwBAYHkYRoN4&#43;PDhxMTEzMwMIjsAQDB5C&#43;sAABBweBIGACBUENYBAEIFYR0AIFQQ1gEAQkTT/g8Ro8XlxDIjTAAAAABJRU5ErkJggg=="
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>Parameters:</p>
+<p><strong>arg : None or 4-tuple</strong></p>
+<p>​	None:一个用subplot(**kwargs)生成的新的窗口Axes</p>
+<p>​	4-tuple : rect = (left, bottom, width, height)，以此为标准创建了一个新的轴。</p>
+<p><strong>Projection:{None, &lsquo;aitoff&rsquo;, &lsquo;hammer&rsquo;, &rsquo;lambert&rsquo;, &lsquo;mollweide&rsquo;, &lsquo;polar&rsquo;, &lsquo;rectilinear&rsquo;, str}</strong></p>
+<p>​	可选的投影类型，None代表直线</p>
+<p>​	详情见：<a class="link" href="https://matplotlib.org/stable/api/projections_api.html#module-matplotlib.projections"  target="_blank" rel="noopener"
+    ><strong>projections</strong></a></p>
+<p>​	<code>matplotlib.projections.get_projection_names()</code>返回当前注册的所有投影的名称</p>
+<p><strong>Polar: bool, default ,:False   # 极性</strong></p>
+<p>​	如果为True 代表投影=‘极坐标’</p>
+<p><strong>Sharex, sharey: Axes ,可选：</strong></p>
+<p>​	axis与 sharex 和/或 sharey共享 x 或 y 。该轴将具有与共享轴相同的限制、刻度和比例。</p>
+<p>Label: str</p>
+<p>​	Axes返回的标签</p>
+<p>Return：</p>
+<p>​	Axes或者子类Axes：</p>
+<p>​	返回的类型取决于projection，直线：Axes; 极坐标：projections.polar.PolarAxes</p>
+<p>其他参数：</p>
+<p>​	<strong>kwargs：详情请见</strong><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axes.html#matplotlib.pyplot.axes"  target="_blank" rel="noopener"
+    >axes</a></p>
+<h3 id="2其他">2）其他:
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axes.html#matplotlib.pyplot.axes"  target="_blank" rel="noopener"
+    ><strong>axes</strong></a></th>
+          <th style="text-align: left">将 Axes  添加到当前图形并使其成为当前 Axes。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.cla.html#matplotlib.pyplot.cla"  target="_blank" rel="noopener"
+    ><strong>cla</strong></a></td>
+          <td style="text-align: left">清除当前轴。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.clf.html#matplotlib.pyplot.clf"  target="_blank" rel="noopener"
+    ><strong>clf</strong></a></td>
+          <td style="text-align: left">清除当前数字。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html#matplotlib.pyplot.close"  target="_blank" rel="noopener"
+    ><strong>close</strong></a></td>
+          <td style="text-align: left">关闭图形窗口。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.delaxes.html#matplotlib.pyplot.delaxes"  target="_blank" rel="noopener"
+    ><strong>delaxes</strong></a></td>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes"  target="_blank" rel="noopener"
+    ><strong>Axes</strong></a>从图中删除一个（默认为当前轴）。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fignum_exists.html#matplotlib.pyplot.fignum_exists"  target="_blank" rel="noopener"
+    ><strong>fignum_exists</strong></a></td>
+          <td style="text-align: left">返回给定 id  的图窗是否存在。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure"  target="_blank" rel="noopener"
+    ><strong>figure</strong></a></td>
+          <td style="text-align: left">创建新图窗，或激活现有图窗。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca"  target="_blank" rel="noopener"
+    ><strong>gca</strong></a></td>
+          <td style="text-align: left">获取当前的轴。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gcf.html#matplotlib.pyplot.gcf"  target="_blank" rel="noopener"
+    ><strong>gcf</strong></a></td>
+          <td style="text-align: left">获取当前数字。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_figlabels.html#matplotlib.pyplot.get_figlabels"  target="_blank" rel="noopener"
+    ><strong>get_figlabels</strong></a></td>
+          <td style="text-align: left">返回现有图形标签的列表。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_fignums.html#matplotlib.pyplot.get_fignums"  target="_blank" rel="noopener"
+    ><strong>get_fignums</strong></a></td>
+          <td style="text-align: left">返回现有图号的列表。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.sca.html#matplotlib.pyplot.sca"  target="_blank" rel="noopener"
+    ><strong>sca</strong></a></td>
+          <td style="text-align: left">将当前 Axes 设置为<em>ax</em>并将当前Figure 设置为<em>ax</em>的父级。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot"  target="_blank" rel="noopener"
+    ><strong>subplot</strong></a></td>
+          <td style="text-align: left">将轴添加到当前图形或检索现有轴。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot2grid.html#matplotlib.pyplot.subplot2grid"  target="_blank" rel="noopener"
+    ><strong>subplot2grid</strong></a></td>
+          <td style="text-align: left">在常规网格内的特定位置创建子图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_mosaic.html#matplotlib.pyplot.subplot_mosaic"  target="_blank" rel="noopener"
+    ><strong>subplot_mosaic</strong></a></td>
+          <td style="text-align: left">基于 ASCII  艺术或嵌套列表构建轴布局。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots"  target="_blank" rel="noopener"
+    ><strong>subplots</strong></a></td>
+          <td style="text-align: left">创建一个图形和一组子图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.twinx.html#matplotlib.pyplot.twinx"  target="_blank" rel="noopener"
+    ><strong>twinx</strong></a></td>
+          <td style="text-align: left">制作并返回共享<em>x</em>轴的第二个轴。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.twiny.html#matplotlib.pyplot.twiny"  target="_blank" rel="noopener"
+    ><strong>twiny</strong></a></td>
+          <td style="text-align: left">创建并返回共享<em>y</em>轴的第二个轴。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="3将数据添加到图中">3、将数据添加到图中
+</h2><p>基本：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot"  target="_blank" rel="noopener"
+    ><strong>plot</strong></a></th>
+          <th style="text-align: left">将 y 与 x  绘制为线条和/或标记。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html#matplotlib.pyplot.errorbar"  target="_blank" rel="noopener"
+    ><strong>errorbar</strong></a></td>
+          <td style="text-align: left">将 y 与 x  绘制为带有误差条的线条和/或标记。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter"  target="_blank" rel="noopener"
+    ><strong>scatter</strong></a></td>
+          <td style="text-align: left"><em>y</em>与y的散点图</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot_date.html#matplotlib.pyplot.plot_date"  target="_blank" rel="noopener"
+    ><strong>plot_date</strong></a></td>
+          <td style="text-align: left">[<em>不鼓励</em>] 绘制强制轴将浮点数视为日期的图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.step.html#matplotlib.pyplot.step"  target="_blank" rel="noopener"
+    ><strong>step</strong></a></td>
+          <td style="text-align: left">制作一个步骤图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.loglog.html#matplotlib.pyplot.loglog"  target="_blank" rel="noopener"
+    ><strong>loglog</strong></a></td>
+          <td style="text-align: left">在 x 轴和 y  轴上绘制对数缩放图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.semilogx.html#matplotlib.pyplot.semilogx"  target="_blank" rel="noopener"
+    ><strong>semilogx</strong></a></td>
+          <td style="text-align: left">在 x  轴上绘制对数缩放图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.semilogy.html#matplotlib.pyplot.semilogy"  target="_blank" rel="noopener"
+    ><strong>semilogy</strong></a></td>
+          <td style="text-align: left">在 y  轴上绘制对数缩放图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between"  target="_blank" rel="noopener"
+    ><strong>fill_between</strong></a></td>
+          <td style="text-align: left">填充两条水平曲线之间的区域。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_betweenx.html#matplotlib.pyplot.fill_betweenx"  target="_blank" rel="noopener"
+    ><strong>fill_betweenx</strong></a></td>
+          <td style="text-align: left">填充两条垂直曲线之间的区域。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar"  target="_blank" rel="noopener"
+    ><strong>bar</strong></a></td>
+          <td style="text-align: left">绘制条形图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html#matplotlib.pyplot.barh"  target="_blank" rel="noopener"
+    ><strong>barh</strong></a></td>
+          <td style="text-align: left">绘制水平条形图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar_label.html#matplotlib.pyplot.bar_label"  target="_blank" rel="noopener"
+    ><strong>bar_label</strong></a></td>
+          <td style="text-align: left">标记条形图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.stem.html#matplotlib.pyplot.stem"  target="_blank" rel="noopener"
+    ><strong>stem</strong></a></td>
+          <td style="text-align: left">创建一个茎图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.eventplot.html#matplotlib.pyplot.eventplot"  target="_blank" rel="noopener"
+    ><strong>eventplot</strong></a></td>
+          <td style="text-align: left">在给定位置绘制相同的平行线。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html#matplotlib.pyplot.pie"  target="_blank" rel="noopener"
+    ><strong>pie</strong></a></td>
+          <td style="text-align: left">绘制饼图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.stackplot.html#matplotlib.pyplot.stackplot"  target="_blank" rel="noopener"
+    ><strong>stackplot</strong></a></td>
+          <td style="text-align: left">绘制堆积面积图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.broken_barh.html#matplotlib.pyplot.broken_barh"  target="_blank" rel="noopener"
+    ><strong>broken_barh</strong></a></td>
+          <td style="text-align: left">绘制矩形的水平序列。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.vlines.html#matplotlib.pyplot.vlines"  target="_blank" rel="noopener"
+    ><strong>vlines</strong></a></td>
+          <td style="text-align: left"><em>在每个x 处</em>绘制从<em>ymin</em>到<em>ymax 的</em>垂直线。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hlines.html#matplotlib.pyplot.hlines"  target="_blank" rel="noopener"
+    ><strong>hlines</strong></a></td>
+          <td style="text-align: left"><em>在每个y 处</em>绘制从<em>xmin</em>到<em>xmax 的</em>水平线。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill.html#matplotlib.pyplot.fill"  target="_blank" rel="noopener"
+    ><strong>fill</strong></a></td>
+          <td style="text-align: left">绘制填充多边形。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.polar.html#matplotlib.pyplot.polar"  target="_blank" rel="noopener"
+    ><strong>polar</strong></a></td>
+          <td style="text-align: left">绘制极坐标图。</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>二维数组：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow"  target="_blank" rel="noopener"
+    ><strong>imshow</strong></a></th>
+          <th style="text-align: left">将数据显示为图像，即在二维规则光栅上。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.matshow.html#matplotlib.pyplot.matshow"  target="_blank" rel="noopener"
+    ><strong>matshow</strong></a></td>
+          <td style="text-align: left">在新的图窗窗口中将数组显示为矩阵。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolor.html#matplotlib.pyplot.pcolor"  target="_blank" rel="noopener"
+    ><strong>pcolor</strong></a></td>
+          <td style="text-align: left">使用不规则矩形网格创建伪彩色图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html#matplotlib.pyplot.pcolormesh"  target="_blank" rel="noopener"
+    ><strong>pcolormesh</strong></a></td>
+          <td style="text-align: left">使用不规则矩形网格创建伪彩色图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.spy.html#matplotlib.pyplot.spy"  target="_blank" rel="noopener"
+    ><strong>spy</strong></a></td>
+          <td style="text-align: left">绘制二维数组的稀疏模式。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figimage.html#matplotlib.pyplot.figimage"  target="_blank" rel="noopener"
+    ><strong>figimage</strong></a></td>
+          <td style="text-align: left">将未重新采样的图像添加到图中。</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>文本和注释：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.annotate.html#matplotlib.pyplot.annotate"  target="_blank" rel="noopener"
+    ><strong>annotate</strong></a></th>
+          <th style="text-align: left">用文本<em>text</em>注释点<em>xy</em>。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html#matplotlib.pyplot.text"  target="_blank" rel="noopener"
+    ><strong>text</strong></a></td>
+          <td style="text-align: left">将文本添加到轴。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figtext.html#matplotlib.pyplot.figtext"  target="_blank" rel="noopener"
+    ><strong>figtext</strong></a></td>
+          <td style="text-align: left">向图中添加文本。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.table.html#matplotlib.pyplot.table"  target="_blank" rel="noopener"
+    ><strong>table</strong></a></td>
+          <td style="text-align: left">将表添加到<a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes"  target="_blank" rel="noopener"
+    ><strong>Axes</strong></a>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.arrow.html#matplotlib.pyplot.arrow"  target="_blank" rel="noopener"
+    ><strong>arrow</strong></a></td>
+          <td style="text-align: left">向轴添加箭头。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figlegend.html#matplotlib.pyplot.figlegend"  target="_blank" rel="noopener"
+    ><strong>figlegend</strong></a></td>
+          <td style="text-align: left">在图上放置图例。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend"  target="_blank" rel="noopener"
+    ><strong>legend</strong></a></td>
+          <td style="text-align: left">在轴上放置一个图例。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="4轴配置">4、轴配置：
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.autoscale.html#matplotlib.pyplot.autoscale"  target="_blank" rel="noopener"
+    ><strong>autoscale</strong></a></th>
+          <th style="text-align: left">根据数据自动缩放轴视图（切换）。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis"  target="_blank" rel="noopener"
+    ><strong>axis</strong></a></td>
+          <td style="text-align: left">获取或设置某些轴属性的便捷方法。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.box.html#matplotlib.pyplot.box"  target="_blank" rel="noopener"
+    ><strong>box</strong></a></td>
+          <td style="text-align: left">打开或关闭当前轴上的轴框。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html#matplotlib.pyplot.grid"  target="_blank" rel="noopener"
+    ><strong>grid</strong></a></td>
+          <td style="text-align: left">配置网格线。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.locator_params.html#matplotlib.pyplot.locator_params"  target="_blank" rel="noopener"
+    ><strong>locator_params</strong></a></td>
+          <td style="text-align: left">主要蜱虫定位器的控制行为。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.minorticks_off.html#matplotlib.pyplot.minorticks_off"  target="_blank" rel="noopener"
+    ><strong>minorticks_off</strong></a></td>
+          <td style="text-align: left">删除轴上的小刻度。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.minorticks_on.html#matplotlib.pyplot.minorticks_on"  target="_blank" rel="noopener"
+    ><strong>minorticks_on</strong></a></td>
+          <td style="text-align: left">在轴上显示小刻度。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rgrids.html#matplotlib.pyplot.rgrids"  target="_blank" rel="noopener"
+    ><strong>rgrids</strong></a></td>
+          <td style="text-align: left">获取或设置当前极坐标图上的径向网格线。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.thetagrids.html#matplotlib.pyplot.thetagrids"  target="_blank" rel="noopener"
+    ><strong>thetagrids</strong></a></td>
+          <td style="text-align: left">获取或设置当前极坐标图上的  theta 网格线。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tick_params.html#matplotlib.pyplot.tick_params"  target="_blank" rel="noopener"
+    ><strong>tick_params</strong></a></td>
+          <td style="text-align: left">更改刻度、刻度标签和网格线的外观。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ticklabel_format.html#matplotlib.pyplot.ticklabel_format"  target="_blank" rel="noopener"
+    ><strong>ticklabel_format</strong></a></td>
+          <td style="text-align: left">配置<a class="link" href="https://matplotlib.org/stable/api/ticker_api.html#matplotlib.ticker.ScalarFormatter"  target="_blank" rel="noopener"
+    ><strong>ScalarFormatter</strong></a>线性轴的默认使用。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel"  target="_blank" rel="noopener"
+    ><strong>xlabel</strong></a></td>
+          <td style="text-align: left">设置 x 轴的标签。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html#matplotlib.pyplot.xlim"  target="_blank" rel="noopener"
+    ><strong>xlim</strong></a></td>
+          <td style="text-align: left">获取或设置当前轴的 x  限制。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xscale.html#matplotlib.pyplot.xscale"  target="_blank" rel="noopener"
+    ><strong>xscale</strong></a></td>
+          <td style="text-align: left">设置 x 轴的比例。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xticks.html#matplotlib.pyplot.xticks"  target="_blank" rel="noopener"
+    ><strong>xticks</strong></a></td>
+          <td style="text-align: left">获取或设置 x  轴的当前刻度位置和标签。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel"  target="_blank" rel="noopener"
+    ><strong>ylabel</strong></a></td>
+          <td style="text-align: left">设置 y 轴的标签。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylim.html#matplotlib.pyplot.ylim"  target="_blank" rel="noopener"
+    ><strong>ylim</strong></a></td>
+          <td style="text-align: left">获取或设置当前轴的 y  限制。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yscale.html#matplotlib.pyplot.yscale"  target="_blank" rel="noopener"
+    ><strong>yscale</strong></a></td>
+          <td style="text-align: left">设置 y 轴的比例。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yticks.html#matplotlib.pyplot.yticks"  target="_blank" rel="noopener"
+    ><strong>yticks</strong></a></td>
+          <td style="text-align: left">获取或设置 y  轴的当前刻度位置和标签。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html#matplotlib.pyplot.suptitle"  target="_blank" rel="noopener"
+    ><strong>suptitle</strong></a></td>
+          <td style="text-align: left">向图中添加居中的副标题。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title"  target="_blank" rel="noopener"
+    ><strong>title</strong></a></td>
+          <td style="text-align: left">为轴设置标题。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="5布局">5、布局：
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.margins.html#matplotlib.pyplot.margins"  target="_blank" rel="noopener"
+    ><strong>margins</strong></a></th>
+          <th style="text-align: left">设置或检索自动缩放边距。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html#matplotlib.pyplot.subplots_adjust"  target="_blank" rel="noopener"
+    ><strong>subplots_adjust</strong></a></td>
+          <td style="text-align: left">调整子图布局参数。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_tool.html#matplotlib.pyplot.subplot_tool"  target="_blank" rel="noopener"
+    ><strong>subplot_tool</strong></a></td>
+          <td style="text-align: left">启动图形的子图工具窗口。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout"  target="_blank" rel="noopener"
+    ><strong>tight_layout</strong></a></td>
+          <td style="text-align: left">调整子图之间和子图周围的填充。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="6颜色映射">6、颜色映射：
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.clim.html#matplotlib.pyplot.clim"  target="_blank" rel="noopener"
+    ><strong>clim</strong></a></th>
+          <th style="text-align: left">设置当前图像的颜色限制。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html#matplotlib.pyplot.colorbar"  target="_blank" rel="noopener"
+    ><strong>colorbar</strong></a></td>
+          <td style="text-align: left">将颜色条添加到绘图中。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gci.html#matplotlib.pyplot.gci"  target="_blank" rel="noopener"
+    ><strong>gci</strong></a></td>
+          <td style="text-align: left">获取当前的可着色艺术家。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.sci.html#matplotlib.pyplot.sci"  target="_blank" rel="noopener"
+    ><strong>sci</strong></a></td>
+          <td style="text-align: left">设置当前图像。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_cmap.html#matplotlib.pyplot.get_cmap"  target="_blank" rel="noopener"
+    ><strong>get_cmap</strong></a></td>
+          <td style="text-align: left">获取一个颜色图实例，如果<em>name</em>为 None，则默认为 rc 值。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.set_cmap.html#matplotlib.pyplot.set_cmap"  target="_blank" rel="noopener"
+    ><strong>set_cmap</strong></a></td>
+          <td style="text-align: left">设置默认颜色图，并将其应用到当前图像（如果有）。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imread.html#matplotlib.pyplot.imread"  target="_blank" rel="noopener"
+    ><strong>imread</strong></a></td>
+          <td style="text-align: left">将图像从文件读取到数组中。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imsave.html#matplotlib.pyplot.imsave"  target="_blank" rel="noopener"
+    ><strong>imsave</strong></a></td>
+          <td style="text-align: left">颜色映射并将数组保存为图像文件。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="7输出">7、输出：
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.draw.html#matplotlib.pyplot.draw"  target="_blank" rel="noopener"
+    ><strong>draw</strong></a></th>
+          <th style="text-align: left">重新绘制当前图形。</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.draw_if_interactive.html#matplotlib.pyplot.draw_if_interactive"  target="_blank" rel="noopener"
+    ><strong>draw_if_interactive</strong></a></td>
+          <td style="text-align: left">如果处于交互模式，则重绘当前图形。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ioff.html#matplotlib.pyplot.ioff"  target="_blank" rel="noopener"
+    ><strong>ioff</strong></a></td>
+          <td style="text-align: left">禁用交互模式。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ion.html#matplotlib.pyplot.ion"  target="_blank" rel="noopener"
+    ><strong>ion</strong></a></td>
+          <td style="text-align: left">启用交互模式。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.install_repl_displayhook.html#matplotlib.pyplot.install_repl_displayhook"  target="_blank" rel="noopener"
+    ><strong>install_repl_displayhook</strong></a></td>
+          <td style="text-align: left">连接到当前shell的显示钩子。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.isinteractive.html#matplotlib.pyplot.isinteractive"  target="_blank" rel="noopener"
+    ><strong>isinteractive</strong></a></td>
+          <td style="text-align: left">返回每个绘图命令后是否更新绘图。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pause.html#matplotlib.pyplot.pause"  target="_blank" rel="noopener"
+    ><strong>pause</strong></a></td>
+          <td style="text-align: left">将 GUI 事件循环运行<em>间隔</em>秒。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig"  target="_blank" rel="noopener"
+    ><strong>savefig</strong></a></td>
+          <td style="text-align: left">保存当前图形。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show"  target="_blank" rel="noopener"
+    ><strong>show</strong></a></td>
+          <td style="text-align: left">显示所有开放数字。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.switch_backend.html#matplotlib.pyplot.switch_backend"  target="_blank" rel="noopener"
+    ><strong>switch_backend</strong></a></td>
+          <td style="text-align: left">设置 pyplot  后端。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a class="link" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.uninstall_repl_displayhook.html#matplotlib.pyplot.uninstall_repl_displayhook"  target="_blank" rel="noopener"
+    ><strong>uninstall_repl_displayhook</strong></a></td>
+          <td style="text-align: left">与当前 shell  的显示挂钩断开连接。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="8其他详见">8、其他详见：
+</h2><p><a class="link" href="https://matplotlib.org/stable/api/pyplot_summary.html"  target="_blank" rel="noopener"
+    >https://matplotlib.org/stable/api/pyplot_summary.html</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/test-chinese/">
+        
+        
+            <div class="article-image">
+                <img src="/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.46f61e8ea6a2df8fc5bf1d24a17c44a6_hu3238087930799200081.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Chinese Test"
+                        data-key="test-chinese" 
+                        data-hash="md5-RvYejqai34/Fvx0koXxEpg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chinese Test</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Sazerac
+    </section>
+    
+    <section class="powerby">
+        
+            自定义文本 <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
