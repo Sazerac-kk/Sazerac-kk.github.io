@@ -105,67 +105,6 @@
         <description></description>
         </item>
         <item>
-        <title></title>
-        <link>https://Sazerac-kk.github.io/p/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/p/</guid>
-        <description>&lt;h1 id=&#34;线性代数&#34;&gt;线性代数
-&lt;/h1&gt;&lt;h2 id=&#34;快速扫盲&#34;&gt;快速扫盲
-&lt;/h2&gt;&lt;p&gt;深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;其中最主要的知识点包括：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;标量、向量、矩阵和张量，以及矩阵的转置运算&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;矩阵和向量乘法&lt;/p&gt;
-&lt;center&gt; 矩阵乘法 (叉乘)
-$$
-  C_{i, j}=\sum_{k} A_{i, k} B_{k, j}
-  $$&lt;center&gt; Hadamard乘积
-&lt;center&gt;指两个矩阵中对应元素的乘积
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;单位矩阵和逆矩阵&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;线性相关和线性无关&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;生成子空间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;范数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;正交矩阵和标准正交&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特征分解（平衡分布）
-&lt;/p&gt;
-$$
-  A = QAQ^T 
-  $$&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;奇异值分解&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Moore- Penrose伪逆&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;迹运算&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;行列式&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;教材资源：&lt;a class=&#34;link&#34; href=&#34;https://www.alipan.com/s/TAzn3Xq4Khi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;线性代数与解析几何&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;提取码：5sz2&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>The use of matplotlib</title>
         <link>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -763,6 +702,66 @@ $$
 &lt;h2 id=&#34;8其他详见&#34;&gt;8、其他详见：
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://matplotlib.org/stable/api/pyplot_summary.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://matplotlib.org/stable/api/pyplot_summary.html&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>The use of matplotlib</title>
+        <link>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</guid>
+        <description>&lt;img src="https://Sazerac-kk.github.io/p/the-use-of-matplotlib/mansuiyanhua.jpg" alt="Featured image of post The use of matplotlib" /&gt;&lt;h2 id=&#34;快速扫盲&#34;&gt;快速扫盲
+&lt;/h2&gt;&lt;p&gt;深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其中最主要的知识点包括：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;标量、向量、矩阵和张量，以及矩阵的转置运算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;矩阵和向量乘法&lt;/p&gt;
+&lt;center&gt; 矩阵乘法 (叉乘)
+$$
+  C_{i, j}=\sum_{k} A_{i, k} B_{k, j}
+  $$&lt;center&gt; Hadamard乘积
+&lt;center&gt;指两个矩阵中对应元素的乘积
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单位矩阵和逆矩阵&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线性相关和线性无关&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生成子空间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;范数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;正交矩阵和标准正交&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特征分解（平衡分布）
+&lt;/p&gt;
+$$
+  A = QAQ^T 
+  $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;奇异值分解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Moore- Penrose伪逆&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;迹运算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;行列式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;教材资源：&lt;a class=&#34;link&#34; href=&#34;https://www.alipan.com/s/TAzn3Xq4Khi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;线性代数与解析几何&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;提取码：5sz2&lt;/p&gt;
 </description>
         </item>
         <item>
