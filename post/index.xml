@@ -697,12 +697,12 @@
 </description>
         </item>
         <item>
-        <title>The use of matplotlib</title>
-        <link>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</link>
+        <title>线性代数</title>
+        <link>https://Sazerac-kk.github.io/p/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</guid>
-        <description>&lt;img src="https://Sazerac-kk.github.io/p/the-use-of-matplotlib/mansuiyanhua.jpg" alt="Featured image of post The use of matplotlib" /&gt;&lt;h2 id=&#34;快速扫盲&#34;&gt;快速扫盲
+        <guid>https://Sazerac-kk.github.io/p/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</guid>
+        <description>&lt;img src="https://Sazerac-kk.github.io/p/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua.jpg" alt="Featured image of post 线性代数" /&gt;&lt;h2 id=&#34;快速扫盲&#34;&gt;快速扫盲
 &lt;/h2&gt;&lt;p&gt;深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;其中最主要的知识点包括：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
