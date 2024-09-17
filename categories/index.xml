@@ -6,46 +6,13 @@
         <description>Recent content in Categories on Sazerac</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Sazerac</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Syntax</title>
-        <link>https://Sazerac-kk.github.io/categories/syntax/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/syntax/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Themes</title>
-        <link>https://Sazerac-kk.github.io/categories/themes/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/themes/</guid>
-        <description></description>
-        </item>
-        <item>
+        <copyright>Sazerac</copyright><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Test</title>
         <link>https://Sazerac-kk.github.io/categories/test/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://Sazerac-kk.github.io/categories/test/</guid>
         <description>&lt;img src="https://Sazerac-kk.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
-        </item>
-        <item>
-        <title>Test With Whitespaces</title>
-        <link>https://Sazerac-kk.github.io/categories/test-with-whitespaces/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/test-with-whitespaces/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>测试</title>
-        <link>https://Sazerac-kk.github.io/categories/%E6%B5%8B%E8%AF%95/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/%E6%B5%8B%E8%AF%95/</guid>
-        <description></description>
         </item>
         
     </channel>
