@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="快速扫盲 深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的\n其中最主要的知识点包括：\n标量、向量、矩阵和张量，以及矩阵的转置运算\n">
-<title>深度学习预备知识：线性代数</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Hugo + Github搭建博客与自动化部署">
+<title>搭建一个自己的博客~</title>
 
-<link rel='canonical' href='https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/'>
+<link rel='canonical' href='https://Sazerac-kk.github.io/p/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2~/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="深度学习预备知识：线性代数">
-<meta property='og:description' content="快速扫盲 深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的\n其中最主要的知识点包括：\n标量、向量、矩阵和张量，以及矩阵的转置运算\n">
-<meta property='og:url' content='https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="搭建一个自己的博客~">
+<meta property='og:description' content="Hugo + Github搭建博客与自动化部署">
+<meta property='og:url' content='https://Sazerac-kk.github.io/p/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2~/'>
 <meta property='og:site_name' content='Sazerac'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-17T21:00:13&#43;08:00'/><meta property='article:modified_time' content='2024-09-17T21:00:13&#43;08:00'/><meta property='og:image' content='https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua.jpg' />
-<meta name="twitter:title" content="深度学习预备知识：线性代数">
-<meta name="twitter:description" content="快速扫盲 深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的\n其中最主要的知识点包括：\n标量、向量、矩阵和张量，以及矩阵的转置运算\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-17T21:26:39&#43;08:00'/><meta property='article:modified_time' content='2024-09-17T21:26:39&#43;08:00'/>
+<meta name="twitter:title" content="搭建一个自己的博客~">
+<meta name="twitter:description" content="Hugo + Github搭建博客与自动化部署">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -285,7 +284,25 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#快速扫盲">快速扫盲</a></li>
+    <li><a href="#环境准备">环境准备</a>
+      <ol>
+        <li><a href="#下载hugo">下载Hugo</a></li>
+        <li><a href="#下载git">下载git</a></li>
+      </ol>
+    </li>
+    <li><a href="#搭建博客">搭建博客</a>
+      <ol>
+        <li><a href="#创建blog">创建Blog</a></li>
+        <li><a href="#下载主题">下载主题</a></li>
+      </ol>
+    </li>
+    <li><a href="#github部署">Github部署</a>
+      <ol>
+        <li><a href="#常规部署">常规部署</a></li>
+        <li><a href="#github-action自动部署">Github Action自动部署</a></li>
+      </ol>
+    </li>
+    <li><a href="#参考资料">参考资料</a></li>
   </ol>
 </nav>
         </div>
@@ -297,41 +314,21 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
-                <img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua_hu10664126666725587032.jpg"
-                        srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua_hu10664126666725587032.jpg 800w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua_hu1728998640903660117.jpg 1600w"
-                        width="800" 
-                        height="450" 
-                        loading="lazy"
-                        alt="Featured image of post 深度学习预备知识：线性代数" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/deep-learning/" >
-                Deep Learning
-            </a>
-        
-            <a href="/categories/math/" >
-                Math
-            </a>
-        
-    </header>
     
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">深度学习预备知识：线性代数</a>
+            <a href="/p/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2~/">搭建一个自己的博客~</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            Hugo &#43; Github搭建博客与自动化部署
+        </h3>
         
     </div>
 
@@ -366,7 +363,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 4 分钟
                 </time>
             </div>
         
@@ -381,58 +378,419 @@
     <section class="article-content">
     
     
-    <h2 id="快速扫盲">快速扫盲
-</h2><p>深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的</p>
-<p><strong>其中最主要的知识点包括：</strong></p>
-<ul>
+    <h1 id="教程hugogithub博客部署">【教程】Hugo+Github博客部署
+</h1><h2 id="环境准备">环境准备
+</h2><h3 id="下载hugo">下载Hugo
+</h3><ul>
 <li>
-<p>标量、向量、矩阵和张量，以及矩阵的转置运算</p>
+<p>官网地址：<a class="link" href="https://gohugo.io/"  target="_blank" rel="noopener"
+    >Hugo官网</a></p>
 </li>
 <li>
-<p>矩阵和向量乘法</p>
-<center> 矩阵乘法 (叉乘)
-$$
-  C_{i, j}=\sum_{k} A_{i, k} B_{k, j}
-  $$<center> Hadamard乘积
-<center>指两个矩阵中对应元素的乘积
+<p>Github地址:<a class="link" href="https://github.com/gohugoio/hugo"  target="_blank" rel="noopener"
+    >gohugoio/hugo</a></p>
+<p><img src="/image1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Hugo官网"
+	
+	
+></p>
 </li>
 <li>
-<p>单位矩阵和逆矩阵</p>
-</li>
-<li>
-<p>线性相关和线性无关</p>
-</li>
-<li>
-<p>生成子空间</p>
-</li>
-<li>
-<p>范数</p>
-</li>
-<li>
-<p>正交矩阵和标准正交</p>
-</li>
-<li>
-<p>特征分解（平衡分布）
-</p>
-$$
-  A = QAQ^T 
-  $$</li>
-<li>
-<p>奇异值分解</p>
-</li>
-<li>
-<p>Moore- Penrose伪逆</p>
-</li>
-<li>
-<p>迹运算</p>
-</li>
-<li>
-<p>行列式</p>
+<p>点击``Github<code>，点击</code>Tags`，选择合适的版本下载。</p>
 </li>
 </ul>
-<p>教材资源：<a class="link" href="https://www.alipan.com/s/TAzn3Xq4Khi"  target="_blank" rel="noopener"
-    >线性代数与解析几何</a></p>
-<p>提取码：5sz2</p>
+<h3 id="下载git">下载git
+</h3><ul>
+<li>
+<p>点击<a class="link" href="https://git-scm.com/"  target="_blank" rel="noopener"
+    ><strong>Git官网</strong></a></p>
+<p><img src="/image2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Git官网"
+	
+	
+></p>
+</li>
+<li>
+<p>点击 <strong>Download for Windows</strong> 按照指引安装即可。</p>
+</li>
+</ul>
+<h2 id="搭建博客">搭建博客
+</h2><h3 id="创建blog">创建Blog
+</h3><ul>
+<li>
+<p>解压<code>hugo_extended_0.134.2_windows-amd64.zip</code>文件，点击进入并cmd打开命令行窗口，输入<code>hugo new site xxxx</code>创建文件（我这里是dev）。</p>
+<p><img src="/image3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="file截图"
+	
+	
+></p>
+<p><img src="/image5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cmddev"
+	
+	
+></p>
+</li>
+<li>
+<p>但是新创建的<code>dev</code>文件夹里面没有<code>hugo.exe</code>文件，为了使在<code>dev</code>文件下仍能使用<code>hugo</code>命令，需要复制<code>hugo.exe</code>文件到<code>dev</code>文件内。</p>
+<p><img src="/image4.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="111"
+	
+	
+></p>
+</li>
+<li>
+<p>在命令行中切换到已创建好的<code>dev</code>文件夹，输入<code>hugo server -D</code>，运行成功出现以下界面：</p>
+<p><img src="/image6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="hugo server -D"
+	
+	
+></p>
+</li>
+<li>
+<p>打开浏览器输入<code>http://localhost:1313/</code>发现会出现以下界面：</p>
+<p><img src="/image7.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Page Not Found"
+	
+	
+></p>
+</li>
+<li>
+<p>这是因为还未下载主题，可以看到<code>dev\themes</code>文件夹下为空。</p>
+</li>
+</ul>
+<h3 id="下载主题">下载主题
+</h3><ul>
+<li>
+<p>再次进入<a class="link" href="https://gohugo.io/"  target="_blank" rel="noopener"
+    ><strong>Hugo官网</strong></a>。</p>
+</li>
+<li>
+<p>点击<code>Themes</code>选择一款适合的主题，作为演示，我选择的是<code>Stack</code>这款主题。</p>
+<p><img src="/image8.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Stack"
+	
+	
+></p>
+</li>
+<li>
+<p>点击<code>Download</code>进入主题<code>github</code>界面，并选择适当的版本下载。</p>
+</li>
+<li>
+<p><img src="/image9.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image9"
+	
+	
+></p>
+</li>
+<li>
+<p>将文件解压存储在<code>dev\themes</code>文件下，并将<code>exampleSite</code>样例数据中的<code> Content</code> 和 <code>hugo.yaml</code> 复制到主文件夹中，并删掉<code>hugo.toml</code>。</p>
+<p><img src="/image10.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>修改<code>themes</code>文件夹下面主题文件夹的名字，使其和<code>hugo.yaml</code>中的一样。</p>
+<p><img src="/image11.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>再次在命令行中输入<code>hugo server -D</code>，查看主题，发现已经正确显示。</p>
+<p><img src="/image12.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="theme"
+	
+	
+></p>
+</li>
+</ul>
+<h2 id="github部署">Github部署
+</h2><h3 id="常规部署">常规部署
+</h3><ul>
+<li>
+<p>准备工作：创建一个自己的github账号。</p>
+</li>
+<li>
+<p>新建仓库，命名要用<code>{github用户名}.github.io</code>，如果这是你搭建的第一个博客，这一步最好在前面用自己的用户名，这会避免很多Bug（也许是我太菜了~）。</p>
+<p><img src="/image13.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>然后进入自己的仓库，前往<code>setting -&gt; Pages -&gt; Branch</code>选择main分支，然后保存，会自动开启<code>https://{github用户名}.github.io</code> 的地址，这地址也是以后访问博客的地址。（<strong>注意：仓库需要设置为public</strong>）</p>
+<p><img src="/image14.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>然后我们就可以往github仓库上传文件了，先回到<code>dev</code>文件下，进入命令行界面，输入<code>hugo -D</code>生成public文件夹。</p>
+</li>
+<li>
+<p>在public文件夹下执行以下命令上传到github仓库上面。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#34;first commit&#34;
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git remote add origin {你的github仓库地址}
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>上传成功后访<code>https://{github用户名}.github.io</code>，成功搭建属于自己的Hugo博客。</p>
+</li>
+</ul>
+<h3 id="github-action自动部署">Github Action自动部署
+</h3><ul>
+<li>
+<p>Github上面重新建一个仓库，用于存放Hugo的主文件，可以设置为<code>private</code>。</p>
+</li>
+<li>
+<p>前往<code>settings -&gt; Developer Settings -&gt; Personal access tokens</code>，创建一个token(classic)。</p>
+</li>
+<li>
+<p>token选择永不过期，并且勾选<strong>repo</strong>和<strong>workflow</strong>选项。</p>
+<p><img src="/image15.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>为保证安全，将生成的token，保存的仓库的变量中，前往<code>Settings -&gt; Secrets and variables -&gt; Actions</code>中设置。（<strong>注意：token只能显示一次，可事先保存</strong>）</p>
+<p><img src="/image16.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/image17.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>在hugo主文件创建一个<code>.github/workflows/xxxx.yaml</code>文件，将以下内容复制进去，想具体了解更多，可查看【<a class="link" href="https://docs.github.com/zh/actions"  target="_blank" rel="noopener"
+    >Github Action文档</a>】。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">name: deploy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 代码提交到main分支时触发github action
+</span></span><span class="line"><span class="cl">on:
+</span></span><span class="line"><span class="cl">  push:
+</span></span><span class="line"><span class="cl">    branches:
+</span></span><span class="line"><span class="cl">      - main
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">jobs:
+</span></span><span class="line"><span class="cl">  deploy:
+</span></span><span class="line"><span class="cl">    runs-on: ubuntu-latest
+</span></span><span class="line"><span class="cl">    steps:
+</span></span><span class="line"><span class="cl">        - name: Checkout
+</span></span><span class="line"><span class="cl">          uses: actions/checkout@v4
+</span></span><span class="line"><span class="cl">          with:
+</span></span><span class="line"><span class="cl">              fetch-depth: 0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        - name: Setup Hugo
+</span></span><span class="line"><span class="cl">          uses: peaceiris/actions-hugo@v3
+</span></span><span class="line"><span class="cl">          with:
+</span></span><span class="line"><span class="cl">              hugo-version: &#34;latest&#34;
+</span></span><span class="line"><span class="cl">              extended: true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        - name: Build Web
+</span></span><span class="line"><span class="cl">          run: hugo -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        - name: Deploy Web
+</span></span><span class="line"><span class="cl">          uses: peaceiris/actions-gh-pages@v4
+</span></span><span class="line"><span class="cl">          with:
+</span></span><span class="line"><span class="cl">              PERSONAL_TOKEN: ${{ secrets.你的token变量名 }}
+</span></span><span class="line"><span class="cl">              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
+</span></span><span class="line"><span class="cl">              PUBLISH_BRANCH: main
+</span></span><span class="line"><span class="cl">              PUBLISH_DIR: ./public
+</span></span><span class="line"><span class="cl">              commit_message: auto deploy
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在hugo主文件创建<code>.gitignore</code>文件，来避免提交不必要的文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 自动生成的文件
+</span></span><span class="line"><span class="cl">public
+</span></span><span class="line"><span class="cl">resources
+</span></span><span class="line"><span class="cl">.hugo_build.lock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># hugo命令
+</span></span><span class="line"><span class="cl">hugo.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>将hugo的主文件上传到仓库，上传成功后会触发Github Action，来自动部署你的静态页面。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#34;first commit&#34;
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git remote add origin {你的github仓库地址}
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="参考资料">参考资料
+</h2><ul>
+<li>
+<p>“【Hugo】Hugo + Github 免费部署自己的博客.” <em>莱特雷-letere</em>, 30 Aug. 2024 <a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/#32-github-action%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2"  target="_blank" rel="noopener"
+    >【Hugo】Hugo + Github 免费部署自己的博客 (letere-gzj.github.io)</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.bilibili.com/video/BV1bovfeaEtQ/?spm_id_from=333.1350.jump_directly"  target="_blank" rel="noopener"
+    >原文视频</a></p>
+</li>
+</ul>
 
 </section>
 
