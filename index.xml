@@ -7,7 +7,581 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Sazerac</copyright>
-        <lastBuildDate>Tue, 17 Sep 2024 21:26:39 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 24 Sep 2024 23:02:07 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RegionCLIP踩坑记录</title>
+        <link>https://Sazerac-kk.github.io/p/regionclip%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</link>
+        <pubDate>Tue, 24 Sep 2024 23:02:07 +0800</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/p/regionclip%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</guid>
+        <description>&lt;h2 id=&#34;1-登录autodl算力云&#34;&gt;1. 登录AutoDL算力云
+&lt;/h2&gt;&lt;p&gt;当然也有免费的平台&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;kaggle：&lt;/p&gt;
+&lt;p&gt;不需要科学上网，但是文件加载有些麻烦，我第一次尝试失败（应该是我的问题），每个月有30个小时的GPU时长。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;colab：需要科学上网，响应比较慢，但是传文件挺快的，没有conda，而且不知道为什么python版本限制在3.7改也改不回来。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;AutoDL网址：https://www.autodl.com/&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以登录我的账号。&lt;/li&gt;
+&lt;li&gt;可以开发票（最爽！）。&lt;/li&gt;
+&lt;li&gt;更接近于原生ubuntu，有jupyter和script等选择。&lt;/li&gt;
+&lt;li&gt;显卡比较贵，而且晚上未必有。&lt;/li&gt;
+&lt;li&gt;支持vscode远程连接！！！！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-加载配置环境最痛苦的一集&#34;&gt;2. 加载+配置环境【最痛苦的一集】
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先，选择空闲卡，配置基础环境。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409241923413.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240924192126636&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;先用最接近的，创建好之后还可以改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入控制台 - &amp;gt; 容器实例，查看SSH登录（也可直接在平台登陆）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303250.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240924192530393&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开vscode，进入&lt;strong&gt;远程资源管理器&lt;/strong&gt;，点击“+”，新建远程，填入登陆指令和密码。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409241926380.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240924192649321&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入后打开终端，会出现以下提示，说明连接成功。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303273.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240924192918088&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建文件夹&lt;code&gt;Working&lt;/code&gt;，按照指令，先建立conda环境&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;conda&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;create&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;regionclip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;python&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;3.9&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 创建环境&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;source&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;activate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;regionclip&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;# 进入环境&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303287.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240924193331266&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载pytorch和cuda，作者给的指令貌似有些问题。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.10.1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cu111&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torchvision&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.11.2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cu111&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torchaudio&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.10.1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;download&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pytorch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;whl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cu111&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;torch_stable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;html&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这条指令没什么问题。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将代码下载。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clone&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@github.com&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;microsoft&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RegionCLIP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 或者&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clone&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;microsoft&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RegionCLIP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置基本环境。（这里bug非常多）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;  ```python
+  python -m pip install -e RegionCLIP
+  ```
+
+  - 运行这一条发现会出现这种情况：
+
+    ![image-20240924221913196](https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303172.png)
+
+  - 很多教程里面都没有提到这个内容，其实这是由于`setuptools`版本不兼容导致，应当运行以下代码：
+
+    ```python
+    pip install setuptools==59
+    ```
+
+    [setup issue · Issue #60 · microsoft/RegionCLIP (github.com)](https://github.com/microsoft/RegionCLIP/issues/60)
+
+  - 但是这并不能完全解决问题，例如我仍然运行配置环境的代码，会出现以下错误：
+
+  ```
+  Obtaining file:///mnt/d/ZYY/RegionCLIP
+  Preparing metadata (setup.py) ... done
+  ERROR: Exception:
+  Traceback (most recent call last):
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/base_command.py&amp;quot;, line 105, in _run_wrapper
+  status = _inner_run()
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/base_command.py&amp;quot;, line 96, in _inner_run
+  return self.run(options, args)
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/req_command.py&amp;quot;, line 67, in wrapper
+  return func(self, options, args)
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/commands/install.py&amp;quot;, line 379, in run
+  requirement_set = resolver.resolve(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/resolver.py&amp;quot;, line 76, in resolve
+  collected = self.factory.collect_root_requirements(root_reqs)
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&amp;quot;, line 539, in collect_root_requirements
+  reqs = list(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&amp;quot;, line 495, in _make_requirements_from_install_req
+  cand = self._make_base_candidate_from_link(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&amp;quot;, line 211, in _make_base_candidate_from_link
+  self._editable_candidate_cache[link] = EditableCandidate(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 328, in init
+  super().init(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 158, in init
+  self.dist = self._prepare()
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 235, in _prepare
+  dist = self._prepare_distribution()
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 338, in _prepare_distribution
+  return self._factory.preparer.prepare_editable_requirement(self._ireq)
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/operations/prepare.py&amp;quot;, line 698, in prepare_editable_requirement
+  dist = _get_prepared_distribution(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/operations/prepare.py&amp;quot;, line 72, in _get_prepared_distribution
+  abstract_dist.prepare_distribution_metadata(
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/distributions/sdist.py&amp;quot;, line 69, in prepare_distribution_metadata
+  self.req.prepare_metadata()
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/req/req_install.py&amp;quot;, line 591, in prepare_metadata
+  self._set_requirement()
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/req/req_install.py&amp;quot;, line 394, in _set_requirement
+  if isinstance(parse_version(self.metadata[&amp;quot;Version&amp;quot;]), Version):
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&amp;quot;, line 56, in parse
+  return Version(version)
+  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&amp;quot;, line 202, in init
+  raise InvalidVersion(f&amp;quot;Invalid version: &#39;{version}&#39;&amp;quot;)
+  pip._vendor.packaging.version.InvalidVersion: Invalid version: &#39;RegionCLIP&#39;
+  ```
+
+  - 这需要我们对`setup.py`文件进行配置，将 `version=get_version()` 改成 `version=&#39;0.1.0&#39;` 。
+  - 然后就可以运行了。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;然后配置额外的环境&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;opencv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;python&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;timm&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;diffdist&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h5py&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scikit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;learn&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ftfy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lvis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dataset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lvis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;应该会比较顺利&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;3-下载预训练数据和数据集&#34;&gt;3. 下载预训练数据和数据集
+&lt;/h2&gt;&lt;p&gt;这里面没什么好说的，按照教程下载即可，但注意预训练数据只需要按需下载，在以下的教程中，只需要下载&lt;code&gt;pretrained_ckpt/concept_emb/lvis_1203_cls_emb_rn50x4.pth&lt;/code&gt;和&lt;code&gt;pretrained_ckpt/regionclip/regionclip_pretrained-cc_rn50x4.pth&lt;/code&gt;文件（文件路径需要存在）。&lt;/p&gt;
+&lt;p&gt;​	&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/642077449&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;regionclip 服务器复现 - 知乎 (zhihu.com)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-测试运行&#34;&gt;4. 测试运行
+&lt;/h2&gt;&lt;p&gt;以下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;python3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tools&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;train_net&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;py&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;eval&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;only&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gpus&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LVISv1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InstanceSegmentation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLIP_fast_rcnn_R_50_C4_custom_img&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;yaml&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MODEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WEIGHTS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pretrained_ckpt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regionclip&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regionclip_pretrained&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cc_rn50x4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pth&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MODEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLIP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TEXT_EMB_PATH&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pretrained_ckpt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;concept_emb&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lvis_1203_cls_emb_rn50x4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pth&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MODEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLIP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OFFLINE_RPN_CONFIG&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LVISv1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InstanceSegmentation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mask_rcnn_R_50_FPN_1x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;yaml&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MODEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CLIP&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TEXT_EMB_DIM&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;640&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MODEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RESNETS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DEPTH&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MODEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ROI_BOX_HEAD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;POOLER_RESOLUTION&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;18&lt;/span&gt;\ 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可视化：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;python&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tools&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;visualize_json_results&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;py&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;output&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lvis_instances_results&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;output&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;./&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;output&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regions&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dataset&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lvis_v1_val_custom_img&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;threshold&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.05&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;unique&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;boxes&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;boxes&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;25&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;small&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;region&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8100&lt;/span&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;终端运行即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;可能会遇到的问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;_C.cpython-36m-x86_64-linux-gnu.so: undefined symbol: _ZN2at19UndefinedTensorImpl10_singletonE
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这个好像是pytorch重复编译的问题，解决办法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;remove&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;build&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 在RegionCLIP文件夹下&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 在有setup.py的文件夹下&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;等待时间比较长，运行结束问题解决！&lt;/p&gt;
+&lt;h2 id=&#34;5-my_regionclip&#34;&gt;5. My_RegionCLIP
+&lt;/h2&gt;&lt;p&gt;我在原microsoft的RegionCLIP文件上进行了环境配置，生成了requirements.txt文件，可以一键配置环境。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;conda&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;yes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requirements&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;另外，测试脚本也写好，在&lt;code&gt;./run&lt;/code&gt;文件夹下面，可直接用&lt;code&gt;sh run/run1.sh&lt;/code&gt;和&lt;code&gt;sh run/run2.sh&lt;/code&gt;来运行。但是数据集和预训练数据过大，就没有再GitHub上传。&lt;/p&gt;
+&lt;p&gt;仓库地址：&lt;code&gt;https://github.com/Sazerac-kk/My_RegionCLIP.git&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>深度学习基础：线性回归</title>
+        <link>https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+        <pubDate>Wed, 18 Sep 2024 20:51:45 +0800</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+        <description>&lt;h1 id=&#34;深度学习基础线性回归&#34;&gt;深度学习基础：线性回归
+&lt;/h1&gt;&lt;h2 id=&#34;1-什么是线性回归&#34;&gt;1. 什么是线性回归？
+&lt;/h2&gt;&lt;p&gt;线性回归是一种简单常用的有监督机器学习方法，虽然相对于其他回归分析方法，线性回归最为简单且乏味，但很多新学习方法仍以线性回归为基础，因此认证学习并掌握线性回归方法仍是很重要的&lt;/p&gt;
+&lt;h2 id=&#34;2-常见的回归分析方法&#34;&gt;2. 常见的回归分析方法
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;线性回归(Linear Regression)&lt;/li&gt;
+&lt;li&gt;逻辑回归（Logistic regressions）&lt;/li&gt;
+&lt;li&gt;多项式回归(Polynomial Regression)&lt;/li&gt;
+&lt;li&gt;逐步回归(Step Regression)&lt;/li&gt;
+&lt;li&gt;岭回归(Ridge Regression)&lt;/li&gt;
+&lt;li&gt;套索回归(Lasso Regression)&lt;/li&gt;
+&lt;li&gt;弹性网回归(ElasticNet)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-线性回归的适用范围&#34;&gt;3. 线性回归的适用范围
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;自变量与因变量之间存在线性关系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;各观测间相互独立。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;残差e 服从正态分布N(0,σ2) 。其方差σ2 = var (ei) 反映了回归模型的精度， σ 越小，用所得到回归模型预测y的精确度愈高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;e 的大小不随所变量取值水平的改变而改变，即方差齐性。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409191020528.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;观察上图，这是统计学家安斯库姆给出的四个数据集，被称为安斯库姆四重奏。从这四个数据集分布可以看出，不是所有数据集都可以用一元线性回归来建模，因此使用线性回归，应当满足以下假设：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;线性回归是一个&lt;strong&gt;回归&lt;/strong&gt;问题。&lt;/li&gt;
+&lt;li&gt;要预测的变量 y 与自变量 &lt;code&gt;x&lt;/code&gt; 的关系是&lt;strong&gt;线性&lt;/strong&gt;的（图2 是一个非线性）。&lt;/li&gt;
+&lt;li&gt;各项误差服从正太分布，均值为0，与 &lt;code&gt;x&lt;/code&gt; 同方差（图4 误差不是正太分布）。&lt;/li&gt;
+&lt;li&gt;变量 &lt;code&gt;x&lt;/code&gt; 的分布要有变异性。&lt;/li&gt;
+&lt;li&gt;多元线性回归中不同特征之间应该相互独立，避免线性相关。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-一元线性回归模型&#34;&gt;3. 一元线性回归模型
+&lt;/h2&gt;&lt;h3 id=&#34;31-基本模型&#34;&gt;3.1 基本模型
+&lt;/h3&gt;&lt;p&gt;假设给定数据集如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409182055305.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;d57c17088c56c184e88282fafc78e02&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;一元线性回归就是找到一个函数
+&lt;/p&gt;
+$$
+f(x_i) = mx_i + b \tag{0}
+$$&lt;p&gt;
+使得对任意$ x_i $，有$ f(x_i) \approx y_i $ 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409182055035.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240916135929033&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我们尝试多种参数m和b的组合，的得到以上的图像，那么我们监督学习的过程就可以描述为：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;给定N个数据对(x,y)，找出最合适的参数m&lt;em&gt;与b&lt;/em&gt;，是模型能够更好得拟合这些数据。&lt;/strong&gt;（还是很易于理解的的~）&lt;/p&gt;
+&lt;h3 id=&#34;32-怎样衡量线性函数的好坏&#34;&gt;3.2 怎样衡量线性函数的好坏
+&lt;/h3&gt;&lt;p&gt;上图给了很多条拟合直线，那么那一条是最符合要求的呢？人类有时可以用肉眼来分辨，但是计算机不行。实质上，计算机使用损失函数（loss function）来衡量这个问题，同时它又被称为代价函数（cost function）【PS：我比较喜欢使用cost function】。顾名思义，代价函数衡量了真实值$y$与预测值$\hat y$之间的差异程度，一般的代价函数表示如下：
+&lt;/p&gt;
+$$
+L( \widehat {y}_ {i}  ,  y_ {i}  )=  (\widehat {y}_ {i}-y_ {i})^ {2} \tag{1}
+$$&lt;p&gt;
+公式1表示单个样本上预测值与真实值的误差。
+&lt;/p&gt;
+$$
+L(\widehat{y}, y)=\frac{1}{N} \sum_{i=1}^{N}\left(\widehat{y_{i}}-y_{i}\right)^{2} \tag{2}
+$$&lt;p&gt;
+$L(\hat y , y)$表示所有误差的平均值。&lt;/p&gt;
+&lt;p&gt;那么为什么损失函数采用的是平方和而不是绝对值呢，这是由于&lt;strong&gt;平方和具有最小值&lt;/strong&gt;存在，可利用求导的方式求取最小值，但是绝对值没有则个特性。&lt;/p&gt;
+&lt;p&gt;我们的任务：找出最合适的$m^&lt;em&gt;$和$b^&lt;/em&gt;$
+&lt;/p&gt;
+$$
+m^*,b^*=\underset{m,b}{\arg\min}L(m,b)=\underset{m,b}{\arg\min}\frac{1}{N}\sum_{i=1}^N[(mx_i+b)-y_i]^2 \tag{3}
+$$&lt;h3 id=&#34;33-最小二乘法参数求解&#34;&gt;3.3 最小二乘法参数求解
+&lt;/h3&gt;&lt;p&gt;我们直接跳过理论知识，若有不了解，可参考这篇文章&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/MoreAction_/article/details/121591653&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;最小二乘法的原理理解&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;那么对于公式4直接对$m$和$b$求导，导数为0时，损失函数最小。
+&lt;/p&gt;
+$$
+\begin{aligned}
+&amp;\frac{\partial}{\partial m}L(m,b)=\frac{2}{N}\sum_{i=1}^{N}x_{i}(mx_{i}+b-y_{i})&amp; \left(4\right) \\
+&amp;=2m(\frac{1}{N}\sum_{i=1}^{N}{x_{i}}^{2})+2b(\frac{1}{N}\sum_{i=1}^{N}x_{i})-2(\frac{1}{N}\sum_{i=1}^{N}x_{i}y_{i})
+\end{aligned}
+$$$$
+\begin{aligned}
+&amp;\frac{\partial}{\partial b}L(m,b)=\frac{2}{N}\sum_{i=1}^{N}mx_{i}+b-y_{i}&amp; \text{(5)} \\
+&amp;=2m(\frac1N\sum_{i=1}^Nx_i)+2b-2(\frac1N\sum_{i=1}^Ny_i)
+\end{aligned}
+$$&lt;p&gt;公式4和5是损失函数对$m$和$b$的求导。
+&lt;/p&gt;
+$$
+\bar{x}=\frac{1}{N}\sum_{i=1}^{N}x_{i}{\quad}\bar {y}=\frac{1}{N}\sum_{i=1}^{N}y_{i}\\s^{2}=\frac{1}{N}\sum_{i=1}^{N}{x_{i}}^{2}{\quad}\rho=\frac{1}{N}\sum_{i=1}^{N}x_{i}y_{i} \tag6
+$$&lt;p&gt;
+我们发现公式中有一些共有的部分而且都是常量，可以用公式6的方法表示。
+&lt;/p&gt;
+$$
+\frac{\partial}{\partial m}L(m,b)=0\Rightarrow ms^{2}+b\bar{x}-\rho=0\\\frac{\partial}{\partial b}L(m,b)=0\Rightarrow m\bar{x}+b-\bar{y}=0 \tag7
+$$&lt;p&gt;
+令$\frac{\partial}{\partial m}L(m,b)$和$\frac{\partial}{\partial b}L(m,b)$为0。
+&lt;/p&gt;
+$$
+m^*=\frac{\rho-\bar x\bar y}{s^2-\bar x^2}\quad b^*=\bar y-\bar xm^*\tag8
+$$&lt;p&gt;
+以上就是一元线性回归的最小二乘法求解过程。&lt;/p&gt;
+&lt;h3 id=&#34;代码案例&#34;&gt;代码案例
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;import numpy as np 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;import matplotlib.pyplot as plt  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;from sklearn.linear_model import LinearRegression  # 线性回归
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 一、导入数据
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 样本数据集，第一列为x，第二列为y，在x和y之间建立回归模型
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;data=[
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    [0.067732,3.176513],[0.427810,3.816464],[0.995731,4.550095],[0.738336,4.256571],[0.981083,4.560815],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    [0.526171,3.929515],[0.378887,3.526170],[0.033859,3.156393],[0.132791,3.110301],[0.138306,3.149813],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    [0.247809,3.476346],[0.648270,4.119688],[0.731209,4.282233],[0.236833,3.486582],[0.969788,4.655492],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    [0.607492,3.965162],[0.358622,3.514900],[0.147846,3.125947],[0.637820,4.094115],[0.230372,3.476039],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    [0.070237,3.210610],[0.067154,3.190612],[0.925577,4.631504],[0.717733,4.295890],[0.015371,3.085028],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    [0.335070,3.448080],[0.040486,3.167440],[0.212575,3.364266],[0.617218,3.993482],[0.541196,3.891471]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 二、生成矩阵
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#生成X和y矩阵
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dataMat = np.array(data)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X = dataMat[:,0:1]   # 变量x
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;y = dataMat[:,1]   #变量y
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 三、线性回归
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;model = LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;model.fit(X, y)   # 线性回归建模
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;print(&amp;#39;系数矩阵:\n&amp;#39;,model.coef_)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;print(&amp;#39;线性回归模型:\n&amp;#39;,model)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 使用模型预测
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;predicted = model.predict(X)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;plt.scatter(X, y, marker=&amp;#39;x&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;plt.plot(X, predicted,c=&amp;#39;r&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;plt.xlabel(&amp;#34;x&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;plt.ylabel(&amp;#34;y&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;具体思路如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先从文件中导入数据并进行处理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后对列表进行切片，提取出X和y，可利用 &lt;code&gt;dataMat.shape&lt;/code&gt;查看数据的格式，这里面返回结果应当是(30,2)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后进行线性回归，这里由于版本问题有一个错误，例如，你有可能在运行时出现&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409182053436.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240916150611430&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;​	这是由于在scikit-learn的0.22版本中，这个参数normalize被移除了，normalize的作用是对特征进行标准化。可以将其直接去掉。&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;讲解一下 &lt;code&gt;LinearRegression&lt;/code&gt;的参数配置：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;fit_intercept&lt;/strong&gt;：bool, default=True&lt;/p&gt;
+&lt;p&gt;​	是否计算此模型的截距。如果已设置 设置为 False，则计算中不会使用任何截距 （即数据应居中）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;copy_X&lt;/strong&gt;：bool, default=True&lt;/p&gt;
+&lt;p&gt;​	如果为 True，则将复制 X;否则，它可能会被覆盖。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;n_jobs&lt;/strong&gt;：int, default=None&lt;/p&gt;
+&lt;p&gt;​	用于计算的作业数。这只会提供 speedup 在出现足够大的问题时，即 first 和 second 是稀疏的，或者如果设置了 自。 表示 1，除非在上下文中。 表示使用全部 处理器。有关更多详细信息，请参阅术语表 。n_targets &amp;gt; 1XpositiveTrueNone-1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;positive&lt;/strong&gt;：bool, default=False&lt;/p&gt;
+&lt;p&gt;​	When set to , forces the coefficients to be positive. This option is only supported for dense arrays.&lt;code&gt;True&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>【教程】Hugo&#43;Github博客部署</title>
         <link>https://Sazerac-kk.github.io/p/%E6%95%99%E7%A8%8Bhugo-github%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</link>
         <pubDate>Tue, 17 Sep 2024 21:26:39 +0800</pubDate>

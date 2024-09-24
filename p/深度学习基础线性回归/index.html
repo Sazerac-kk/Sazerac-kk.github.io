@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="深度学习基础：线性回归 1. 什么是线性回归？ 线性回归是一种简单常用的有监督机器学习方法，虽然相对于其他回归分析方法，线性回归最为简单且乏味，但很多新学习方法仍以线性回归为基础，因此认证学习并掌握线性回归方法仍是很重要的\n">
+<title>深度学习基础：线性回归</title>
+
+<link rel='canonical' href='https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="深度学习基础：线性回归">
+<meta property='og:description' content="深度学习基础：线性回归 1. 什么是线性回归？ 线性回归是一种简单常用的有监督机器学习方法，虽然相对于其他回归分析方法，线性回归最为简单且乏味，但很多新学习方法仍以线性回归为基础，因此认证学习并掌握线性回归方法仍是很重要的\n">
+<meta property='og:url' content='https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/'>
+<meta property='og:site_name' content='Sazerac'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-18T20:51:45&#43;08:00'/><meta property='article:modified_time' content='2024-09-18T20:51:45&#43;08:00'/>
+<meta name="twitter:title" content="深度学习基础：线性回归">
+<meta name="twitter:description" content="深度学习基础：线性回归 1. 什么是线性回归？ 线性回归是一种简单常用的有监督机器学习方法，虽然相对于其他回归分析方法，线性回归最为简单且乏味，但很多新学习方法仍以线性回归为基础，因此认证学习并掌握线性回归方法仍是很重要的\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar1_hu69203435282132153.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">✨</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sazerac</a></h1>
+            <h2 class="site-description">一条不愿翻身的咸鱼</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Sazerac-kk'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='http://www.sazerac.asia/'
+                        target="_blank"
+                        title="MyBlog"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" ?><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g data-name="Health Education-Article-Computer-Knowledge-Blog" id="Health_Education-Article-Computer-Knowledge-Blog"><path d="M57,15V41H7V15a4,4,0,0,1,4-4H53A4,4,0,0,1,57,15Z" style="fill:#5aaae7"/><path d="M42,28a1.992,1.992,0,0,1-3.72,1H35.91a5.949,5.949,0,0,1-1.02,2.47l1.67,1.68a2,2,0,1,1-1.41,1.41l-1.68-1.67A5.949,5.949,0,0,1,31,33.91v2.37a2,2,0,1,1-2,0V33.91a5.949,5.949,0,0,1-2.47-1.02l-1.68,1.67a2,2,0,1,1-1.41-1.41l1.67-1.68A5.949,5.949,0,0,1,24.09,29H21.72a2,2,0,1,1,0-2h2.37a5.949,5.949,0,0,1,1.02-2.47l-1.67-1.68a1.807,1.807,0,0,1-.51.08,2.005,2.005,0,0,1-1.42-3.42,1.995,1.995,0,0,1,3.34,1.93l1.68,1.67A5.949,5.949,0,0,1,29,22.09V19.72a2,2,0,1,1,2,0v2.37a5.949,5.949,0,0,1,2.47,1.02l1.68-1.67a2,2,0,0,1,.51-1.93,2,2,0,1,1,1.41,3.42,1.807,1.807,0,0,1-.51-.08l-1.67,1.68A5.949,5.949,0,0,1,35.91,27h2.37A1.992,1.992,0,0,1,42,28Z" style="fill:#3d9ae2"/><path d="M57,41v4a4,4,0,0,1-4,4H11a4,4,0,0,1-4-4V41Z" style="fill:#c6c5ca"/><path d="M57,15v9.48A8.8,8.8,0,0,1,54,25a8.944,8.944,0,0,1-5.35-1.77L44,24l2.16-3.59A8.926,8.926,0,0,1,45,16a8.962,8.962,0,0,1,1.53-5H53A4,4,0,0,1,57,15Z" style="fill:#3d9ae2"/><path d="M52,5a8.981,8.981,0,0,0-8.48,6A8.8,8.8,0,0,0,43,14a8.926,8.926,0,0,0,1.16,4.41L42,22l4.65-.77A9,9,0,1,0,52,5Z" style="fill:#ffd422"/><path d="M43.41,57.59A1.955,1.955,0,0,1,44,59a2.006,2.006,0,0,1-2,2H22a2.015,2.015,0,0,1-2-2,2.006,2.006,0,0,1,2-2H42A1.955,1.955,0,0,1,43.41,57.59Z" style="fill:#898890"/><polygon points="40 57 24 57 25 49 39 49 40 57" style="fill:#acabb1"/><path d="M22,11v4a2.006,2.006,0,0,1-2,2H18v4l-4-4H7V15a4,4,0,0,1,4-4Z" style="fill:#3d9ae2"/><path d="M18,3H5A2.006,2.006,0,0,0,3,5v8a2.006,2.006,0,0,0,2,2h7l4,4V15h2a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,18,3Z" style="fill:#00ccb3"/><circle cx="28" cy="26" r="5" style="fill:#d80027"/><polygon points="39.25 51 24.75 51 25 49 39 49 39.25 51" style="fill:#898890"/><path d="M56,40H8V18H6V45a5.006,5.006,0,0,0,5,5H23.867l-.75,6H22a3,3,0,0,0,0,6H42a3,3,0,0,0,0-6H40.883l-.75-6H53a5.006,5.006,0,0,0,5-5V25H56ZM43,59a1,1,0,0,1-1,1H22a1,1,0,0,1,0-2H42A1,1,0,0,1,43,59Zm-4.133-3H25.133l.75-6H38.117ZM53,48H11a3,3,0,0,1-3-3V42H56v3A3,3,0,0,1,53,48Z"/><rect height="2" width="17" x="23" y="10"/><rect height="2" width="2" x="50" y="44"/><path d="M52,4a9.994,9.994,0,0,0-8.99,14.372l-1.867,3.113a1,1,0,0,0,1.021,1.5l4.243-.708A9.9,9.9,0,0,0,52,24,10,10,0,0,0,52,4Zm0,18a7.937,7.937,0,0,1-4.755-1.578,1,1,0,0,0-.6-.2,1.016,1.016,0,0,0-.164.013l-2.513.419,1.042-1.737a1,1,0,0,0,.013-1.005A8,8,0,1,1,52,22Z"/><polygon points="53 10 51 10 51 13 48 13 48 15 51 15 51 18 53 18 53 15 56 15 56 13 53 13 53 10"/><path d="M15.293,19.707A1,1,0,0,0,16,20a.987.987,0,0,0,.383-.076A1,1,0,0,0,17,19V16h1a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5v8a3,3,0,0,0,3,3h6.586ZM4,13V5A1,1,0,0,1,5,4H18a1,1,0,0,1,1,1v8a1,1,0,0,1-1,1H16a1,1,0,0,0-1,1v1.586l-2.293-2.293A1,1,0,0,0,12,14H5A1,1,0,0,1,4,13Z"/><rect height="2" width="9" x="7" y="6"/><rect height="2" width="9" x="7" y="10"/><rect height="2" width="2" x="27" y="25"/><path d="M19.514,17.515a2,2,0,0,0,1.415,3.413,2.024,2.024,0,0,0,.511-.075l1.675,1.676A5.964,5.964,0,0,0,22.09,25H19.722a2,2,0,1,0,0,2H22.09a5.964,5.964,0,0,0,1.025,2.471l-1.676,1.676a2,2,0,0,0-1.924.51h0a2,2,0,1,0,3.339.9l1.676-1.676A5.964,5.964,0,0,0,27,31.91v2.368a2,2,0,1,0,2,0V31.91a5.964,5.964,0,0,0,2.471-1.025l1.676,1.676a2,2,0,1,0,1.414-1.414l-1.676-1.676A5.964,5.964,0,0,0,33.91,27h2.368a2,2,0,1,0,0-2H33.91a5.964,5.964,0,0,0-1.025-2.471l1.676-1.676a2.016,2.016,0,0,0,.51.075,2.005,2.005,0,1,0-1.924-1.489l-1.676,1.676A5.964,5.964,0,0,0,29,20.09V17.722a2,2,0,1,0-2,0V20.09a5.964,5.964,0,0,0-2.471,1.025l-1.676-1.676a1.993,1.993,0,0,0-.509-1.924h0A2,2,0,0,0,19.514,17.515ZM28,22a3.947,3.947,0,0,1,2.019.567l-.726.726,1.414,1.414.726-.726a3.878,3.878,0,0,1,0,4.038l-.726-.726-1.414,1.414.726.726a3.878,3.878,0,0,1-4.038,0l.726-.726-1.414-1.414-.726.726a3.878,3.878,0,0,1,0-4.038l.726.726,1.414-1.414-.726-.726A3.947,3.947,0,0,1,28,22Z"/><rect height="2" width="2" x="42" y="28"/><rect height="2" width="6" x="46" y="28"/><rect height="2" width="10" x="42" y="32"/></g></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>文档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://Sazerac-kk.github.io/en/" >English</option>
+                                
+                                    <option value="https://Sazerac-kk.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-什么是线性回归">1. 什么是线性回归？</a></li>
+    <li><a href="#2-常见的回归分析方法">2. 常见的回归分析方法</a></li>
+    <li><a href="#3-线性回归的适用范围">3. 线性回归的适用范围</a></li>
+    <li><a href="#3-一元线性回归模型">3. 一元线性回归模型</a>
+      <ol>
+        <li><a href="#31-基本模型">3.1 基本模型</a></li>
+        <li><a href="#32-怎样衡量线性函数的好坏">3.2 怎样衡量线性函数的好坏</a></li>
+        <li><a href="#33-最小二乘法参数求解">3.3 最小二乘法参数求解</a></li>
+        <li><a href="#代码案例">代码案例</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">深度学习基础：线性回归</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 18, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="深度学习基础线性回归">深度学习基础：线性回归
+</h1><h2 id="1-什么是线性回归">1. 什么是线性回归？
+</h2><p>线性回归是一种简单常用的有监督机器学习方法，虽然相对于其他回归分析方法，线性回归最为简单且乏味，但很多新学习方法仍以线性回归为基础，因此认证学习并掌握线性回归方法仍是很重要的</p>
+<h2 id="2-常见的回归分析方法">2. 常见的回归分析方法
+</h2><ul>
+<li>线性回归(Linear Regression)</li>
+<li>逻辑回归（Logistic regressions）</li>
+<li>多项式回归(Polynomial Regression)</li>
+<li>逐步回归(Step Regression)</li>
+<li>岭回归(Ridge Regression)</li>
+<li>套索回归(Lasso Regression)</li>
+<li>弹性网回归(ElasticNet)</li>
+</ul>
+<h2 id="3-线性回归的适用范围">3. 线性回归的适用范围
+</h2><ul>
+<li>
+<p>自变量与因变量之间存在线性关系。</p>
+</li>
+<li>
+<p>各观测间相互独立。</p>
+</li>
+<li>
+<p>残差e 服从正态分布N(0,σ2) 。其方差σ2 = var (ei) 反映了回归模型的精度， σ 越小，用所得到回归模型预测y的精确度愈高。</p>
+</li>
+<li>
+<p>e 的大小不随所变量取值水平的改变而改变，即方差齐性。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409191020528.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+</li>
+</ul>
+<p>观察上图，这是统计学家安斯库姆给出的四个数据集，被称为安斯库姆四重奏。从这四个数据集分布可以看出，不是所有数据集都可以用一元线性回归来建模，因此使用线性回归，应当满足以下假设：</p>
+<ul>
+<li>线性回归是一个<strong>回归</strong>问题。</li>
+<li>要预测的变量 y 与自变量 <code>x</code> 的关系是<strong>线性</strong>的（图2 是一个非线性）。</li>
+<li>各项误差服从正太分布，均值为0，与 <code>x</code> 同方差（图4 误差不是正太分布）。</li>
+<li>变量 <code>x</code> 的分布要有变异性。</li>
+<li>多元线性回归中不同特征之间应该相互独立，避免线性相关。</li>
+</ul>
+<h2 id="3-一元线性回归模型">3. 一元线性回归模型
+</h2><h3 id="31-基本模型">3.1 基本模型
+</h3><p>假设给定数据集如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409182055305.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="d57c17088c56c184e88282fafc78e02"
+	
+	
+></p>
+<p>一元线性回归就是找到一个函数
+</p>
+$$
+f(x_i) = mx_i + b \tag{0}
+$$<p>
+使得对任意$ x_i $，有$ f(x_i) \approx y_i $ 。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409182055035.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240916135929033"
+	
+	
+></p>
+<p>我们尝试多种参数m和b的组合，的得到以上的图像，那么我们监督学习的过程就可以描述为：</p>
+<p><strong>给定N个数据对(x,y)，找出最合适的参数m<em>与b</em>，是模型能够更好得拟合这些数据。</strong>（还是很易于理解的的~）</p>
+<h3 id="32-怎样衡量线性函数的好坏">3.2 怎样衡量线性函数的好坏
+</h3><p>上图给了很多条拟合直线，那么那一条是最符合要求的呢？人类有时可以用肉眼来分辨，但是计算机不行。实质上，计算机使用损失函数（loss function）来衡量这个问题，同时它又被称为代价函数（cost function）【PS：我比较喜欢使用cost function】。顾名思义，代价函数衡量了真实值$y$与预测值$\hat y$之间的差异程度，一般的代价函数表示如下：
+</p>
+$$
+L( \widehat {y}_ {i}  ,  y_ {i}  )=  (\widehat {y}_ {i}-y_ {i})^ {2} \tag{1}
+$$<p>
+公式1表示单个样本上预测值与真实值的误差。
+</p>
+$$
+L(\widehat{y}, y)=\frac{1}{N} \sum_{i=1}^{N}\left(\widehat{y_{i}}-y_{i}\right)^{2} \tag{2}
+$$<p>
+$L(\hat y , y)$表示所有误差的平均值。</p>
+<p>那么为什么损失函数采用的是平方和而不是绝对值呢，这是由于<strong>平方和具有最小值</strong>存在，可利用求导的方式求取最小值，但是绝对值没有则个特性。</p>
+<p>我们的任务：找出最合适的$m^<em>$和$b^</em>$
+</p>
+$$
+m^*,b^*=\underset{m,b}{\arg\min}L(m,b)=\underset{m,b}{\arg\min}\frac{1}{N}\sum_{i=1}^N[(mx_i+b)-y_i]^2 \tag{3}
+$$<h3 id="33-最小二乘法参数求解">3.3 最小二乘法参数求解
+</h3><p>我们直接跳过理论知识，若有不了解，可参考这篇文章<a class="link" href="https://blog.csdn.net/MoreAction_/article/details/121591653"  target="_blank" rel="noopener"
+    >最小二乘法的原理理解</a>。</p>
+<p>那么对于公式4直接对$m$和$b$求导，导数为0时，损失函数最小。
+</p>
+$$
+\begin{aligned}
+&\frac{\partial}{\partial m}L(m,b)=\frac{2}{N}\sum_{i=1}^{N}x_{i}(mx_{i}+b-y_{i})& \left(4\right) \\
+&=2m(\frac{1}{N}\sum_{i=1}^{N}{x_{i}}^{2})+2b(\frac{1}{N}\sum_{i=1}^{N}x_{i})-2(\frac{1}{N}\sum_{i=1}^{N}x_{i}y_{i})
+\end{aligned}
+$$$$
+\begin{aligned}
+&\frac{\partial}{\partial b}L(m,b)=\frac{2}{N}\sum_{i=1}^{N}mx_{i}+b-y_{i}& \text{(5)} \\
+&=2m(\frac1N\sum_{i=1}^Nx_i)+2b-2(\frac1N\sum_{i=1}^Ny_i)
+\end{aligned}
+$$<p>公式4和5是损失函数对$m$和$b$的求导。
+</p>
+$$
+\bar{x}=\frac{1}{N}\sum_{i=1}^{N}x_{i}{\quad}\bar {y}=\frac{1}{N}\sum_{i=1}^{N}y_{i}\\s^{2}=\frac{1}{N}\sum_{i=1}^{N}{x_{i}}^{2}{\quad}\rho=\frac{1}{N}\sum_{i=1}^{N}x_{i}y_{i} \tag6
+$$<p>
+我们发现公式中有一些共有的部分而且都是常量，可以用公式6的方法表示。
+</p>
+$$
+\frac{\partial}{\partial m}L(m,b)=0\Rightarrow ms^{2}+b\bar{x}-\rho=0\\\frac{\partial}{\partial b}L(m,b)=0\Rightarrow m\bar{x}+b-\bar{y}=0 \tag7
+$$<p>
+令$\frac{\partial}{\partial m}L(m,b)$和$\frac{\partial}{\partial b}L(m,b)$为0。
+</p>
+$$
+m^*=\frac{\rho-\bar x\bar y}{s^2-\bar x^2}\quad b^*=\bar y-\bar xm^*\tag8
+$$<p>
+以上就是一元线性回归的最小二乘法求解过程。</p>
+<h3 id="代码案例">代码案例
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import numpy as np 
+</span></span><span class="line"><span class="cl">import matplotlib.pyplot as plt  
+</span></span><span class="line"><span class="cl">from sklearn.linear_model import LinearRegression  # 线性回归
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"># 一、导入数据
+</span></span><span class="line"><span class="cl"># 样本数据集，第一列为x，第二列为y，在x和y之间建立回归模型
+</span></span><span class="line"><span class="cl">data=[
+</span></span><span class="line"><span class="cl">    [0.067732,3.176513],[0.427810,3.816464],[0.995731,4.550095],[0.738336,4.256571],[0.981083,4.560815],
+</span></span><span class="line"><span class="cl">    [0.526171,3.929515],[0.378887,3.526170],[0.033859,3.156393],[0.132791,3.110301],[0.138306,3.149813],
+</span></span><span class="line"><span class="cl">    [0.247809,3.476346],[0.648270,4.119688],[0.731209,4.282233],[0.236833,3.486582],[0.969788,4.655492],
+</span></span><span class="line"><span class="cl">    [0.607492,3.965162],[0.358622,3.514900],[0.147846,3.125947],[0.637820,4.094115],[0.230372,3.476039],
+</span></span><span class="line"><span class="cl">    [0.070237,3.210610],[0.067154,3.190612],[0.925577,4.631504],[0.717733,4.295890],[0.015371,3.085028],
+</span></span><span class="line"><span class="cl">    [0.335070,3.448080],[0.040486,3.167440],[0.212575,3.364266],[0.617218,3.993482],[0.541196,3.891471]
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"># 二、生成矩阵
+</span></span><span class="line"><span class="cl">#生成X和y矩阵
+</span></span><span class="line"><span class="cl">dataMat = np.array(data)
+</span></span><span class="line"><span class="cl">X = dataMat[:,0:1]   # 变量x
+</span></span><span class="line"><span class="cl">y = dataMat[:,1]   #变量y
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"># 三、线性回归
+</span></span><span class="line"><span class="cl">model = LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+</span></span><span class="line"><span class="cl">model.fit(X, y)   # 线性回归建模
+</span></span><span class="line"><span class="cl">print(&#39;系数矩阵:\n&#39;,model.coef_)
+</span></span><span class="line"><span class="cl">print(&#39;线性回归模型:\n&#39;,model)
+</span></span><span class="line"><span class="cl"># 使用模型预测
+</span></span><span class="line"><span class="cl">predicted = model.predict(X)
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">plt.scatter(X, y, marker=&#39;x&#39;)
+</span></span><span class="line"><span class="cl">plt.plot(X, predicted,c=&#39;r&#39;)
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">plt.xlabel(&#34;x&#34;)
+</span></span><span class="line"><span class="cl">plt.ylabel(&#34;y&#34;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>具体思路如下：</p>
+<ol>
+<li>
+<p>首先从文件中导入数据并进行处理</p>
+</li>
+<li>
+<p>然后对列表进行切片，提取出X和y，可利用 <code>dataMat.shape</code>查看数据的格式，这里面返回结果应当是(30,2)</p>
+</li>
+<li>
+<p>最后进行线性回归，这里由于版本问题有一个错误，例如，你有可能在运行时出现</p>
+<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409182053436.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240916150611430"
+	
+	
+></li>
+</ol>
+<p>​	这是由于在scikit-learn的0.22版本中，这个参数normalize被移除了，normalize的作用是对特征进行标准化。可以将其直接去掉。</p>
+<p>​</p>
+</li>
+<li>
+<p>讲解一下 <code>LinearRegression</code>的参数配置：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>fit_intercept</strong>：bool, default=True</p>
+<p>​	是否计算此模型的截距。如果已设置 设置为 False，则计算中不会使用任何截距 （即数据应居中）。</p>
+</li>
+<li>
+<p><strong>copy_X</strong>：bool, default=True</p>
+<p>​	如果为 True，则将复制 X;否则，它可能会被覆盖。</p>
+</li>
+<li>
+<p><strong>n_jobs</strong>：int, default=None</p>
+<p>​	用于计算的作业数。这只会提供 speedup 在出现足够大的问题时，即 first 和 second 是稀疏的，或者如果设置了 自。 表示 1，除非在上下文中。 表示使用全部 处理器。有关更多详细信息，请参阅术语表 。n_targets &gt; 1XpositiveTrueNone-1</p>
+</li>
+<li>
+<p><strong>positive</strong>：bool, default=False</p>
+<p>​	When set to , forces the coefficients to be positive. This option is only supported for dense arrays.<code>True</code></p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024 Sazerac
+    </section>
+
+    <section class="powerby">
+        
+        自定义文本 <br />
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        // Fix <code> tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i = 0; i &lt; all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 登录AutoDL算力云 当然也有免费的平台\nkaggle：\n不需要科学上网，但是文件加载有些麻烦，我第一次尝试失败（应该是我的问题），每个月有30个小时的GPU时长。\n">
+<title>RegionCLIP踩坑记录</title>
+
+<link rel='canonical' href='https://Sazerac-kk.github.io/p/regionclip%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="RegionCLIP踩坑记录">
+<meta property='og:description' content="1. 登录AutoDL算力云 当然也有免费的平台\nkaggle：\n不需要科学上网，但是文件加载有些麻烦，我第一次尝试失败（应该是我的问题），每个月有30个小时的GPU时长。\n">
+<meta property='og:url' content='https://Sazerac-kk.github.io/p/regionclip%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/'>
+<meta property='og:site_name' content='Sazerac'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-24T23:02:07&#43;08:00'/><meta property='article:modified_time' content='2024-09-24T23:02:07&#43;08:00'/>
+<meta name="twitter:title" content="RegionCLIP踩坑记录">
+<meta name="twitter:description" content="1. 登录AutoDL算力云 当然也有免费的平台\nkaggle：\n不需要科学上网，但是文件加载有些麻烦，我第一次尝试失败（应该是我的问题），每个月有30个小时的GPU时长。\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar1_hu69203435282132153.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">✨</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sazerac</a></h1>
+            <h2 class="site-description">一条不愿翻身的咸鱼</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Sazerac-kk'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='http://www.sazerac.asia/'
+                        target="_blank"
+                        title="MyBlog"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" ?><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g data-name="Health Education-Article-Computer-Knowledge-Blog" id="Health_Education-Article-Computer-Knowledge-Blog"><path d="M57,15V41H7V15a4,4,0,0,1,4-4H53A4,4,0,0,1,57,15Z" style="fill:#5aaae7"/><path d="M42,28a1.992,1.992,0,0,1-3.72,1H35.91a5.949,5.949,0,0,1-1.02,2.47l1.67,1.68a2,2,0,1,1-1.41,1.41l-1.68-1.67A5.949,5.949,0,0,1,31,33.91v2.37a2,2,0,1,1-2,0V33.91a5.949,5.949,0,0,1-2.47-1.02l-1.68,1.67a2,2,0,1,1-1.41-1.41l1.67-1.68A5.949,5.949,0,0,1,24.09,29H21.72a2,2,0,1,1,0-2h2.37a5.949,5.949,0,0,1,1.02-2.47l-1.67-1.68a1.807,1.807,0,0,1-.51.08,2.005,2.005,0,0,1-1.42-3.42,1.995,1.995,0,0,1,3.34,1.93l1.68,1.67A5.949,5.949,0,0,1,29,22.09V19.72a2,2,0,1,1,2,0v2.37a5.949,5.949,0,0,1,2.47,1.02l1.68-1.67a2,2,0,0,1,.51-1.93,2,2,0,1,1,1.41,3.42,1.807,1.807,0,0,1-.51-.08l-1.67,1.68A5.949,5.949,0,0,1,35.91,27h2.37A1.992,1.992,0,0,1,42,28Z" style="fill:#3d9ae2"/><path d="M57,41v4a4,4,0,0,1-4,4H11a4,4,0,0,1-4-4V41Z" style="fill:#c6c5ca"/><path d="M57,15v9.48A8.8,8.8,0,0,1,54,25a8.944,8.944,0,0,1-5.35-1.77L44,24l2.16-3.59A8.926,8.926,0,0,1,45,16a8.962,8.962,0,0,1,1.53-5H53A4,4,0,0,1,57,15Z" style="fill:#3d9ae2"/><path d="M52,5a8.981,8.981,0,0,0-8.48,6A8.8,8.8,0,0,0,43,14a8.926,8.926,0,0,0,1.16,4.41L42,22l4.65-.77A9,9,0,1,0,52,5Z" style="fill:#ffd422"/><path d="M43.41,57.59A1.955,1.955,0,0,1,44,59a2.006,2.006,0,0,1-2,2H22a2.015,2.015,0,0,1-2-2,2.006,2.006,0,0,1,2-2H42A1.955,1.955,0,0,1,43.41,57.59Z" style="fill:#898890"/><polygon points="40 57 24 57 25 49 39 49 40 57" style="fill:#acabb1"/><path d="M22,11v4a2.006,2.006,0,0,1-2,2H18v4l-4-4H7V15a4,4,0,0,1,4-4Z" style="fill:#3d9ae2"/><path d="M18,3H5A2.006,2.006,0,0,0,3,5v8a2.006,2.006,0,0,0,2,2h7l4,4V15h2a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,18,3Z" style="fill:#00ccb3"/><circle cx="28" cy="26" r="5" style="fill:#d80027"/><polygon points="39.25 51 24.75 51 25 49 39 49 39.25 51" style="fill:#898890"/><path d="M56,40H8V18H6V45a5.006,5.006,0,0,0,5,5H23.867l-.75,6H22a3,3,0,0,0,0,6H42a3,3,0,0,0,0-6H40.883l-.75-6H53a5.006,5.006,0,0,0,5-5V25H56ZM43,59a1,1,0,0,1-1,1H22a1,1,0,0,1,0-2H42A1,1,0,0,1,43,59Zm-4.133-3H25.133l.75-6H38.117ZM53,48H11a3,3,0,0,1-3-3V42H56v3A3,3,0,0,1,53,48Z"/><rect height="2" width="17" x="23" y="10"/><rect height="2" width="2" x="50" y="44"/><path d="M52,4a9.994,9.994,0,0,0-8.99,14.372l-1.867,3.113a1,1,0,0,0,1.021,1.5l4.243-.708A9.9,9.9,0,0,0,52,24,10,10,0,0,0,52,4Zm0,18a7.937,7.937,0,0,1-4.755-1.578,1,1,0,0,0-.6-.2,1.016,1.016,0,0,0-.164.013l-2.513.419,1.042-1.737a1,1,0,0,0,.013-1.005A8,8,0,1,1,52,22Z"/><polygon points="53 10 51 10 51 13 48 13 48 15 51 15 51 18 53 18 53 15 56 15 56 13 53 13 53 10"/><path d="M15.293,19.707A1,1,0,0,0,16,20a.987.987,0,0,0,.383-.076A1,1,0,0,0,17,19V16h1a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5v8a3,3,0,0,0,3,3h6.586ZM4,13V5A1,1,0,0,1,5,4H18a1,1,0,0,1,1,1v8a1,1,0,0,1-1,1H16a1,1,0,0,0-1,1v1.586l-2.293-2.293A1,1,0,0,0,12,14H5A1,1,0,0,1,4,13Z"/><rect height="2" width="9" x="7" y="6"/><rect height="2" width="9" x="7" y="10"/><rect height="2" width="2" x="27" y="25"/><path d="M19.514,17.515a2,2,0,0,0,1.415,3.413,2.024,2.024,0,0,0,.511-.075l1.675,1.676A5.964,5.964,0,0,0,22.09,25H19.722a2,2,0,1,0,0,2H22.09a5.964,5.964,0,0,0,1.025,2.471l-1.676,1.676a2,2,0,0,0-1.924.51h0a2,2,0,1,0,3.339.9l1.676-1.676A5.964,5.964,0,0,0,27,31.91v2.368a2,2,0,1,0,2,0V31.91a5.964,5.964,0,0,0,2.471-1.025l1.676,1.676a2,2,0,1,0,1.414-1.414l-1.676-1.676A5.964,5.964,0,0,0,33.91,27h2.368a2,2,0,1,0,0-2H33.91a5.964,5.964,0,0,0-1.025-2.471l1.676-1.676a2.016,2.016,0,0,0,.51.075,2.005,2.005,0,1,0-1.924-1.489l-1.676,1.676A5.964,5.964,0,0,0,29,20.09V17.722a2,2,0,1,0-2,0V20.09a5.964,5.964,0,0,0-2.471,1.025l-1.676-1.676a1.993,1.993,0,0,0-.509-1.924h0A2,2,0,0,0,19.514,17.515ZM28,22a3.947,3.947,0,0,1,2.019.567l-.726.726,1.414,1.414.726-.726a3.878,3.878,0,0,1,0,4.038l-.726-.726-1.414,1.414.726.726a3.878,3.878,0,0,1-4.038,0l.726-.726-1.414-1.414-.726.726a3.878,3.878,0,0,1,0-4.038l.726.726,1.414-1.414-.726-.726A3.947,3.947,0,0,1,28,22Z"/><rect height="2" width="2" x="42" y="28"/><rect height="2" width="6" x="46" y="28"/><rect height="2" width="10" x="42" y="32"/></g></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>文档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://Sazerac-kk.github.io/en/" >English</option>
+                                
+                                    <option value="https://Sazerac-kk.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-登录autodl算力云">1. 登录AutoDL算力云</a></li>
+    <li><a href="#2-加载配置环境最痛苦的一集">2. 加载+配置环境【最痛苦的一集】</a></li>
+    <li><a href="#3-下载预训练数据和数据集">3. 下载预训练数据和数据集</a></li>
+    <li><a href="#4-测试运行">4. 测试运行</a></li>
+    <li><a href="#5-my_regionclip">5. My_RegionCLIP</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/regionclip%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">RegionCLIP踩坑记录</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 24, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="1-登录autodl算力云">1. 登录AutoDL算力云
+</h2><p>当然也有免费的平台</p>
+<ul>
+<li>
+<p>kaggle：</p>
+<p>不需要科学上网，但是文件加载有些麻烦，我第一次尝试失败（应该是我的问题），每个月有30个小时的GPU时长。</p>
+</li>
+<li>
+<p>colab：需要科学上网，响应比较慢，但是传文件挺快的，没有conda，而且不知道为什么python版本限制在3.7改也改不回来。</p>
+</li>
+</ul>
+<p>AutoDL网址：https://www.autodl.com/</p>
+<ul>
+<li>可以登录我的账号。</li>
+<li>可以开发票（最爽！）。</li>
+<li>更接近于原生ubuntu，有jupyter和script等选择。</li>
+<li>显卡比较贵，而且晚上未必有。</li>
+<li>支持vscode远程连接！！！！</li>
+</ul>
+<h2 id="2-加载配置环境最痛苦的一集">2. 加载+配置环境【最痛苦的一集】
+</h2><ol>
+<li>
+<p>首先，选择空闲卡，配置基础环境。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409241923413.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240924192126636"
+	
+	
+></p>
+<p>先用最接近的，创建好之后还可以改。</p>
+</li>
+<li>
+<p>进入控制台 - &gt; 容器实例，查看SSH登录（也可直接在平台登陆）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303250.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240924192530393"
+	
+	
+></p>
+</li>
+<li>
+<p>打开vscode，进入<strong>远程资源管理器</strong>，点击“+”，新建远程，填入登陆指令和密码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409241926380.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240924192649321"
+	
+	
+></p>
+</li>
+<li>
+<p>进入后打开终端，会出现以下提示，说明连接成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303273.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240924192918088"
+	
+	
+></p>
+</li>
+<li>
+<p>创建文件夹<code>Working</code>，按照指令，先建立conda环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">regionclip</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span> <span class="c1"># 创建环境</span>
+</span></span><span class="line"><span class="cl"><span class="n">source</span> <span class="n">activate</span> <span class="n">regionclip</span>            <span class="c1"># 进入环境</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303287.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240924193331266"
+	
+	
+></p>
+</li>
+<li>
+<p>下载pytorch和cuda，作者给的指令貌似有些问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.10.1</span><span class="o">+</span><span class="n">cu111</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.11.2</span><span class="o">+</span><span class="n">cu111</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.10.1</span> <span class="o">-</span><span class="n">f</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">cu111</span><span class="o">/</span><span class="n">torch_stable</span><span class="o">.</span><span class="n">html</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这条指令没什么问题。</p>
+</li>
+<li>
+<p>将代码下载。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github.com</span><span class="p">:</span><span class="n">microsoft</span><span class="o">/</span><span class="n">RegionCLIP</span><span class="o">.</span><span class="n">git</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">microsoft</span><span class="o">/</span><span class="n">RegionCLIP</span><span class="o">.</span><span class="n">git</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>配置基本环境。（这里bug非常多）</p>
+<ol>
+<li></li>
+</ol>
+</li>
+</ol>
+<pre><code>  ```python
+  python -m pip install -e RegionCLIP
+  ```
+
+  - 运行这一条发现会出现这种情况：
+
+    ![image-20240924221913196](https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303172.png)
+
+  - 很多教程里面都没有提到这个内容，其实这是由于`setuptools`版本不兼容导致，应当运行以下代码：
+
+    ```python
+    pip install setuptools==59
+    ```
+
+    [setup issue · Issue #60 · microsoft/RegionCLIP (github.com)](https://github.com/microsoft/RegionCLIP/issues/60)
+
+  - 但是这并不能完全解决问题，例如我仍然运行配置环境的代码，会出现以下错误：
+
+  ```
+  Obtaining file:///mnt/d/ZYY/RegionCLIP
+  Preparing metadata (setup.py) ... done
+  ERROR: Exception:
+  Traceback (most recent call last):
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/base_command.py&quot;, line 105, in _run_wrapper
+  status = _inner_run()
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/base_command.py&quot;, line 96, in _inner_run
+  return self.run(options, args)
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/req_command.py&quot;, line 67, in wrapper
+  return func(self, options, args)
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/commands/install.py&quot;, line 379, in run
+  requirement_set = resolver.resolve(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/resolver.py&quot;, line 76, in resolve
+  collected = self.factory.collect_root_requirements(root_reqs)
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&quot;, line 539, in collect_root_requirements
+  reqs = list(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&quot;, line 495, in _make_requirements_from_install_req
+  cand = self._make_base_candidate_from_link(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&quot;, line 211, in _make_base_candidate_from_link
+  self._editable_candidate_cache[link] = EditableCandidate(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&quot;, line 328, in init
+  super().init(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&quot;, line 158, in init
+  self.dist = self._prepare()
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&quot;, line 235, in _prepare
+  dist = self._prepare_distribution()
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&quot;, line 338, in _prepare_distribution
+  return self._factory.preparer.prepare_editable_requirement(self._ireq)
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/operations/prepare.py&quot;, line 698, in prepare_editable_requirement
+  dist = _get_prepared_distribution(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/operations/prepare.py&quot;, line 72, in _get_prepared_distribution
+  abstract_dist.prepare_distribution_metadata(
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/distributions/sdist.py&quot;, line 69, in prepare_distribution_metadata
+  self.req.prepare_metadata()
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/req/req_install.py&quot;, line 591, in prepare_metadata
+  self._set_requirement()
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/req/req_install.py&quot;, line 394, in _set_requirement
+  if isinstance(parse_version(self.metadata[&quot;Version&quot;]), Version):
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&quot;, line 56, in parse
+  return Version(version)
+  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&quot;, line 202, in init
+  raise InvalidVersion(f&quot;Invalid version: '{version}'&quot;)
+  pip._vendor.packaging.version.InvalidVersion: Invalid version: 'RegionCLIP'
+  ```
+
+  - 这需要我们对`setup.py`文件进行配置，将 `version=get_version()` 改成 `version='0.1.0'` 。
+  - 然后就可以运行了。
+</code></pre>
+<ol start="9">
+<li>
+<p>然后配置额外的环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">opencv</span><span class="o">-</span><span class="n">python</span> <span class="n">timm</span> <span class="n">diffdist</span> <span class="n">h5py</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">ftfy</span>
+</span></span><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">lvis</span><span class="o">-</span><span class="n">dataset</span><span class="o">/</span><span class="n">lvis</span><span class="o">-</span><span class="n">api</span><span class="o">.</span><span class="n">git</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>应该会比较顺利</p>
+</li>
+</ol>
+<h2 id="3-下载预训练数据和数据集">3. 下载预训练数据和数据集
+</h2><p>这里面没什么好说的，按照教程下载即可，但注意预训练数据只需要按需下载，在以下的教程中，只需要下载<code>pretrained_ckpt/concept_emb/lvis_1203_cls_emb_rn50x4.pth</code>和<code>pretrained_ckpt/regionclip/regionclip_pretrained-cc_rn50x4.pth</code>文件（文件路径需要存在）。</p>
+<p>​	<a class="link" href="https://zhuanlan.zhihu.com/p/642077449"  target="_blank" rel="noopener"
+    >regionclip 服务器复现 - 知乎 (zhihu.com)</a></p>
+<h2 id="4-测试运行">4. 测试运行
+</h2><p>以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">python3</span> <span class="o">./</span><span class="n">tools</span><span class="o">/</span><span class="n">train_net</span><span class="o">.</span><span class="n">py</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nb">eval</span><span class="o">-</span><span class="n">only</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">gpus</span> <span class="mi">1</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">file</span> <span class="o">./</span><span class="n">configs</span><span class="o">/</span><span class="n">LVISv1</span><span class="o">-</span><span class="n">InstanceSegmentation</span><span class="o">/</span><span class="n">CLIP_fast_rcnn_R_50_C4_custom_img</span><span class="o">.</span><span class="n">yaml</span> \
+</span></span><span class="line"><span class="cl"><span class="n">MODEL</span><span class="o">.</span><span class="n">WEIGHTS</span> <span class="o">./</span><span class="n">pretrained_ckpt</span><span class="o">/</span><span class="n">regionclip</span><span class="o">/</span><span class="n">regionclip_pretrained</span><span class="o">-</span><span class="n">cc_rn50x4</span><span class="o">.</span><span class="n">pth</span> \
+</span></span><span class="line"><span class="cl"><span class="n">MODEL</span><span class="o">.</span><span class="n">CLIP</span><span class="o">.</span><span class="n">TEXT_EMB_PATH</span> <span class="o">./</span><span class="n">pretrained_ckpt</span><span class="o">/</span><span class="n">concept_emb</span><span class="o">/</span><span class="n">lvis_1203_cls_emb_rn50x4</span><span class="o">.</span><span class="n">pth</span> \
+</span></span><span class="line"><span class="cl"><span class="n">MODEL</span><span class="o">.</span><span class="n">CLIP</span><span class="o">.</span><span class="n">OFFLINE_RPN_CONFIG</span> <span class="o">./</span><span class="n">configs</span><span class="o">/</span><span class="n">LVISv1</span><span class="o">-</span><span class="n">InstanceSegmentation</span><span class="o">/</span><span class="n">mask_rcnn_R_50_FPN_1x</span><span class="o">.</span><span class="n">yaml</span> \
+</span></span><span class="line"><span class="cl"><span class="n">MODEL</span><span class="o">.</span><span class="n">CLIP</span><span class="o">.</span><span class="n">TEXT_EMB_DIM</span> <span class="mi">640</span> \
+</span></span><span class="line"><span class="cl"><span class="n">MODEL</span><span class="o">.</span><span class="n">RESNETS</span><span class="o">.</span><span class="n">DEPTH</span> <span class="mi">200</span> \
+</span></span><span class="line"><span class="cl"><span class="n">MODEL</span><span class="o">.</span><span class="n">ROI_BOX_HEAD</span><span class="o">.</span><span class="n">POOLER_RESOLUTION</span> <span class="mi">18</span>\ 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可视化：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="n">python</span> <span class="o">./</span><span class="n">tools</span><span class="o">/</span><span class="n">visualize_json_results</span><span class="o">.</span><span class="n">py</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nb">input</span> <span class="o">./</span><span class="n">output</span><span class="o">/</span><span class="n">inference</span><span class="o">/</span><span class="n">lvis_instances_results</span><span class="o">.</span><span class="n">json</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">output</span> <span class="o">./</span><span class="n">output</span><span class="o">/</span><span class="n">regions</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">dataset</span> <span class="n">lvis_v1_val_custom_img</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">conf</span><span class="o">-</span><span class="n">threshold</span> <span class="mf">0.05</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">unique</span><span class="o">-</span><span class="n">boxes</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nb">max</span><span class="o">-</span><span class="n">boxes</span> <span class="mi">25</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="n">small</span><span class="o">-</span><span class="n">region</span><span class="o">-</span><span class="n">px</span> <span class="mi">8100</span>\
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>终端运行即可。</p>
+<p><strong>可能会遇到的问题：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">_C.cpython-36m-x86_64-linux-gnu.so: undefined symbol: _ZN2at19UndefinedTensorImpl10_singletonE
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个好像是pytorch重复编译的问题，解决办法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">remove</span> <span class="o">-</span><span class="n">r</span> <span class="n">build</span> <span class="c1"># 在RegionCLIP文件夹下</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">e</span>  <span class="c1"># 在有setup.py的文件夹下</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>等待时间比较长，运行结束问题解决！</p>
+<h2 id="5-my_regionclip">5. My_RegionCLIP
+</h2><p>我在原microsoft的RegionCLIP文件上进行了环境配置，生成了requirements.txt文件，可以一键配置环境。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">yes</span> <span class="o">--</span><span class="n">file</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外，测试脚本也写好，在<code>./run</code>文件夹下面，可直接用<code>sh run/run1.sh</code>和<code>sh run/run2.sh</code>来运行。但是数据集和预训练数据过大，就没有再GitHub上传。</p>
+<p>仓库地址：<code>https://github.com/Sazerac-kk/My_RegionCLIP.git</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024 Sazerac
+    </section>
+
+    <section class="powerby">
+        
+        自定义文本 <br />
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        // Fix <code> tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i = 0; i &lt; all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
