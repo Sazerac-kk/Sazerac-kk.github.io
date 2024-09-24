@@ -166,43 +166,7 @@
   Obtaining file:///mnt/d/ZYY/RegionCLIP
   Preparing metadata (setup.py) ... done
   ERROR: Exception:
-  Traceback (most recent call last):
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/base_command.py&amp;quot;, line 105, in _run_wrapper
-  status = _inner_run()
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/base_command.py&amp;quot;, line 96, in _inner_run
-  return self.run(options, args)
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/cli/req_command.py&amp;quot;, line 67, in wrapper
-  return func(self, options, args)
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/commands/install.py&amp;quot;, line 379, in run
-  requirement_set = resolver.resolve(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/resolver.py&amp;quot;, line 76, in resolve
-  collected = self.factory.collect_root_requirements(root_reqs)
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&amp;quot;, line 539, in collect_root_requirements
-  reqs = list(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&amp;quot;, line 495, in _make_requirements_from_install_req
-  cand = self._make_base_candidate_from_link(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/factory.py&amp;quot;, line 211, in _make_base_candidate_from_link
-  self._editable_candidate_cache[link] = EditableCandidate(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 328, in init
-  super().init(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 158, in init
-  self.dist = self._prepare()
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 235, in _prepare
-  dist = self._prepare_distribution()
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/resolution/resolvelib/candidates.py&amp;quot;, line 338, in _prepare_distribution
-  return self._factory.preparer.prepare_editable_requirement(self._ireq)
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/operations/prepare.py&amp;quot;, line 698, in prepare_editable_requirement
-  dist = _get_prepared_distribution(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/operations/prepare.py&amp;quot;, line 72, in _get_prepared_distribution
-  abstract_dist.prepare_distribution_metadata(
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/distributions/sdist.py&amp;quot;, line 69, in prepare_distribution_metadata
-  self.req.prepare_metadata()
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/req/req_install.py&amp;quot;, line 591, in prepare_metadata
-  self._set_requirement()
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_internal/req/req_install.py&amp;quot;, line 394, in _set_requirement
-  if isinstance(parse_version(self.metadata[&amp;quot;Version&amp;quot;]), Version):
-  File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&amp;quot;, line 56, in parse
-  return Version(version)
+  ······
   File &amp;quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&amp;quot;, line 202, in init
   raise InvalidVersion(f&amp;quot;Invalid version: &#39;{version}&#39;&amp;quot;)
   pip._vendor.packaging.version.InvalidVersion: Invalid version: &#39;RegionCLIP&#39;
