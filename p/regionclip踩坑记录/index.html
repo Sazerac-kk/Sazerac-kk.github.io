@@ -486,43 +486,70 @@
 </div></li>
 <li>
 <p>配置基本环境。（这里bug非常多）</p>
-<ol>
-<li></li>
-</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">RegionCLIP</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>运行这一条发现会出现这种情况：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303172.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240924221913196"
+	
+	
+></p>
 </li>
-</ol>
-<pre><code>  ```python
-  python -m pip install -e RegionCLIP
-  ```
-
-  - 运行这一条发现会出现这种情况：
-
-    ![image-20240924221913196](https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409242303172.png)
-
-  - 很多教程里面都没有提到这个内容，其实这是由于`setuptools`版本不兼容导致，应当运行以下代码：
-
-    ```python
-    pip install setuptools==59
-    ```
-
-    [setup issue · Issue #60 · microsoft/RegionCLIP (github.com)](https://github.com/microsoft/RegionCLIP/issues/60)
-
-  - 但是这并不能完全解决问题，例如我仍然运行配置环境的代码，会出现以下错误：
-
-  ```
-  Obtaining file:///mnt/d/ZYY/RegionCLIP
-  Preparing metadata (setup.py) ... done
-  ERROR: Exception:
-  ······
-  File &quot;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&quot;, line 202, in init
-  raise InvalidVersion(f&quot;Invalid version: '{version}'&quot;)
-  pip._vendor.packaging.version.InvalidVersion: Invalid version: 'RegionCLIP'
-  ```
-
-  - 这需要我们对`setup.py`文件进行配置，将 `version=get_version()` 改成 `version='0.1.0'` 。
-  - 然后就可以运行了。
-</code></pre>
-<ol start="9">
+<li>
+<p>很多教程里面都没有提到这个内容，其实这是由于<code>setuptools</code>版本不兼容导致，应当运行以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">setuptools</span><span class="o">==</span><span class="mi">59</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://github.com/microsoft/RegionCLIP/issues/60"  target="_blank" rel="noopener"
+    >setup issue · Issue #60 · microsoft/RegionCLIP (github.com)</a></p>
+</li>
+<li>
+<p>但是这并不能完全解决问题，例如我仍然运行配置环境的代码，会出现以下错误：</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Obtaining file:///mnt/d/ZYY/RegionCLIP
+</span></span><span class="line"><span class="cl">Preparing metadata (setup.py) ... done
+</span></span><span class="line"><span class="cl">ERROR: Exception:
+</span></span><span class="line"><span class="cl">······
+</span></span><span class="line"><span class="cl">File &#34;/home/frain/micromamba/envs/region/lib/python3.9/site-packages/pip/_vendor/packaging/version.py&#34;, line 202, in init
+</span></span><span class="line"><span class="cl">raise InvalidVersion(f&#34;Invalid version: &#39;{version}&#39;&#34;)
+</span></span><span class="line"><span class="cl">pip._vendor.packaging.version.InvalidVersion: Invalid version: &#39;RegionCLIP&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>这需要我们对<code>setup.py</code>文件进行配置，将 <code>version=get_version()</code> 改成 <code>version='0.1.0'</code> 。</li>
+<li>然后就可以运行了。</li>
+</ul>
+</li>
 <li>
 <p>然后配置额外的环境</p>
 <div class="highlight"><div class="chroma">
