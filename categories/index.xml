@@ -7,10 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Sazerac</copyright>
-        <lastBuildDate>Tue, 17 Sep 2024 21:00:13 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 02 Oct 2024 23:02:07 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Deep Learning</title>
         <link>https://Sazerac-kk.github.io/categories/deep-learning/</link>
-        <pubDate>Tue, 17 Sep 2024 21:00:13 +0800</pubDate>
+        <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
         
         <guid>https://Sazerac-kk.github.io/categories/deep-learning/</guid>
         <description></description>
@@ -18,9 +18,17 @@
         <item>
         <title>Math</title>
         <link>https://Sazerac-kk.github.io/categories/math/</link>
-        <pubDate>Tue, 17 Sep 2024 21:00:13 +0800</pubDate>
+        <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
         
         <guid>https://Sazerac-kk.github.io/categories/math/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Regularization</title>
+        <link>https://Sazerac-kk.github.io/categories/regularization/</link>
+        <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/categories/regularization/</guid>
         <description></description>
         </item>
         <item>

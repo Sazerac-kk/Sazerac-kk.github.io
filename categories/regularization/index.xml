@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Deep Learning on Sazerac</title>
-        <link>https://Sazerac-kk.github.io/categories/deep-learning/</link>
-        <description>Recent content in Deep Learning on Sazerac</description>
+        <title>Regularization on Sazerac</title>
+        <link>https://Sazerac-kk.github.io/categories/regularization/</link>
+        <description>Recent content in Regularization on Sazerac</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Sazerac</copyright>
-        <lastBuildDate>Wed, 02 Oct 2024 23:02:07 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 02 Oct 2024 23:02:07 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/regularization/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Deep Learning: What is regularisation ?</title>
         <link>https://Sazerac-kk.github.io/p/deep-learning-what-is-regularisation/</link>
         <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
@@ -280,66 +280,6 @@ $$
     “谁都不可能和谁在一起一辈子，人就是这样，必须去习惯失去。”
 &lt;/center&gt;
 &lt;p style=&#34;text-align: right;&#34;&gt;——《秒速五厘米》 &lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>深度学习预备知识：线性代数</title>
-        <link>https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
-        <pubDate>Tue, 17 Sep 2024 21:00:13 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</guid>
-        <description>&lt;img src="https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/mansuiyanhua.jpg" alt="Featured image of post 深度学习预备知识：线性代数" /&gt;&lt;h2 id=&#34;快速扫盲&#34;&gt;快速扫盲
-&lt;/h2&gt;&lt;p&gt;深度学习(deeplearning)包含很多向量或矩阵的运算，因此对线性代数有足够的了解是非常必要的&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;其中最主要的知识点包括：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;标量、向量、矩阵和张量，以及矩阵的转置运算&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;矩阵和向量乘法&lt;/p&gt;
-&lt;center&gt; 矩阵乘法 (叉乘)
-$$
-  C_{i, j}=\sum_{k} A_{i, k} B_{k, j}
-  $$&lt;center&gt; Hadamard乘积
-&lt;center&gt;指两个矩阵中对应元素的乘积
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;单位矩阵和逆矩阵&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;线性相关和线性无关&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;生成子空间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;范数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;正交矩阵和标准正交&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特征分解（平衡分布）
-&lt;/p&gt;
-$$
-  A = QAQ^T 
-  $$&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;奇异值分解&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Moore- Penrose伪逆&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;迹运算&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;行列式&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;教材资源：&lt;a class=&#34;link&#34; href=&#34;https://www.alipan.com/s/TAzn3Xq4Khi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;线性代数与解析几何&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;提取码：5sz2&lt;/p&gt;
 </description>
         </item>
         
