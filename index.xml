@@ -13,10 +13,8 @@
         <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
         
         <guid>https://Sazerac-kk.github.io/p/deep-learning-what-is-regularisation/</guid>
-        <description>&lt;h2 id=&#34;1-什么是正则化&#34;&gt;1. 什么是正则化
-&lt;/h2&gt;&lt;p&gt;image = &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png&#34;&lt;/a&gt;
-（以下来源于Gpt-4o mini）&lt;/p&gt;
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png" alt="Featured image of post Deep Learning: What is regularisation ?" /&gt;&lt;h2 id=&#34;1-什么是正则化&#34;&gt;1. 什么是正则化
+&lt;/h2&gt;&lt;p&gt;（以下来源于Gpt-4o mini）&lt;/p&gt;
 &lt;p&gt;正则化（Regularization）是一种用于防止模型过拟合（overfitting）的技术，主要应用于机器学习和统计建模中。过拟合发生在模型对训练数据的学习过于深入，以至于捕捉到数据中的噪声，而不仅仅是潜在的模式。这会导致模型在新数据上的表现不佳。&lt;/p&gt;
 &lt;p&gt;正则化的主要思想：&lt;/p&gt;
 &lt;ul&gt;
