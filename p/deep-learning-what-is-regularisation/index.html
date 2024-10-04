@@ -514,11 +514,8 @@ $$
 </ol>
 <p>为什么$L_2$正则化会起作用：</p>
 <ul>
-<li>
-<p>由于在前向传播时，我们为代价函数添加了正则项$\Omega(\boldsymbol{\theta})=\frac{1}{2m}\left|\boldsymbol{w}\right|_2^2$，因此在后向传播时，我们也需要把这点考虑进去。</p>
-</li>
-<li>
-<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409301437683.jpg"
+<li>由于在前向传播时，我们为代价函数添加了正则项$\Omega(\boldsymbol{\theta})=\frac{1}{2m}\left|\boldsymbol{w}\right|_2^2$，因此在后向传播时，我们也需要把这点考虑进去。
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409301437683.jpg"
 	
 	
 	
@@ -527,9 +524,8 @@ $$
 		alt="4f4eb7507c670cbb2f3eaead9475d0c"
 	
 	
-></p>
-</li>
-<li>
+></li>
+</ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409301438252.jpg"
 	
 	
@@ -540,10 +536,8 @@ $$
 	
 	
 ></p>
-</li>
-<li>
-<p>$1-\frac{\alpha\lambda}{m}$肯定小于1，因此这就相当于进行了“权重衰减”。</p>
-</li>
+<ul>
+<li>$1-\frac{\alpha\lambda}{m}$肯定小于1，因此这就相当于进行了“权重衰减”。</li>
 </ul>
 <h3 id="32-l_1正则化">3.2 $L_1$正则化
 </h3><ul>
@@ -573,10 +567,8 @@ $$
 <h3 id="33-dropout随机失活">3.3 Dropout（随机失活）
 </h3><ul>
 <li>
-<p>黑匣子，很随机，常用于CV领域</p>
-</li>
-<li>
-<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410031850006.png"
+<p>黑匣子，很随机，常用于CV领域
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410031850006.png"
 	
 	
 	

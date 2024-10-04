@@ -138,11 +138,8 @@ $$
 &lt;/ol&gt;
 &lt;p&gt;为什么$L_2$正则化会起作用：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;由于在前向传播时，我们为代价函数添加了正则项$\Omega(\boldsymbol{\theta})=\frac{1}{2m}\left|\boldsymbol{w}\right|_2^2$，因此在后向传播时，我们也需要把这点考虑进去。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409301437683.jpg&#34;
+&lt;li&gt;由于在前向传播时，我们为代价函数添加了正则项$\Omega(\boldsymbol{\theta})=\frac{1}{2m}\left|\boldsymbol{w}\right|_2^2$，因此在后向传播时，我们也需要把这点考虑进去。
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409301437683.jpg&#34;
 	
 	
 	
@@ -151,9 +148,8 @@ $$
 		alt=&#34;4f4eb7507c670cbb2f3eaead9475d0c&#34;
 	
 	
-&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202409301438252.jpg&#34;
 	
 	
@@ -164,10 +160,8 @@ $$
 	
 	
 &gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$1-\frac{\alpha\lambda}{m}$肯定小于1，因此这就相当于进行了“权重衰减”。&lt;/p&gt;
-&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;$1-\frac{\alpha\lambda}{m}$肯定小于1，因此这就相当于进行了“权重衰减”。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;32-l_1正则化&#34;&gt;3.2 $L_1$正则化
 &lt;/h3&gt;&lt;ul&gt;
@@ -197,10 +191,8 @@ $$
 &lt;h3 id=&#34;33-dropout随机失活&#34;&gt;3.3 Dropout（随机失活）
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;黑匣子，很随机，常用于CV领域&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410031850006.png&#34;
+&lt;p&gt;黑匣子，很随机，常用于CV领域
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410031850006.png&#34;
 	
 	
 	
