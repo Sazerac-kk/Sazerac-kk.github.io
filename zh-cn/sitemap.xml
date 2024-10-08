@@ -15,11 +15,14 @@
                 href="https://Sazerac-kk.github.io/"
                 />
   </url><url>
-    <loc>https://Sazerac-kk.github.io/post/</loc>
+    <loc>https://Sazerac-kk.github.io/p/%E6%95%99%E7%A8%8Bvscode-anaconda%E9%85%8D%E7%BD%AEpython%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/anaconda/</loc>
     <lastmod>2024-10-08T23:02:07+08:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/categories/</loc>
-    <lastmod>2024-10-02T23:02:07+08:00</lastmod>
+    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -30,6 +33,15 @@
                 hreflang="zh-cn"
                 href="https://Sazerac-kk.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/post/</loc>
+    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/python/</loc>
+    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/vscode/</loc>
+    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/categories/deep-learning/</loc>
     <lastmod>2024-10-02T23:02:07+08:00</lastmod>
@@ -57,9 +69,6 @@
   </url><url>
     <loc>https://Sazerac-kk.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2024-09-17T21:00:13+08:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/categories/python/</loc>
-    <lastmod>2024-09-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/p/the-use-of-matplotlib/</loc>
     <lastmod>2024-09-17T00:00:00+00:00</lastmod>
