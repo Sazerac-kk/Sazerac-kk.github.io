@@ -597,7 +597,7 @@
 以上三个路径主要表示：<strong>python所在路径</strong>、<strong>conda命令</strong>和<strong>常用脚本</strong>的路径。</p>
 </li>
 <li>
-<p>检验：<code>windows + R</code>输入<code>cmd</code>肌凝乳命令行窗口，分别输入<code>conda -V</code>和<code>python --version</code>，如果能够像下图那般显示，则证明环境变量配置成功。</p>
+<p>检验：<code>windows + R</code>输入<code>cmd</code>进入命令行窗口，分别输入<code>conda -V</code>和<code>python --version</code>，如果能够像下图那般显示，则证明环境变量配置成功。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410081934928.png"
 	
 	
@@ -613,33 +613,98 @@
 <h3 id="23-conda常用命令">2.3 conda常用命令
 </h3><ol>
 <li>
-<p>创建环境：<code>conda create -n ENV_NAME python=3.××</code>，这是conda创建虚拟环境的一个命令，里面<code>ENV_NAME</code>表示你创建的虚拟环境的名字，<code>python=3.××</code>表示设置python的版本，例如可以<code>python=3.10</code>表示创建虚拟环境中的python版本是3.10。</p>
+<p>创建环境：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda create -n ENV_NAME python=3.××
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是conda创建虚拟环境的一个命令，里面<code>ENV_NAME</code>表示你创建的虚拟环境的名字，<code>python=3.××</code>表示设置python的版本，例如可以<code>python=3.10</code>表示创建虚拟环境中的python版本是3.10。</p>
 </li>
 <li>
-<p>激活环境：<code>conda activate ENV_NAME</code>，创建好环境并不代表虚拟环境自动运行，需要执行这条命令，<code>ENV_NAME</code>仍代表你创建好的环境名称。</p>
+<p>激活环境：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda activate ENV_NAME
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建好环境并不代表虚拟环境自动运行，需要执行这条命令，<code>ENV_NAME</code>仍代表你创建好的环境名称。</p>
 </li>
 <li>
-<p>退出环境：<code>conda deactivate</code>。</p>
+<p>退出环境：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda deactivate
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除环境：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda env remove -n ENV_NAME
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安装包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda install PACKAGE_NAME
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>和c语言相同，python也有很多<strong>包</strong>，这里面封装了很多方便好用的函数，我们在具体应用中会经常用到这条命令。这个操作我们平时也叫配环境。</p>
 </li>
 <li>
-<p>删除环境：<code>conda env remove -n ENV_NAME</code></p>
-</li>
+<p>卸载包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda remove PACKAGE_NAME
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
-<p>安装包：<code>conda install PACKAGE_NAME</code>，和c语言相同，python也有很多<strong>包</strong>，这里面封装了很多方便好用的函数，我们在具体应用中会经常用到这条命令。这个操作我们平时也叫配环境。</p>
-</li>
+<p>显示安装的包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda list
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
-<p>卸载包：<code>conda remove PACKAGE_NAME</code>。</p>
-</li>
-<li>
-<p>显示安装的包：<code>conda list</code>。</p>
-</li>
-<li>
-<p>显示创建的环境：<code>conda env list</code></p>
-</li>
+<p>显示创建的环境：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda env list
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>添加清华镜像源：</p>
-</li>
-</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -656,8 +721,18 @@
 </span></span><span class="line"><span class="cl">conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="10">
-<li>查看当前镜像：<code>conda config --show channels</code>。</li>
+</div></li>
+<li>
+<p>查看当前镜像：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">conda config --show channels
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 <h2 id="3-vscodeconda环境">3. vscode+conda环境
 </h2><ul>
@@ -788,8 +863,8 @@
 </span></span><span class="line"><span class="cl">pip install ipykernel 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>然后在vscode里面添加环境，创建<code>.ipynb</code>文件，编辑并运行。
-<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410082138538.png"
+</div><p>然后在vscode里面添加环境，创建<code>.ipynb</code>文件，编辑并运行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410082138538.png"
 	
 	
 	
