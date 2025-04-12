@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A brief guide to setup KaTeX">
-<title>Math Typesetting</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
+<title></title>
 
-<link rel='canonical' href='https://Sazerac-kk.github.io/p/math-typesetting/'>
+<link rel='canonical' href='https://Sazerac-kk.github.io/p/'>
 
-<link rel="stylesheet" href="/scss/style.min.62dfcfd29956a650e2b0c2ab9b43e69b1efdefd0a7015dcd488ccd82c4d79075.css"><meta property='og:title' content="Math Typesetting">
-<meta property='og:description' content="A brief guide to setup KaTeX">
-<meta property='og:url' content='https://Sazerac-kk.github.io/p/math-typesetting/'>
+<link rel="stylesheet" href="/scss/style.min.62dfcfd29956a650e2b0c2ab9b43e69b1efdefd0a7015dcd488ccd82c4d79075.css"><meta property='og:title' content="">
+<meta property='og:description' content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
+<meta property='og:url' content='https://Sazerac-kk.github.io/p/'>
 <meta property='og:site_name' content='Sazerac'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-03-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2019-03-08T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="Math Typesetting">
-<meta name="twitter:description" content="A brief guide to setup KaTeX">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.8/katex.min.css" as="style"
@@ -298,11 +298,10 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#examples">Examples</a></li>
-      </ol>
-    </li>
+    <li><a href="#分词器tokenizer">分词器(Tokenizer)</a></li>
+    <li><a href="#sentencepiece简介">SentencePiece简介</a></li>
+    <li><a href="#环境安装">环境安装</a></li>
+    <li><a href="#训练模型"><strong>训练模型</strong></a></li>
   </ol>
 </nav>
         </div>
@@ -322,13 +321,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/math-typesetting/">Math Typesetting</a>
+            <a href="/p/"></a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            A brief guide to setup KaTeX
-        </h3>
         
     </div>
 
@@ -337,19 +332,6 @@
     
     
     <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Mar 08, 2019</time>
-            </div>
         
 
         
@@ -363,7 +345,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -378,41 +360,190 @@
     <section class="article-content">
     
     
-    <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
-<p>In this example we will be using <a class="link" href="https://katex.org/"  target="_blank" rel="noopener"
-    >KaTeX</a></p>
+    <h1 id="使用-sentencepiece-工具如何使用中文语料训练一个分词模型">使用 <strong>SentencePiece</strong> 工具如何使用中文语料训练一个分词模型
+</h1><p>+++
+title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo;
+date = 2025-04-12T13:45:07+08:00
+draft = true
+categories = [
+&lsquo;Deep learning&rsquo;,
+&lsquo;Tokenizer&rsquo;
+]
++++</p>
+<h2 id="分词器tokenizer">分词器(Tokenizer)
+</h2><ul>
+<li>
+<p>将字符序列转化为数字序列</p>
+</li>
+<li>
+<p>三种颗粒度：word、char、subword(平衡前两者的优缺点)。</p>
+</li>
+<li>
+<p>常用的subword算法：</p>
 <ul>
-<li>Create a partial under <code>/layouts/partials/math.html</code></li>
-<li>Within this partial reference the <a class="link" href="https://katex.org/docs/autorender.html"  target="_blank" rel="noopener"
-    >Auto-render Extension</a> or host these scripts locally.</li>
-<li>Include the partial in your templates like so:</li>
+<li>BPE：即字节对编码。其核心思想是从字母开始，不断找词频最高、且连续的两个token合并，直到达到目标词数。</li>
+<li>BBPE：BBPE核心思想将BPE的从字符级别扩展到子节（Byte）级别。BPE的一个问题是如果遇到了unicode编码，基本字符集可能会很大。BBPE就是以一个字节为一种“字符”，不管实际字符集用了几个字节来表示一个字符。这样的话，基础字符集的大小就锁定在了256（2^8）。采用BBPE的好处是可以跨语言共用词表，显著压缩词表的大小。而坏处就是，对于类似中文这样的语言，一段文字的序列长度会显著增长。</li>
+<li>WordPiece算法可以看作是BPE的变种。不同的是，WordPiece基于概率生成新的subword而不是下一最高频字节对。WordPiece算法也是每次从词表中选出两个子词合并成新的子词。BPE选择频数最高的相邻子词合并，而WordPiece选择使得语言模型概率最大的相邻子词加入词表。</li>
+<li>Unigram：它和 BPE 以及 WordPiece 从表面上看一个大的不同是，前两者都是初始化一个小词表，然后一个个增加到限定的词汇量，而 Unigram Language Model 却是先初始一个大词表，接着通过语言模型评估不断减少词表，直到限定词汇量。</li>
+<li>SentencePiece：SentencePiece它是谷歌推出的子词开源工具包，它是把一个句子看作一个整体，再拆成片段，而没有保留天然的词语的概念。一般地，它把空格也当作一种特殊字符来处理，再用BPE或者Unigram算法来构造词汇表。SentencePiece除了集成了BPE、ULM子词算法之外，SentencePiece还能支持字符和词级别的分词。</li>
 </ul>
+<p>主流的模型采用的分词算法：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/v2-7d13943ddb85c7b1b2324cd0fc6be369_1440w.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+</li>
+</ul>
+<h2 id="sentencepiece简介">SentencePiece简介
+</h2><ul>
+<li>
+<p>SentencePiece 是一种无监督的文本 tokenizer 和 detokenizer，主要用于基于神经网络的文本生成系统，其中，词汇量在神经网络模型训练之前就已经预先确定了。</p>
+</li>
+<li>
+<p>SentencePiece 实现了<strong>subword</strong>单元（例如，字节对编码 (BPE)）和 unigram 语言模型），并可以直接从原始句子训练字词模型(subword model)。 这使得我们可以制作一个不依赖于特定语言的预处理和后处理的纯粹的端到端系统。</p>
+<ul>
+<li>用它处理中文、英文、韩文甚至混合语言的文本</li>
+<li>构建一个<strong>纯粹的数据驱动、端到端</strong>的 NLP 系统</li>
+<li>不用做语言特定的适配，这对多语言系统特别有用</li>
+</ul>
+</li>
+<li>
+<p>特性：</p>
+<ul>
+<li>从原始句子开始训练；</li>
+<li>唯一Token数量是预先确定的；</li>
+<li>空格被视为基本符号。</li>
+</ul>
+</li>
+</ul>
+<h2 id="环境安装">环境安装
+</h2><ul>
+<li>
+<p>SentencePiece分为两部分：训练模型和使用模型。其中，训练模型部分是用C语言实现的，可编译二进程程序执行，训练结束后生成一个model文件和一个词典文件。</p>
+<p>模型使用部分同时支持二进制程序和Python调用两种方式，训练完生成的词典数据是明文，可编辑，因此，也可以用其他任何语言进行读取和使用。</p>
+</li>
+<li>
+<p><strong>从 C++ 源构建和安装 SentencePiece 命令行工具</strong></p>
+<p>由于我们需要命令行工具模型训练，因此，我们需要先安装 SentencePiece 命令行工具。</p>
+<p>构建 SentencePiece 需要以下工具和库：</p>
+<ul>
+<li>cmake</li>
+<li>C++11 编译器</li>
+<li>gperftools 库（可选的，可以获得 10-40% 的性能提升）</li>
+</ul>
+<p>在 Ubuntu 上，可以使用 apt-get 安装构建工具：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">sudo apt-get install cmake build-essential pkg-config libgoogle-perftools-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来，按如下方式构建和安装命令行工具。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{{</span> <span class="k">if</span> or .Params.math .Site.Params.math <span class="o">}}</span>
-</span></span><span class="line"><span class="cl"><span class="o">{{</span> partial <span class="s2">&#34;math.html&#34;</span> . <span class="o">}}</span>
-</span></span><span class="line"><span class="cl"><span class="o">{{</span> end <span class="o">}}</span>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git clone https://github.com/google/sentencepiece.git 
+</span></span><span class="line"><span class="cl">cd sentencepiece
+</span></span><span class="line"><span class="cl">mkdir build
+</span></span><span class="line"><span class="cl">cd build
+</span></span><span class="line"><span class="cl">cmake ..
+</span></span><span class="line"><span class="cl">make -j $(nproc)
+</span></span><span class="line"><span class="cl">make install
+</span></span><span class="line"><span class="cl">ldconfig -v
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>To enable KaTeX globally set the parameter <code>math</code> to <code>true</code> in a project&rsquo;s configuration</li>
-<li>To enable KaTeX on a per page basis include the parameter <code>math: true</code> in content files</li>
+</div><p>查看命令使用文档：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">spm_train --help
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>使用pip安装sentencepiece库</strong></p>
+<p>SentencePiece 提供了支持 SentencePiece 训练和分割的 Python 包装器。 由于后续会基于Python语言使用模型，因此，使用 pip 安装 SentencePiece 的 Python 二进制包。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pip install sentencepiece
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
-<p><strong>Note:</strong> Use the online reference of <a class="link" href="https://katex.org/docs/supported.html"  target="_blank" rel="noopener"
-    >Supported TeX Functions</a></p>
+<h2 id="训练模型"><strong>训练模型</strong>
+</h2><ul>
+<li>
+<p>使用红楼梦作为数据集</p>
+</li>
+<li>
+<p>由于官网只提供英语和日语数据，如果使用中文进行模型训练的话，需要先下载中文训练数据。本文使用 <strong><a class="link" href="https://link.zhihu.com/?target=https%3A//github.com/shjwudp/shu/blob/master/books/%E7%BA%A2%E6%A5%BC%E6%A2%A6.txt"  target="_blank" rel="noopener"
+    >红楼梦</a></strong>（需要自行预先清洗下数据）进行模型训练。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">spm_train --input=train.txt --model_prefix=./tokenizer --vocab_size=4000 --character_coverage=0.9995 --model_type=bpe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数说明：</p>
+<ul>
+<li>&ndash;input: 训练语料文件，可以传递以逗号分隔的文件列表。文件格式为每行一个句子。 无需运行tokenizer、normalizer或preprocessor。 默认情况下，SentencePiece 使用 Unicode NFKC 规范化输入。</li>
+<li>&ndash;model_prefix：输出模型名称前缀。 训练完成后将生成 &lt;model_name&gt;.model 和 &lt;model_name&gt;.vocab 文件。</li>
+<li>&ndash;vocab_size：训练后的词表大小，例如：8000、16000 或 32000</li>
+<li>&ndash;character_coverage：模型覆盖的字符数量，对于字符集丰富的语言（如日语或中文）推荐默认值为 0.9995，对于其他字符集较小的语言推荐默认值为 1.0。</li>
+<li>&ndash;model_type：模型类型。 可选值：unigram（默认）、bpe、char 或 word 。 使用word类型时，必须对输入句子进行pretokenized。</li>
+</ul>
+</li>
+<li>
+<p>模型输出文件(词表及模型权重)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&gt; ls -al model_path
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查看词表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&gt; head -n20 vocab_path
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>参考文档：</p>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/630696264"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/630696264</a></p>
 
-<h3 id="examples">Examples
-</h3><p>Inline math: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$</p>
-<p>Block math:
-</p>
-$$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
 </section>
 
 
@@ -422,30 +553,6 @@ $$
     </footer>
 
 
-    
-        <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
-            ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
-                defer
-                >
-            </script><script>
-    window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.body, {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ],
-            ignoredClasses: ["gist"]
-        });})
-</script>
     
 </article>
 
