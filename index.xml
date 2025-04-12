@@ -13,7 +13,7 @@
         <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
         
         <guid>https://Sazerac-kk.github.io/p/%E4%BD%BF%E7%94%A8sentencepiece%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E8%AF%AD%E6%96%99%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%88%86%E8%AF%8D%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png" alt="Featured image of post 使用SentencePiece工具如何使用中文语料训练一个分词模型" /&gt;&lt;h2 id=&#34;分词器tokenizer&#34;&gt;分词器(Tokenizer)
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/reflection-mountains-old-buildings-lake-with-wooden-pier-foreground.jpg" alt="Featured image of post 使用SentencePiece工具如何使用中文语料训练一个分词模型" /&gt;&lt;h2 id=&#34;分词器tokenizer&#34;&gt;分词器(Tokenizer)
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;将字符序列转化为数字序列&lt;/p&gt;
