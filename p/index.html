@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; author = &lsquo;Sazerac&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true image = &ldquo;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png\" categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
 <title></title>
 
 <link rel='canonical' href='https://Sazerac-kk.github.io/p/'>
 
 <link rel="stylesheet" href="/scss/style.min.62dfcfd29956a650e2b0c2ab9b43e69b1efdefd0a7015dcd488ccd82c4d79075.css"><meta property='og:title' content="">
-<meta property='og:description' content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
+<meta property='og:description' content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; author = &lsquo;Sazerac&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true image = &ldquo;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png\" categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
 <meta property='og:url' content='https://Sazerac-kk.github.io/p/'>
 <meta property='og:site_name' content='Sazerac'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
+<meta name="twitter:description" content="使用 SentencePiece 工具如何使用中文语料训练一个分词模型 +++ title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo; author = &lsquo;Sazerac&rsquo; date = 2025-04-12T13:45:07+08:00 draft = true image = &ldquo;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png\" categories = [ &lsquo;Deep learning&rsquo;, &lsquo;Tokenizer&rsquo; ] +++\n">
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.8/katex.min.css" as="style"
@@ -363,8 +363,11 @@
     <h1 id="使用-sentencepiece-工具如何使用中文语料训练一个分词模型">使用 <strong>SentencePiece</strong> 工具如何使用中文语料训练一个分词模型
 </h1><p>+++
 title = &lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&rsquo;
+author = &lsquo;Sazerac&rsquo;
 date = 2025-04-12T13:45:07+08:00
 draft = true
+image = &ldquo;<a class="link" href="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png%22"  target="_blank" rel="noopener"
+    >https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png"</a>
 categories = [
 &lsquo;Deep learning&rsquo;,
 &lsquo;Tokenizer&rsquo;

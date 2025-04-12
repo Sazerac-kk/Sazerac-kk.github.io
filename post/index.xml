@@ -2218,8 +2218,11 @@ $$</description>
         <description>&lt;h1 id=&#34;使用-sentencepiece-工具如何使用中文语料训练一个分词模型&#34;&gt;使用 &lt;strong&gt;SentencePiece&lt;/strong&gt; 工具如何使用中文语料训练一个分词模型
 &lt;/h1&gt;&lt;p&gt;+++
 title = &amp;lsquo;使用 SentencePiece 工具如何使用中文语料训练一个分词模型&amp;rsquo;
+author = &amp;lsquo;Sazerac&amp;rsquo;
 date = 2025-04-12T13:45:07+08:00
 draft = true
+image = &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/202410032049240.png&#34;&lt;/a&gt;
 categories = [
 &amp;lsquo;Deep learning&amp;rsquo;,
 &amp;lsquo;Tokenizer&amp;rsquo;
