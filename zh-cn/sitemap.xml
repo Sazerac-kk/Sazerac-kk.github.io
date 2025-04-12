@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://Sazerac-kk.github.io/</loc>
-    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
+    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,14 +15,8 @@
                 href="https://Sazerac-kk.github.io/"
                 />
   </url><url>
-    <loc>https://Sazerac-kk.github.io/p/%E6%95%99%E7%A8%8Bvscode-anaconda%E9%85%8D%E7%BD%AEpython%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/categories/anaconda/</loc>
-    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
-  </url><url>
     <loc>https://Sazerac-kk.github.io/categories/</loc>
-    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
+    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,7 +28,22 @@
                 href="https://Sazerac-kk.github.io/categories/"
                 />
   </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/deep-learning/</loc>
+    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
+  </url><url>
     <loc>https://Sazerac-kk.github.io/post/</loc>
+    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/tokenizer/</loc>
+    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/p/%E4%BD%BF%E7%94%A8sentencepiece%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E8%AF%AD%E6%96%99%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%88%86%E8%AF%8D%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/p/%E6%95%99%E7%A8%8Bvscode-anaconda%E9%85%8D%E7%BD%AEpython%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2024-10-08T23:02:07+08:00</lastmod>
+  </url><url>
+    <loc>https://Sazerac-kk.github.io/categories/anaconda/</loc>
     <lastmod>2024-10-08T23:02:07+08:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/categories/python/</loc>
@@ -42,9 +51,6 @@
   </url><url>
     <loc>https://Sazerac-kk.github.io/categories/vscode/</loc>
     <lastmod>2024-10-08T23:02:07+08:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/categories/deep-learning/</loc>
-    <lastmod>2024-10-02T23:02:07+08:00</lastmod>
   </url><url>
     <loc>https://Sazerac-kk.github.io/p/deep-learning-what-is-regularisation/</loc>
     <lastmod>2024-10-02T23:02:07+08:00</lastmod>
@@ -81,8 +87,6 @@
   </url><url>
     <loc>https://Sazerac-kk.github.io/p/math-typesetting/</loc>
     <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Sazerac-kk.github.io/p/</loc>
   </url><url>
     <loc>https://Sazerac-kk.github.io/tags/</loc>
     <xhtml:link
