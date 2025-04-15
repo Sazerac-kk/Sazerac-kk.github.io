@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>NLP on Sazerac</title>
+        <link>https://Sazerac-kk.github.io/categories/nlp/</link>
+        <description>Recent content in NLP on Sazerac</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Sazerac</copyright>
+        <lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/nlp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【论文阅读笔记】Attention is all your need</title>
+        <link>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0attention-is-all-your-need/</link>
+        <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0attention-is-all-your-need/</guid>
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151411743.png" alt="Featured image of post 【论文阅读笔记】Attention is all your need" /&gt;&lt;h2 id=&#34;attention-is-all-your-need&#34;&gt;Attention is all your need
+&lt;/h2&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/image-20250414211210753.png&#34; alt=&#34;image-20250414211210753&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;ul&gt;
+&lt;li&gt;发表于 &lt;strong&gt;NeurlIPS 2017&lt;/strong&gt; ，引用量 &lt;strong&gt;17W+&lt;/strong&gt; 。&lt;/li&gt;
+&lt;li&gt;Contribution：原本是应用于 翻译类 任务的，后被各种模型应用并拓展到非NLP领域。&lt;/li&gt;
+&lt;li&gt;主要创新点：
+&lt;ul&gt;
+&lt;li&gt;Transformer架构；&lt;/li&gt;
+&lt;li&gt;多头注意力机制；&lt;/li&gt;
+&lt;li&gt;Encoder 与 Decoder。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;background&#34;&gt;BackGround
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Word2vec：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Embedding：&lt;/p&gt;
+&lt;p&gt;Text representation 的目的是将非结构化数据转化为结构化数据，而其中有三种基本方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;One-hot representation | one-hot representation：一词一位&lt;/li&gt;
+&lt;li&gt;Integer encoding：整数编码&lt;/li&gt;
+&lt;li&gt;Word embedding：向量编码，有三种优势：(1)他可以通过低维向量来表达文本，而不是像one-hot和原字符一样长;(2)语义相近的词距离相近；(3)它用途广泛，可用于不同的任务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有两种主流的 Embedding 方法：Word2vec 和 GloVe。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Word2vec：
+这是一种获取单词向量的统计方法。2013年，谷歌的Mikolov提出了一套新的单词嵌入方法。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://easyai.tech/en/ai-definition/word2vec/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://easyai.tech/en/ai-definition/word2vec/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;该算法有2种训练模式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过上下文预测当前单词&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从当前单词中预测上下文&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GloVe是Word2vec方法的延伸，它结合了Global statistics 和Word2vec的基于上下文的学习。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;与分词器(SentencePiece)区别&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;项目&lt;/th&gt;
+          &lt;th&gt;分词器&lt;/th&gt;
+          &lt;th&gt;Word2Vec&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;功能&lt;/td&gt;
+          &lt;td&gt;把文本切分成词&lt;/td&gt;
+          &lt;td&gt;把词转换成向量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;先后顺序&lt;/td&gt;
+          &lt;td&gt;在前：得到词列表&lt;/td&gt;
+          &lt;td&gt;在后：学习词向量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;是否必须&lt;/td&gt;
+          &lt;td&gt;Word2Vec 需要明确的词单位进行训练，所以必须依赖分词器（尤其是中文）&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;methods&#34;&gt;Methods
+&lt;/h2&gt;&lt;h3 id=&#34;embedding&#34;&gt;Embedding
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Input Embedding 就是把自然语言转化为对应向量，此文章方法就是用Word2vec。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Positional Embedding 有两种方法：1)类似于 Input Embedding，训练一个模型；2)直接用函数表示。&lt;/p&gt;
+&lt;p&gt;2)的公示如下，纬度和Input Embedding相同，其中$pos$表示位置$i$表示纬度(也就是Input向量化后的个数)：
+&lt;/p&gt;
+$$
+  \begin{aligned} {P E_{( p o s, 2 i )}} &amp; {{}=s i n ( p o s / 1 0 0 0 0^{2 i / d_{\mathrm{m o d e l}}} )} \\ {P E_{( p o s, 2 i+1 )}} &amp; {{}=c o s ( p o s / 1 0 0 0 0^{2 i / d_{\mathrm{m o d e l}}} )} \\ \end{aligned}
+  $$&lt;p&gt;
+为什么这么设置？——可能只是为了计算方便。❌&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;问题&lt;/th&gt;
+          &lt;th&gt;回答&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用 sin 和 cos 是为了方便吗？&lt;/td&gt;
+          &lt;td&gt;❌ 不是，它是有数学含义和表达动机的&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;为什么 2i 用 sin，2i+1 用 cos？&lt;/td&gt;
+          &lt;td&gt;为了引入相位差、增强表达能力、增加维度间互补性&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;这种设计的好处是什么？&lt;/td&gt;
+          &lt;td&gt;正交性、相位信息、多频率合成、支持相对位置推理等&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;数学特征：$PE_{(pos,2i)}^2 + PE_{(pos,2i+1)}^2=1$&lt;/p&gt;
+&lt;p&gt;好处在于：a)对于比训练长度更长的句子，例如最长为20，但是输入为21，照样可以对位置进行编码；b)容易计算出相对位置。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不同纬度的embedding编码差异：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151130064.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250415112708866&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最终输入X：
+&lt;/p&gt;
+$$
+  X= Input+Postional
+  $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;self-attention&#34;&gt;Self-Attention
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;The four words &amp;ldquo;with power and sum&amp;rdquo; can be highly summarized&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;核心思想就是：&lt;strong&gt;“从关注全部到关注重点。”&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attention 机制最早是在计算机视觉里应用的，随后在 NLP 领域也开始应用了，真正发扬光大是在 NLP 领域，因为 2018 年 &lt;a class=&#34;link&#34; href=&#34;https://easyai.tech/ai-definition/bert/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BERT&lt;/a&gt; 和 GPT 的效果出奇的好，进而走红。而 &lt;a class=&#34;link&#34; href=&#34;https://easyai.tech/ai-definition/transformer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Transformer&lt;/a&gt; 和 Attention 这些核心开始被大家重点关注。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;三大优点：参数少、速度快、效果好。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决了RNN不能并行化的问题，使之不再依赖于上一步的输出。并且使长距离信息不再被弱化了，因为Attention只关注重点信息，就算文章很长，Attention也能抓住重点。&lt;/p&gt;
+&lt;p&gt;Attention 不依赖前一步，而是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一次性拿到所有输入（如一个句子中所有词）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对每个词都计算和其他所有词的相关性（打分）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用这些相关性加权组合输入&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样，&lt;strong&gt;所有词之间的依赖可以一起计算&lt;/strong&gt;，就能并行了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;🌟 &lt;strong&gt;举个例子&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输入句子（英文举例）：
+&lt;code&gt;&amp;quot;The cat sat on the mat&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;假设我们要计算第一个词 &lt;code&gt;&amp;quot;The&amp;quot;&lt;/code&gt; 的表示：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Attention 会做什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;它会对每个词计算和 &lt;code&gt;&amp;quot;The&amp;quot;&lt;/code&gt; 的相关性（打分），比如：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;词&lt;/th&gt;
+          &lt;th&gt;相关性分数（attention score）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The&lt;/td&gt;
+          &lt;td&gt;0.1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;cat&lt;/td&gt;
+          &lt;td&gt;0.3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;sat&lt;/td&gt;
+          &lt;td&gt;0.2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;on&lt;/td&gt;
+          &lt;td&gt;0.1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;the&lt;/td&gt;
+          &lt;td&gt;0.1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;mat&lt;/td&gt;
+          &lt;td&gt;0.2&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;然后用这些分数对各个词的表示进行加权求和，得出 &lt;code&gt;&amp;quot;The&amp;quot;&lt;/code&gt; 的新表示。&lt;/p&gt;
+&lt;p&gt;⚠️ 这里每个词的 attention 都可以&lt;strong&gt;同时计算&lt;/strong&gt;，因为它们只依赖输入序列，不需要等上一个词的结果！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attetion的原理&lt;/p&gt;
+&lt;p&gt;下面是使用 &lt;strong&gt;Encoder-Decoder&lt;/strong&gt; 模型的机器翻译的演示。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/1ab35-2019-11-13-attention-encoderdecoder.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Principle of Attention&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Attention既可以应用在 &lt;strong&gt;Encoder-Decoder&lt;/strong&gt; 模型中，也可以脱离其应用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Attention 的三步分解&lt;/p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/efa5b-2019-11-13-3step.png&#34; alt=&#34;Attention principle 3 step decomposition&#34; style=&#34;zoom:50%;&#34; /&gt;
+$$
+    \mathrm{A t t e n t i o n} ( Q, K, V )=\mathrm{s o f t m a x} \left( \frac{Q K^{T}} {\sqrt{d_{k}}} \right) V\\
+    Q(m,n),K(m,n),V(m,n)
+    $$&lt;p&gt;Step1:$Q$(query)与$K^T$(key)做矩阵乘法运算；&lt;/p&gt;
+&lt;p&gt;Step2:归一化Step1得到的权重(weight)；&lt;/p&gt;
+&lt;p&gt;Step3:Step2中得到的矩阵(m,m)乘$V$(Value)，得到矩阵纬度为(m,n)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解释一下上一步 $Q,K,V$ 怎么来的，是输入自然语言经过编码得到的 $X$ 转化而来的。&lt;/p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/1.jpg&#34; alt=&#34;1&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“&lt;strong&gt;多头注意力机制&lt;/strong&gt;”中的“多头”（&lt;strong&gt;multi-head&lt;/strong&gt;）是指&lt;strong&gt;将注意力机制拆成多个并行的子注意力机制（称为“头”）&lt;/strong&gt;，每个头都能从不同的子空间中学习信息。这种设计是 Transformer 架构中注意力机制的核心思想之一。
+&lt;/p&gt;
+$$
+    \begin{aligned} {{\mathrm{M u l t i H e a d}}} &amp; {{} {{} {{} ( Q, K, V )=\mathrm{C o n c a t} ( \mathrm{h e a d}_{1},..., \mathrm{h e a d}_{h} ) W^{O}}}} \\ {{}} &amp; {{} {{} {\mathrm{w h e r e ~ h e a d}_{i}=\mathrm{A t t e n t i o n} ( Q W_{i}^{Q}, K W_{i}^{K}, V W_{i}^{V} )}}} \\ \end{aligned} 
+    $$&lt;p&gt;
+&lt;strong&gt;解释一下：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;传统注意力机制中，我们有一个&lt;strong&gt;查询向量&lt;/strong&gt;（Query）、&lt;strong&gt;键向量&lt;/strong&gt;（Key）和&lt;strong&gt;值向量&lt;/strong&gt;（Value），通过这些向量计算注意力分数，然后加权求和得到结果。&lt;/p&gt;
+&lt;p&gt;多头注意力机制的做法是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;把输入的 Query、Key、Value 各自线性变换成多个“头”，比如 8 个；&lt;/li&gt;
+&lt;li&gt;每个头用自己的 Query/Key/Value 执行一次注意力机制，得到一个输出；&lt;/li&gt;
+&lt;li&gt;把所有头的输出拼接在一起，再做一次线性变换，得到最终的输出。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这样做的好处是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个头可以关注输入的不同部分（比如不同位置、不同特征维度），主要体现就是前期处理的线性函数不同；&lt;/li&gt;
+&lt;li&gt;增强模型表达能力，让模型可以从多个“角度”理解信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;形象比喻：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;可以把“多头”想象成一个人在读文章时有多个视角——比如一个视角关注人物关系，一个视角看时间线，一个视角看因果关系……最后把这些不同角度的信息整合在一起，理解更全面。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151131971.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;add--norm&#34;&gt;Add &amp;amp; Norm
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Add指的是 &lt;strong&gt;“残差连接”&lt;/strong&gt; ，通常用于解决多层网络训练中的问题，让其只关注当前的差异部分，在ResNet中经常用到：
+&lt;/p&gt;
+$$
+  Add = X + MultiHead(X)
+  $$&lt;p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151147133.png&#34; alt=&#34;Drawing 2025-04-15 11.42.33.excalidraw&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Norm指的是 Layer Normaliaztion，会将每一层的输入都转化成均值方差都一样的，这样可以加快收敛。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;feed-forward&#34;&gt;Feed Forward
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;两层：第一层使用一个 ReLU ，第二层直接输出
+&lt;/p&gt;
+$$
+  FFN(x) = mac(0,xW_1+b_1)W_2 + b_2
+  $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;虽然线性转换在不同位置之间相同，但是它们使用的参数层与层之间不同。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;部分&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;FFN结构&lt;/td&gt;
+          &lt;td&gt;两层全连接 + ReLU，中间升维再降维&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;应用方式&lt;/td&gt;
+          &lt;td&gt;每个位置独立处理、共享参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;参数变化&lt;/td&gt;
+          &lt;td&gt;不同层有不同参数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;计算优化角度&lt;/td&gt;
+          &lt;td&gt;可以视为两个 1x1 卷积&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;输入/输出维度&lt;/td&gt;
+          &lt;td&gt;输入输出都是 512，中间是 2048&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;这部分还是缺乏更深刻的理解，回去找资料学习一下。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mask&#34;&gt;MASK
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在输出再输入的过程中，进行MutiHeadAttention之前，需要进行一步MASK。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;原因：翻译工作一般是顺序翻译，在翻译当前信息时只能知道前面信息而不能知道后面的。
+&lt;/p&gt;
+$$
+  \mathrm{A t t e n t i o n} ( Q, K, V )=\mathrm{s o f t m a x} \left( \frac{Q K^{T}M} {\sqrt{d_{k}}} \right) V\\
+  Q(m,n),K(m,n),V(m,n)
+  $$&lt;p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151346873.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;decoder-结构&#34;&gt;Decoder 结构
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;两部分输入，一个是之前的输出再输入，一个是当前输入。&lt;/li&gt;
+&lt;li&gt;此部分 $K,V$ 矩阵来源于 Encoder 的输出，而 $Q$ 来源于Decoder第一步分的输出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Fu4m1F7Bd/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=ce96bf7a5ef8aa5c97afae092ead118a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;小白也能听懂的 transformer模型原理详解 self- attention 多头注意力机制 encoder decoder 机器翻译&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://easyai.tech/en/ai-definition/attention/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Attention mechanism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vaswani, Ashish, et al. &amp;ldquo;Attention is all you need.&amp;rdquo; &lt;em&gt;Advances in neural information processing systems&lt;/em&gt; 30 (2017).&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
