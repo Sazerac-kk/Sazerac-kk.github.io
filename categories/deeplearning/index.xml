@@ -362,8 +362,8 @@ $$
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;decoder-结构&#34;&gt;Decoder 结构
-&lt;/h2&gt;&lt;ul&gt;
+&lt;h3 id=&#34;decoder-结构&#34;&gt;Decoder 结构
+&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;两部分输入，一个是之前的输出再输入，一个是当前输入。&lt;/li&gt;
 &lt;li&gt;此部分 $K,V$ 矩阵来源于 Encoder 的输出，而 $Q$ 来源于Decoder第一步分的输出。&lt;/li&gt;
 &lt;/ul&gt;
