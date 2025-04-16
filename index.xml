@@ -7,7 +7,154 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Sazerac</copyright>
-        <lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 16 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【论文阅读笔记】LORA:LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</title>
+        <link>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0loralow-rank-adaptation-of-large-language-models/</link>
+        <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0loralow-rank-adaptation-of-large-language-models/</guid>
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151411743.png" alt="Featured image of post 【论文阅读笔记】LORA:LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS" /&gt;&lt;h2 id=&#34;lora简介&#34;&gt;LORA简介
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Authors：$Edward Hu^* Yelong Shen^*$ 等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Publication time：16 Oct 2021。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Motivation：使用全量参数微调模型变得难以轻易实现。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Idea：Low-Rank Adaptation(&lt;strong&gt;低秩适配（LoRA）&lt;/strong&gt;):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;冻结预训练模型的参数&lt;/strong&gt;：大模型在预训练阶段学到的参数（也就是权重）&lt;strong&gt;保持不变&lt;/strong&gt;，不再参与训练。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在每一层 Transformer 结构中，加入一些新的可训练矩阵&lt;/strong&gt;：这些矩阵是“&lt;strong&gt;低秩分解矩阵&lt;/strong&gt;”，也就是说它们的结构比较简单，参数很少。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;是：在执行下游任务（比如文本分类、问答、翻译等）时，只需要训练这些额外添加的小矩阵，而不需要微调整个大模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;好处&lt;/strong&gt;是：&lt;strong&gt;大大减少了训练所需的参数量&lt;/strong&gt;，从而节省计算资源和内存，同时还保持了模型的性能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504161412628.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250416141209571&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;优势：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;LoRA 是轻量级插件式微调方法；&lt;/li&gt;
+&lt;li&gt;可以高效切换任务，只换小模块，不换大模型；&lt;/li&gt;
+&lt;li&gt;训练快、显存省、部署快；&lt;/li&gt;
+&lt;li&gt;还能和其他方法一起搭配用，不冲突。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;什么是-low-rank&#34;&gt;什么是 Low-Rank？
+&lt;/h2&gt;&lt;h4 id=&#34;-一从直觉上讲&#34;&gt;✅ 一、从直觉上讲：
+&lt;/h4&gt;&lt;p&gt;我们经常会训练神经网络里的 &lt;strong&gt;线性变换矩阵（比如全连接层的权重矩阵）&lt;/strong&gt;，这些矩阵可能非常大，比如 $W∈R^{d×k}$，参数量是 $d^2$。&lt;/p&gt;
+&lt;p&gt;而 &lt;strong&gt;低秩矩阵&lt;/strong&gt; 的意思是：这个大矩阵其实可以被两个更小的矩阵相乘近似表示：&lt;/p&gt;
+&lt;p&gt;$W_{approx}=A⋅B$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$A \in \mathbb{R}^{d \times r}$&lt;/li&gt;
+&lt;li&gt;$B \in \mathbb{R}^{r \times k}$&lt;/li&gt;
+&lt;li&gt;$r≪min(d,k)$（这个 rrr 就是“rank”，秩）&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-二从-lora-的角度讲&#34;&gt;✅ 二、从 LoRA 的角度讲：
+&lt;/h3&gt;&lt;p&gt;在 Transformer 中，一个典型的线性变换是：&lt;/p&gt;
+&lt;p&gt;$y = W x$&lt;/p&gt;
+&lt;p&gt;LoRA 的做法是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;保留原来的 WWW 不变（冻结参数）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在旁边加上一个 &lt;strong&gt;低秩可训练项&lt;/strong&gt;：
+&lt;/p&gt;
+$$
+  y = W x + \Delta W x \quad \text{其中} \quad \Delta W = A \cdot B
+  $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;也就是说，LoRA 用了一个小的低秩矩阵 $A \cdot B$ 来对输出做一个小的“调整”，但不去动原始模型的主干参数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-三为什么用低秩&#34;&gt;✅ 三、为什么用“低秩”：
+&lt;/h3&gt;&lt;p&gt;因为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;效率高&lt;/strong&gt;：只需训练少量参数；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不易过拟合&lt;/strong&gt;：参数少、更稳定；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;足够灵活&lt;/strong&gt;：即使是低秩，理论和实践都证明它可以对模型输出产生有用的改动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;method&#34;&gt;Method
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;权重公式
+$$
+  h=W_{0} x+\Delta W x=W_{0} x+B A x
+  $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504161429831.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250416141209571&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;初始化：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;内容&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;A 初始化&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;正态分布随机数（标准初始化）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;B 初始化&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;全 0（初始输出为 0）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;输出缩放&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;把 $\Delta W x$ 缩放为 $\frac{\alpha}{r} \Delta W xr$ ，缩放是为了防止它影响太大或太小&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;目的&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;控制 LoRA 的干预程度、简化超参调节&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;实用技巧&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;直接设 $\alpha =$ r，无需精调，调节 $\alpha$ 就相当于调节学习率，设置与第一次尝试的 $r$ 最方便。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;代码：https://github.com/microsoft/LoRA&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2106.09685&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2106.09685&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>【论文阅读笔记】Attention is all your need</title>
         <link>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0attention-is-all-your-need/</link>
         <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
