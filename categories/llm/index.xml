@@ -54,8 +54,8 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;什么是-low-rank&#34;&gt;什么是 Low-Rank？
-&lt;/h2&gt;&lt;h4 id=&#34;-一从直觉上讲&#34;&gt;✅ 一、从直觉上讲：
-&lt;/h4&gt;&lt;p&gt;我们经常会训练神经网络里的 &lt;strong&gt;线性变换矩阵（比如全连接层的权重矩阵）&lt;/strong&gt;，这些矩阵可能非常大，比如 $W∈R^{d×k}$，参数量是 $d^2$。&lt;/p&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;-一从直觉上讲&#34;&gt;✅ 一、从直觉上讲：
+&lt;/h3&gt;&lt;p&gt;我们经常会训练神经网络里的 &lt;strong&gt;线性变换矩阵（比如全连接层的权重矩阵）&lt;/strong&gt;，这些矩阵可能非常大，比如 $W∈R^{d×k}$，参数量是 $d^2$。&lt;/p&gt;
 &lt;p&gt;而 &lt;strong&gt;低秩矩阵&lt;/strong&gt; 的意思是：这个大矩阵其实可以被两个更小的矩阵相乘近似表示：&lt;/p&gt;
 &lt;p&gt;$W_{approx}=A⋅B$&lt;/p&gt;
 &lt;p&gt;其中：&lt;/p&gt;
