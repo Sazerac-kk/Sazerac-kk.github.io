@@ -7,7 +7,926 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Sazerac</copyright>
-        <lastBuildDate>Wed, 16 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【论文阅读笔记】Parameter-Efficient Fine-Tuning</title>
+        <link>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0parameter-efficient-fine-tuning/</link>
+        <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0parameter-efficient-fine-tuning/</guid>
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151411743.png" alt="Featured image of post 【论文阅读笔记】Parameter-Efficient Fine-Tuning" /&gt;&lt;h2 id=&#34;轻量级微调方法的粗略比较&#34;&gt;轻量级微调方法的粗略比较
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;方法：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;全称&lt;/th&gt;
+          &lt;th&gt;核心思路&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;LoRA&lt;/td&gt;
+          &lt;td&gt;Low-Rank Adaptation&lt;/td&gt;
+          &lt;td&gt;在模型的部分权重矩阵中加入低秩可训练模块&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Adapter&lt;/td&gt;
+          &lt;td&gt;Adapter Module&lt;/td&gt;
+          &lt;td&gt;在模型层之间插入小型可训练模块&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Prompt Tuning&lt;/td&gt;
+          &lt;td&gt;Prompt Tuning / Prefix Tuning&lt;/td&gt;
+          &lt;td&gt;优化一组固定的“提示向量”来引导模型输出&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;BitFit&lt;/td&gt;
+          &lt;td&gt;Bias Term Fine-tuning&lt;/td&gt;
+          &lt;td&gt;仅微调偏置项（bias）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;QLoRA&lt;/td&gt;
+          &lt;td&gt;Quantized LoRA&lt;/td&gt;
+          &lt;td&gt;在量化模型上做LoRA微调，显著节省显存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Delta Tuning&lt;/td&gt;
+          &lt;td&gt;Delta Tuning&lt;/td&gt;
+          &lt;td&gt;微调某些部分（如 attention 层），而非全部参数&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比较&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;训练参数&lt;/th&gt;
+          &lt;th&gt;资源需求&lt;/th&gt;
+          &lt;th&gt;性能&lt;/th&gt;
+          &lt;th&gt;适用场景&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;LoRA&lt;/td&gt;
+          &lt;td&gt;少&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;通用任务微调&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Adapter&lt;/td&gt;
+          &lt;td&gt;少&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;中高&lt;/td&gt;
+          &lt;td&gt;多任务学习&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Prompt Tuning&lt;/td&gt;
+          &lt;td&gt;极少&lt;/td&gt;
+          &lt;td&gt;极低&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;文本生成/分类&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;BitFit&lt;/td&gt;
+          &lt;td&gt;极少&lt;/td&gt;
+          &lt;td&gt;极低&lt;/td&gt;
+          &lt;td&gt;中低&lt;/td&gt;
+          &lt;td&gt;简单任务或快速试验&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;QLoRA&lt;/td&gt;
+          &lt;td&gt;少&lt;/td&gt;
+          &lt;td&gt;低&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;大模型训练资源有限时&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Delta Tuning&lt;/td&gt;
+          &lt;td&gt;少&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;精调注意力等模块&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;全量微调的主要方式和效果&#34;&gt;全量微调的主要方式和效果
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;主要方式&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;简述&lt;/th&gt;
+          &lt;th&gt;应用方向&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;标准全量微调&lt;/td&gt;
+          &lt;td&gt;所有参数都参与训练&lt;/td&gt;
+          &lt;td&gt;单一任务定制、预训练模型适配&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;多阶段微调&lt;/td&gt;
+          &lt;td&gt;先通用任务再特定任务&lt;/td&gt;
+          &lt;td&gt;精细控制训练过程，提高泛化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;连续微调（Continual FT）&lt;/td&gt;
+          &lt;td&gt;模型随着时间不断适应新数据&lt;/td&gt;
+          &lt;td&gt;在线学习、多轮更新&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Domain-adaptive FT&lt;/td&gt;
+          &lt;td&gt;预训练模型迁移到特定领域数据上&lt;/td&gt;
+          &lt;td&gt;医疗、法律、金融等行业领域&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Instruction FT&lt;/td&gt;
+          &lt;td&gt;使用指令数据微调模型的多样响应能力&lt;/td&gt;
+          &lt;td&gt;多任务通用模型（如Alpaca、ChatGPT）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;横向对比&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;训练资源&lt;/th&gt;
+          &lt;th&gt;数据需求&lt;/th&gt;
+          &lt;th&gt;泛化能力&lt;/th&gt;
+          &lt;th&gt;应用场景&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;标准全量微调&lt;/td&gt;
+          &lt;td&gt;很高&lt;/td&gt;
+          &lt;td&gt;中高&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;单任务、专用模型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;多阶段微调&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;多任务迁移&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;持续微调&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;连续增长&lt;/td&gt;
+          &lt;td&gt;中高&lt;/td&gt;
+          &lt;td&gt;在线学习&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;领域微调&lt;/td&gt;
+          &lt;td&gt;中高&lt;/td&gt;
+          &lt;td&gt;领域数据&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;医疗、法律等垂直场景&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;指令微调&lt;/td&gt;
+          &lt;td&gt;很高&lt;/td&gt;
+          &lt;td&gt;多任务多样指令&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+          &lt;td&gt;通用LLM&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;关于ft的综述&#34;&gt;关于FT的综述
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;最新：&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2403.14608&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Parameter-Efficient Fine-Tuning for Large Models:  A Comprehensive Survey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PEFT:Parameter-Efficient Fine-Tuning，指的是寻来呢大模型一小部分参数，冻结剩下的部分。&lt;/li&gt;
+&lt;li&gt;两个关键问题：LLM的计算流(compuatation flow)和PEFT的基本知识。&lt;/li&gt;
+&lt;li&gt;四种类型(三种基本类型+混合类型)：
+&lt;ol&gt;
+&lt;li&gt;Additive algorithms：新增参数或者修改激活值，不改变原始参数？;&lt;/li&gt;
+&lt;li&gt;Selective approaches：只对原始模型中的&lt;strong&gt;部分参数&lt;/strong&gt;进行微调，而不是全部参数。例如选择某些层、注意力头或特定模块进行训练。;&lt;/li&gt;
+&lt;li&gt;Reparamenterization PEFT：通过将模型参数转化为某种&lt;strong&gt;低维空间的参数表示&lt;/strong&gt;进行训练，训练后再映射回原参数空间，从而减少训练成本且&lt;strong&gt;不影响推理速度&lt;/strong&gt;。例如LoRA;&lt;/li&gt;
+&lt;li&gt;Hybrid methods：上述方法的组合运用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504171306720.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250417130633161&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;两个问题&#34;&gt;两个问题
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Computation flow for LLaMA&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;LLaMA 的预训练包含三个部分：Embedding block、很多 Decoder block、Head block(linear and softmax layer).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504171316180.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250417131517827&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Embedding layer 作用是将自然语言文本转化为离散化向量&lt;/p&gt;
+&lt;p&gt;Decoder layer 是由一个多头注意力机制层(Mutihead Self-Attention)和一个前馈神经网络构成(FFN)。&lt;/p&gt;
+&lt;p&gt;输入为 $x\in R^{b \times l \times d}$ 是input token，经过三个线性转化矩阵 $W_Q,W_K,W_V$ 转化为 $query(Q),key(K),value(V)$ ，同样的，作为类Transformer模型的输入，还缺少位置编码，LLaMA使用的是(RoPE,Rotary Postional Embedding)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Embedding&amp;rsquo;s MSA 层的公式：
+&lt;/p&gt;
+$$
+      Q,K,V = R(W_q x),R(W_k x),W_v x \\
+      SA(x) = Softmax(\frac{QK^T}{\sqrt{d_{head}}})V\\
+      MSA(x) = [SA_1(x);SA_2(x);...;SA_k(x)]
+      $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Embedding&amp;rsquo;s FFN层：
+&lt;/p&gt;
+$$
+      F F N_{L L a M a} ( x )=W_{u p} ( S i L U ( W_{g a t e} x ) \odot( W_{d o w n} x ) )+x
+      $$&lt;p&gt;
+另外三个权重矩阵 $W_{up},W_{down},W_{gate}$ 。使用的是SiLU激活函数($x\times \sigma(x)$)
+&lt;/p&gt;
+$$
+      SiLU(x)=x⋅σ(x)= \frac{x}{1+e^{-x}}
+      $$&lt;p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504171429252.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250417142906201&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;为什么使用 SiLU ？&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;激活函数&lt;/th&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;特性&lt;/th&gt;
+          &lt;th&gt;缺点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;ReLU&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;$max⁡(0,x)$&lt;/td&gt;
+          &lt;td&gt;简单，计算高效&lt;/td&gt;
+          &lt;td&gt;梯度消失（dead ReLU）问题&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;GELU&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;$x \cdot \Phi(x)$&lt;/td&gt;
+          &lt;td&gt;保留小输入信息，有较强表达能力&lt;/td&gt;
+          &lt;td&gt;计算复杂，收敛速度较慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;SiLU&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;$x \cdot \sigma(x)$&lt;/td&gt;
+          &lt;td&gt;平滑、训练稳定、表达强&lt;/td&gt;
+          &lt;td&gt;比 ReLU 慢，但比 GELU 快&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后一层就是简单的线性全连接和softmax&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Linear&lt;/code&gt;（全连接层）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作用：把 Transformer 的隐藏向量（维度比如 4096）&lt;strong&gt;映射到词汇表大小的向量&lt;/strong&gt;（比如 vocab size 是 32000）。&lt;/li&gt;
+&lt;li&gt;通常我们称这个为 &lt;strong&gt;输出投影层（output projection layer）&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;输出形状变为 [batch_size,seq_len,vocab_size].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Softmax&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对 linear 的输出进行&lt;strong&gt;指数化 + 归一化&lt;/strong&gt;，得到词汇表上每个 token 的&lt;strong&gt;概率分布&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;也就是说，softmax 的目的是：
+&lt;/p&gt;
+$$
+        \text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}
+        $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用于下一步做预测（如 argmax 取概率最大词）或者计算 loss（如 cross-entropy）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Overview on Parameter Efficient Fine Tuning&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;additive: use additional tunable modules or parameters.&lt;/li&gt;
+&lt;li&gt;selective: use small subsize of parameters from the backbone model.&lt;/li&gt;
+&lt;li&gt;reparamenterized: use additional low-rank parameters during training ,and merge the model.&lt;/li&gt;
+&lt;li&gt;hybrid:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504171459669.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250417145914612&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LLM 评估的下游任务&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;General Language Understanding Evaluation(GLUE)：CoLA, SST-2, MRPC, STS-B, QQP, MNLI, QNLI, RTE, and WNLI&lt;/li&gt;
+&lt;li&gt;S&lt;/li&gt;
+&lt;li&gt;促进高级提问的研究？深入了解主题和表达语言(foster research in advanced question-answering)：OpenBookQA&lt;/li&gt;
+&lt;li&gt;Daily scenarios：PIQA&lt;/li&gt;
+&lt;li&gt;Social commonsense intelligence：Social QA&lt;/li&gt;
+&lt;li&gt;aptly concluding sentences:HellaSwag&lt;/li&gt;
+&lt;li&gt;binary responses for QA: BoolQ&lt;/li&gt;
+&lt;li&gt;WinoGrande: 44000 problems&lt;/li&gt;
+&lt;li&gt;Multiple-choice: ARC-easy&lt;/li&gt;
+&lt;li&gt;ARC-challenge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Evaluation Benchmarks for PEFT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;performance, convergence, efficiency, combinability, scalability, and transferability.&lt;/p&gt;
+&lt;p&gt;性能，收敛，效率，可组合性，可伸缩性和可传递性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SharedGPT: real-world interactions with ChatGPT.focusing on the accuracy of responses and efficiency in handling requests.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Microsoft Azure Function Trace: the computational demands driven by events.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gamma process: realistic scenarios&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;peft&#34;&gt;PEFT
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Additive PEFT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;全量微调开销过大并且可能破坏LLM原有的能力&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;冻结预训练模型并且仅引入并训练少量参数(战略性的布置参数)。大量减少存储、内存、和计算资源消耗&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;几个典型的 Additive 算法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Adapters: 在 Transformer 块中插入 small adapter layers。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Adapter modules yield a compact and extensible model; they add only a few trainable parameters per task, and new tasks can be added without revisiting previous ones.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;微调一般比基于特征的迁移(feature-based transfer)，也就是固定预训练模型参数不变，但是提取中间层的特征值，然后把特征输入新的模型中，微调表现因为参数改变要更好。&lt;/p&gt;
+&lt;p&gt;下面是Adater的原理，整体可表示为 $ψ_{w,v}(x)$ ，其中 $w$ 冻结，训练 $v$ ，也就是下面的 Adapter 。$W_{down}$ 负责降维，$W_{up}$ 负责升维，这样可以减小训练参数量
+&lt;/p&gt;
+$$
+        A d a p t e r ( x )=W_{\mathrm{u p}} \sigma( W_{\mathrm{d o w n}} x )+x.
+        $$&lt;p&gt;
+σ 是非线性激活函数，如 ReLU 或 GELU&lt;/p&gt;
+&lt;p&gt;Adapter的两个特点：a small number of parameters； a near-identity initialization(指与相较于全量模型，不然训练可能失败).&lt;/p&gt;
+&lt;p&gt;瓶颈架构：W_up 和 W_down 分别代表降秩和升秩。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504211440503.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250421144048956&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;种类&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504211551125.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250421155100061&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Serial Adapter(The first)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AdapterFusion: inserted only after the ’Add &amp;amp; Norm’ following the &lt;strong&gt;FFN&lt;/strong&gt; layer to enhance efficiency.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;上述方法利用 bottlenecks 来降低参数量，但是可能减弱模型的并行性，而且需要在效率和准确率上权衡。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;即使 Transformer 的主干部分可以高度优化（如 fused attention + FFN），adapter 通常是单独模块，&lt;strong&gt;无法和主层融合加速&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;所以 adapter 进一步限制了层之间的并行流水线，&lt;strong&gt;尤其在多卡并行（Pipeline Parallelism）中表现更明显&lt;/strong&gt;。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;parallel adapter: use a addative adapter layers into a parallel side-network.&lt;/p&gt;
+&lt;p&gt;CIAT，CoDA，KronA&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CoDA: CoDA uses a soft top-k selection process that identifies k important tokens in each layer, which will be processed by both the frozen pre-trained Transformer layer and the adapter branch to maintain model accuracy.&lt;/p&gt;
+&lt;p&gt;根据 CoDA 的设计，模型在每一层中使用 soft top-k 机制选择出最重要的 k 个 token，这些 token 会被送入冻结的预训练 Transformer 层进行处理，而所有的 token 都会经过 adapter 分支。这种设计的核心思想是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;重要的 token&lt;/strong&gt;：通过 soft top-k 机制识别，送入计算开销较大的预训练 Transformer 层，以保持模型的性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;其余的 token&lt;/strong&gt;：仅通过计算开销较小的 adapter 分支处理，从而节省计算资源。&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/zjc910997316/article/details/131437238?utm_source=chatgpt.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CSDN Blog+1ar5iv+1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这种策略使得模型能够在保持准确率的同时，实现推理速度的显著提升。实验表明，CoDA 在多个任务中相较于标准的 adapter 方法，推理速度提高了 2 到 8 倍，且准确率损失较小或没有损失。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;multi-task learning strategies: AdapterFusion , AdaMix , PHA , AdapterSoup , MerA , and Hyperformer .&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Soft Prompt:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Soft Prompt（软提示）&lt;/strong&gt; 是一种 &lt;strong&gt;轻量微调&lt;/strong&gt;（parameter-efficient tuning）方法，核心思想是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不改动模型本身的参数，只在输入序列前面加上一组 &lt;strong&gt;可学习的向量（soft prompts）&lt;/strong&gt;，来“引导”预训练模型更好地完成下游任务。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Prefix-tuning: introduce learnable vectors that are prepended to keys $k$ and value $v$ across all Transformer layers.&lt;/p&gt;
+&lt;p&gt;reparameterization strategy: 使用 MLP layer 生成 prefix vectors 而不是训练 prefix。(不直接学习前缀向量本身，而是 &lt;strong&gt;学习一个生成前缀向量的 MLP&lt;/strong&gt; )。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504211641783.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250421164124733&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;🏗️ 构建方式详解&lt;/p&gt;
+&lt;p&gt;🧩 1. 输入：Prefix Token IDs（虚拟 token）&lt;/p&gt;
+&lt;p&gt;你首先定义一组 &lt;strong&gt;prefix token ids&lt;/strong&gt;，比如长度为 10 的 prefix token。它们不是实际词汇，只是 placeholder，用于表示要插入的 prefix。&lt;/p&gt;
+&lt;p&gt;这些 token 会被送入一个 &lt;strong&gt;Embedding 层&lt;/strong&gt;，得到一个 shape 为：
+&lt;/p&gt;
+$$
+          \text{prefix\_embeddings} \in \mathbb{R}^{\text{prefix\_length} \times d}
+          $$&lt;p&gt;
+其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;prefix_length&lt;/code&gt; 是 prefix token 的数量（如 10）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;d&lt;/code&gt; 是隐藏层维度（例如 768）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;🔁 2. MLP：生成每层的 key 和 value 前缀向量&lt;/p&gt;
+&lt;p&gt;然后，把这些嵌入向量送入一个 &lt;strong&gt;共享的 MLP（多层感知机）&lt;/strong&gt;，用于为所有 Transformer 层生成 prefix vectors。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;常见结构如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MLP&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Sequential&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linear&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hidden_dim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tanh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linear&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hidden_dim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num_layers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 2 for key &amp;amp; value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;输出的形状就是：
+&lt;/p&gt;
+$$
+          \text{prefix\_output} \in \mathbb{R}^{\text{prefix\_length} \times \text{num\_layers} \times 2 \times d}你可以 reshape 成：
+          $$$$
+          \text{prefix\_kv}[l] = \{\text{key\_prefix}^{[l]}, \text{value\_prefix}^{[l]}\} \in \mathbb{R}^{\text{prefix\_length} \times d}
+          $$&lt;p&gt;这些就是我们要加到每一层 Transformer 的 attention 机制里的 prefix keys 和 values。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;🛠️ 3. 插入注意力机制（跨所有层）&lt;/p&gt;
+&lt;p&gt;对于 Transformer 的每一层，在计算 Self-Attention 时：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将 prefix key、value 拼接在原始 key、value 之前：
+&lt;/p&gt;
+$$
+            k&#39; = \text{concat}(k_{\text{prefix}}, k_{\text{input}})
+            $$$$
+            v&#39; = \text{concat}(v_{\text{prefix}}, v_{\text{input}})
+            $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;query 仍然是原始输入的 query。&lt;/p&gt;
+&lt;p&gt;P-tuning v2 移除了reparameterization，并将其应用到了更大规模的NLP任务上&lt;/p&gt;
+&lt;p&gt;APT 引入了一个自适应门机制(adaptive gate mechanism)来加强 Prefix-tuning&lt;/p&gt;
+&lt;p&gt;p-tuning 和 prompt-tuning 将 prompt vector 只应用到了最开始的 embedding layer&lt;/p&gt;
+&lt;p&gt;Xprompt 利用层次结构花剪枝(hierarchically structured pruning)，去除负面的token&lt;/p&gt;
+&lt;p&gt;IDPC(InstanceDependent Prompt Generation): 使用轻量提示生成器(ligthweight prompt generating)基于每个输入句子生成提示&lt;/p&gt;
+&lt;p&gt;LPT: 也是通过生成器生成实例感知prompt，但是这个prompt token只在中间层添加，加快了训练速率(&lt;strong&gt;梯度只需要计算从插入 prompt 的位置往后的部分&lt;/strong&gt;；但是在embedding layer添加会计算整个过程的剃度)。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;那性能为什么还能保持甚至更好？
+&lt;ul&gt;
+&lt;li&gt;前面层学到的是通用表示，保留它们反而避免“过拟合”；&lt;/li&gt;
+&lt;li&gt;prompt 作用于靠近输出的语义层，信息更集中、更有针对性；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;短路径反传可以更专注地调整 prompt，而不是被前面层的信息干扰&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;APrompt 除了在 key 和 value 输入加入prefix， 在 key， value， 和 query 的 self-attention 模块加入可学习的矩阵prompt，用来微调注意力。$\text{Attention}(Q, K, V) = \text{softmax}\left( \frac{QK^\top}{\sqrt{d_k}} + B \right)V$&lt;/p&gt;
+&lt;p&gt;剩下的: SPoT, TPT, InfoPrompt, PTP, DePT, SMoP, IPT&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other Additive Methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IA: 引入了三个&lt;strong&gt;可学习的重标定（rescaling）向量&lt;/strong&gt; $l_k \in R^{d_k}$ ,$l_v \in R^{d_v}$, $l_{ff}$
+&lt;/p&gt;
+$$
+          S A ( x )=S o f t m a x ( \frac{Q ( l_{k} \odot K^{T} )} {\sqrt{d_{h e a d}}} ) ( ( l_{v} \odot V ).
+          $$&lt;p&gt;
+In FFN, the rescaling can be denoted as:
+&lt;/p&gt;
+$$
+          F F N_{T r a n s f o m e r} ( x )=W_{u p} ( l_{\mathrm{f f}} \odot\sigma( W_{d o w n} x ) ),
+          $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SSF（Scale and Shift Fine-tuning）&lt;/strong&gt; 是一种轻量级微调方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在每个 MSA、FFN 和 LayerNorm 操作之后插入一个 &lt;strong&gt;SSF-ADA 层&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;SSF-ADA 层仅做 &lt;strong&gt;线性缩放和偏移（scale &amp;amp; shift）&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;微调时只训练这些层，主干模型参数保持冻结；&lt;/li&gt;
+&lt;li&gt;推理时这些层可以融合进原始模型参数中，&lt;strong&gt;不引入额外推理开销&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它类似于 IA³，但操作更加简洁高效。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504212025702.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250421202531654&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select PEFT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;不额外训练参数，而是训练一小部分已有的参数来加强对下游任务表现。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于大小为 $n$ 的参数 $\theta = { \theta_1,\theta_2,&amp;hellip;,\theta_n }$ ，有一个掩码 mask $M={ m_1,m_2,&amp;hellip;,m_n }$ ， $m_i$ 是 $1\ or\ 2$ ，表示这些相关参数是否被选择用来微调。下面是参数更新公式：
+&lt;/p&gt;
+$$
+     \theta_{i}^{\prime}=\theta_{i}-\eta\cdot m_{i} \cdot\frac{\partial\mathcal{L}} {\partial\theta_{i}}
+     $$&lt;p&gt;
+$\eta$ 表示的是学习率&lt;/p&gt;
+&lt;p&gt;下面是finetune的一办公式：
+&lt;/p&gt;
+$$
+     \operatorname* {m i n}_{\theta_{\tau}} \; \frac{1} {N} \sum_{n=1}^{N} C \left( f_{\tau} ( x_{\tau}^{( n )} ; \theta_{\tau} ), y_{\tau}^{( n )} \right)+\lambda R ( \theta_{\tau} )
+     $$&lt;p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504221022860.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250422102214724&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些具体方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Diff Puning:&lt;/p&gt;
+&lt;p&gt;参数公式为：$\theta_{task}=\theta_{pretrained}+\delta_{task}$ ，只训练 $\delta_{task}$ ，这个diff向量是由 $L_0-norm\ penalty$ 正则化完成的，&lt;/p&gt;
+&lt;p&gt;which results in the following empirical risk minimization problem,
+&lt;/p&gt;
+$$
+        \operatorname* {m i n}_{\boldsymbol{\delta}_{\tau}} \; L ( \mathcal{D}_{\tau}, f_{\tau}, \boldsymbol{\theta}+\boldsymbol{\delta}_{\tau} )+\lambda R ( \boldsymbol{\theta}+\boldsymbol{\delta}_{\tau} ),
+        $$&lt;p&gt;
+where for brevity we define $L ( \mathcal{D}&lt;em&gt;{\tau}, f&lt;/em&gt;{\tau}, \theta_{\tau} )$ as
+&lt;/p&gt;
+$$
+        L ( {\mathcal{D}}_{\tau}, f_{\tau}, \boldsymbol{\theta}_{\tau} )=\frac{1} {N} \sum_{n=1}^{N} C \left( f_{\tau} ( x_{\tau}^{( n )} ; \boldsymbol{\theta}_{\tau} ), y_{\tau}^{( n )} \right).
+        $$&lt;p&gt;
+并且使用 $L_0-norm\ penalty$ 正则化：&lt;/p&gt;
+$$
+        R ( \boldsymbol{\theta}+\boldsymbol{\delta}_{\tau} )=\| \boldsymbol{\delta}_{\tau} \|_{0}=\sum_{i=1}^{d} \mathbb{1} \{\boldsymbol{\delta}_{\tau, i} \neq0 \}.
+        $$&lt;p&gt;但是这个正则化式子很难优化的，因此采用&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1712.01312&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Louizos et al., 2018&lt;/a&gt;&lt;strong&gt;通过“可导 mask 向量”来实现 L0 稀疏性正则化的方法&lt;/strong&gt;,&lt;/p&gt;
+&lt;p&gt;将 $\delta_\tau$ 转化为一个二进制的 mask 向量与一个稠密权重矩阵向量&lt;em&gt;点乘&lt;/em&gt;:
+&lt;/p&gt;
+$$
+        \boldsymbol{\delta}_{\tau}=\mathbf{z}_{\tau} \odot\mathbf{w}_{\tau}, \quad\ \mathbf{z}_{\tau} \in\{0, 1 \}^{d}, \mathbf{w}_{\tau} \in\mathbb{R}^{d}.
+        $$&lt;p&gt;
+因此该问题就转化成了:
+&lt;/p&gt;
+$$
+        \operatorname* {m i n}_{\boldsymbol{\alpha}_{\tau}, \mathbf{w}_{\tau}} \ \mathbb{E}_{\mathbf{z}_{\tau} \sim p ( \mathbf{z}_{\tau} ; \boldsymbol{\alpha}_{\tau} )} \big[ L ( \mathcal{D}_{\tau}, f_{\tau}, \boldsymbol{\theta}+\boldsymbol{\delta}_{\tau} )+\lambda\| \boldsymbol{\delta}_{\tau} \|_{0} \big].
+        $$&lt;p&gt;
+其中 $p(z_\tau;\alpha_\tau)$ 是由 $\alpha_\tau$ 初始化的伯努利函数。&lt;/p&gt;
+&lt;p&gt;伯努利概率的初始化公式是：
+&lt;/p&gt;
+$$
+        p(z_\tau^{(i)} = 1) = \sigma(\alpha_\tau^{(i)}) = \frac{1}{1 + \exp(-\alpha_\tau^{(i)})}
+        $$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\alpha_\tau^{(i)}$ 是一个 &lt;strong&gt;可学习参数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\sigma(\cdot)$ 是 &lt;strong&gt;sigmoid 函数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在训练中不是直接对 $z_\tau^{(i)} \sim \text{Bernoulli}(p)$ 做采样（因为不可导）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;而是用 &lt;strong&gt;Hard Concrete Relaxation&lt;/strong&gt; 来进行近似采样&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hard-Concrete distribution，利用其将 $z_τ$ 被定义为样品 $u$ 与均匀分布的确定性和（子）可区分函数
+&lt;/p&gt;
+$$
+        \mathbf{u} \sim U ( \mathbf{0}, \mathbf{1} ),
+        $$&lt;p&gt;
+&lt;/p&gt;
+$$
+        {\bf s}_{\tau}=\sigma\left( \operatorname{l o g} {\bf u}-\operatorname{l o g} ( 1-{\bf u} )+\alpha_{\tau} \right),
+        $$&lt;p&gt;
+&lt;/p&gt;
+$$
+        \bar{\mathbf{s}}_{\tau}=\mathbf{s}_{\tau} \times( r-l )+l,
+        $$&lt;p&gt;
+&lt;/p&gt;
+$$
+        {\bf z}_{\tau}=\operatorname* {m i n} ( {\bf1}, \operatorname* {m a x} ( {\bf0}, \bar{\bf s}_{\tau} ) ).
+        $$&lt;p&gt;从而将惩罚项写成：
+&lt;/p&gt;
+$$
+        \mathbb{E} \left[ \left\| \boldsymbol{\delta}_{\tau} \right\|_{0} \right]=\sum_{i=1}^{d} \sigma\left( \boldsymbol{\alpha}_{\tau, i}-\operatorname{l o g} {\frac{-l} {r}} \right)
+        $$&lt;p&gt;
+最终的问题转化为求：
+&lt;/p&gt;
+$$
+        \operatorname* {m i n}_{\boldsymbol{\alpha}_{\tau}, \mathbf{w}_{\tau}} \mathbb{E}_{\mathbf{u} \sim U [ \mathbf{0}, \mathbf{1} ]} \left[ L ( \mathcal{D}_{\tau}, f_{\tau}, \boldsymbol{\theta}+\mathbf{z}_{\tau} \odot\mathbf{w}_{\tau} ) \right] \,+\lambda\sum_{i=1}^{d} \sigma\left( \boldsymbol{\alpha}_{\tau, i}-\operatorname{l o g} \frac{-l} {r} \right),
+        $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;一些 Unstructural Masking:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Diff pruning&lt;/p&gt;
+&lt;p&gt;PaFi: 选择绝对值最小的模型训练&lt;/p&gt;
+&lt;p&gt;FishMask: 利用近似 Fisher 信息矩阵（Fisher Information Matrix, FIM）来衡量模型参数对当前任务的重要性，从而进行“参数选择”或“参数屏蔽”。$F_i \approx \mathbb{E}_{x \sim \mathcal{D}} \left[ \left( \frac{\partial \mathcal{L}(x)}{\partial \theta_i} \right)^2 \right]$ ,此种方式就是根据任务语料进行mask选取，不能自我优化。&lt;/p&gt;
+&lt;p&gt;Fish-Dip: 和FishMask类似的mask选择方法，但是mask可优化&lt;/p&gt;
+&lt;p&gt;LTSFT: 选择在初始微调阶段变化最大的参数的子集以形成掩码 M&lt;/p&gt;
+&lt;p&gt;SAM: 提出了一种二阶近似(second-order aproximation)方法，该方法通过可分析可解决的优化函数近似于原始问题，以帮助确定参数掩码。1）获取当前任务的 loss 和 gradient；2）用二阶近似计算每个参数的得分：$score_i = g_i^2 / (2 * H_{ii})$ ；3）选出 score 前 top-k 个参数；4）构造 mask m，使得只更新这些参数（其余为 0）；5）微调时只更新 mask 指定的参数。&lt;/p&gt;
+&lt;p&gt;Child-tuning: 提出两种方式选择子网络&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;但是上面的都是非结构化方法，会导致非零蒙版的分布不均匀，并在实现PEFT时降低了硬件效率。下面是一些结构化的:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Diff-pruning: 通过将权重参数分配到本地组并将其策略性地消除，提出了一种结构化的修剪策略。&lt;/p&gt;
+&lt;p&gt;FAR: 将FFN的权重分组到 transformer 块中，然后排序并用 $L_1$ 归一化选择。&lt;/p&gt;
+&lt;p&gt;Bitfit: 仅微调每个DNN的偏执参数，但是大模型会失败&lt;/p&gt;
+&lt;p&gt;S-BitFit: 应该是改良了这个方法&lt;/p&gt;
+&lt;p&gt;Xattn Tuning: 仅微调cross-attention layers。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reparameterized PEFT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reparameterization(重新参数化) 代表通过转换其参数将模型的体系结构从一个变为另一个变为另一个。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一般是构造一个低秩矩阵，在能够微调的同时，实现效率目标。训练好后合并，一般来说和原始的参数规模一致。
+&lt;/p&gt;
+$$
+     W_{\mathrm{m e r g e d}}=W_{\mathrm{b a s e}}+\alpha\cdot W_{\mathrm{L o R A}}=W_{\mathrm{b a s e}}+\alpha\cdot B A
+     $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些工作(Intrinsic dimensionality explains the effectiveness of language model fine-tuning)表明，模型表现出异常低的内在纬度(也就是说一个模型权重 $W_0$ 可由两个低秩矩阵相乘来表示 $A^{len \times r}B^{r\times d}$ )，&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最代表性工作就是 &lt;strong&gt;LoRA&lt;/strong&gt;
+&lt;/p&gt;
+$$
+     h_{o u t}=W_{0} h_{i n}+\frac{\alpha} {r} \Delta W h_{i n}=W_{0} h_{i n}+\frac{\alpha} {r} W_{\mathrm{u p}} W_{\mathrm{d o w n}} h_{i n},
+     $$&lt;p&gt;
+其中 $\alpha$ 表示缩放因子。在初始化时，$W_{up}$ 为高斯初始化，但是 $W_{down}$ 初始化为0矩阵，为了使初始化时模型与原模型相同。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他代表工作：&lt;/p&gt;
+&lt;p&gt;LoRA:&lt;/p&gt;
+&lt;p&gt;DyLORA: 解决了选择合适的秩 $r$ 的问题&lt;/p&gt;
+&lt;p&gt;AdaLoRA: 从新计算 $\Delta W$ 为 $P \Lambda Q$ ，$\Lambda$ 为对角矩阵，里面是奇异值(singular values) $\lambda_i$ ，训练 $P, \Lambda , Q$ 三个矩阵，奇异值按照重要性分数进行修剪(which are constructed from the moving average of the magnitude of the gradient-weight product.)。其中也有惩罚项用来鼓励PQ正交 $R ( P, Q )=\left| P^{T} P-I \right|&lt;em&gt;{F}^{2}+\left| Q Q^{T}-I \right|&lt;/em&gt;{F}^{2} $ ，这种有奇异值的LoRA也是一种调整秩大小的方式。&lt;/p&gt;
+&lt;p&gt;SoRA: 认为AdaLoRA启发性的公式没有严谨数学证明，SoRA 没有鼓励 P 和 Q 保持正交，相反 “门” g 使用L1损失的近端梯度迭代的变化进行更新。$h_{o u t}=W_{\mathrm{u p}} ( g \odot( W_{\mathrm{d o w n}} h_{i n} ) ) $&lt;/p&gt;
+&lt;p&gt;很多的改进型：LaplaceLoRA, LoRA Dropout, LoRA+, MoSLoRA, LoRAHub, MOELoRA&lt;/p&gt;
+&lt;p&gt;其他非LoRA方法:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Compacter：
+&lt;/p&gt;
+$$
+       y = W_x+b\\
+       W = \sum_{i=1}^{n}A_i\bigotimes B_i
+       $$&lt;p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504221604777.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250422160440654&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;两个先前工作的出的结论: 1)低层的 adpters 对结果影响不大；2)跨层共享适配器会导致某些任务的性能相对较小。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在adapters之间共享参数 $A_i$ ，这些 $A_i$ 用来存储一般信息。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504221616839.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250422161605785&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对 $B_i$ 采用 low-rank subspace 技术，$B_i = s_i t_i^T$ ，其中 $s_i \in E^{\frac{k}{n} \times r}$ ,$t_i \in E^{t \times \frac{k}{n}}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样最终 adapter 的 LPHM 层的权重计算式：
+&lt;/p&gt;
+$$
+       \boldsymbol{W} \!=\! \sum_{i=1}^{n} \boldsymbol{A}_{i} \! \otimes\! \boldsymbol{B}_{i} \!=\! \sum_{i=1}^{n} \boldsymbol{A}_{i} \! \otimes\! ( \boldsymbol{s}_{i} \boldsymbol{t}_{i}^{\top} ).
+       $$&lt;p&gt;
+Adapter层:
+&lt;/p&gt;
+$$
+       A^{l} ( \boldsymbol{x} ) \!=\! \mathrm{L P H M}^{U^{l}} ( \mathrm{G e L U} ( \mathrm{L P H M}^{D^{l}} ( \boldsymbol{x} ) ) ) \!+\! \boldsymbol{x}
+       $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;KronA，KAdaptation也采用了Kronecker product&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HiWi 也是在 Adapter 上改的，$W&amp;rsquo; = W + \sigma(WW_{down})W_{up}$ ，W 应该是预训练模型的权重&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;VeRA: 采用了冻结并在层间共享的低秩矩阵 $W_{up}\ and\ W_{down} $ ，学习更小的对角矩阵 $\Lambda_b\ and\ \Lambda_d$ ，也就是：
+&lt;/p&gt;
+$$
+       h_{out}= W_0 h_{in} + \Lambda_b W_{up} \Lambda_d W_{down} h_{in}
+       $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DoRA: 有点复杂，以后再看&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504221635853.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250422163501761&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hybrid PEFT&lt;/p&gt;
+&lt;p&gt;UniPELT: 集成了 LoRA，prefix-tuning，和adapters在transformer的每一层&lt;/p&gt;
+&lt;p&gt;S4: 集成了多种方法，包括Adapter (A), Prefix (P), BitFit (B), and LoRA (L))&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;四大设计原则：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;分层分组：Spindle Grouping&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将 Transformer 的层划分为四个组 G1,G2,G3,G4G1,G2,G3,G4。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每组中的层有相似的行为，因此&lt;strong&gt;应该使用相似的微调策略&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;参数均分：Uniform Parameter Allocation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;微调时，在不同组之间&lt;strong&gt;均匀分配可训练参数数量&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;全部调参：Tune All Groups&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;四个组都需要参与调参，不跳过任何一组。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;异策略分配：Different PEFTs for Different Groups&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在不同组中使用&lt;strong&gt;不同组合的 PEFT 方法&lt;/strong&gt;，而不是统一策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最优组合策略（在设计空间中的最佳结果）：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;分组&lt;/th&gt;
+          &lt;th&gt;使用的 PEFT 方法组合&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;G₁&lt;/td&gt;
+          &lt;td&gt;Adapter + LoRA&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;G₂&lt;/td&gt;
+          &lt;td&gt;Adapter + Prefix&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;G₃&lt;/td&gt;
+          &lt;td&gt;Adapter + Prefix + BitFit&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;G₄&lt;/td&gt;
+          &lt;td&gt;Prefix + BitFit + LoRA&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;MAM Adapter:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文:&lt;/p&gt;
+&lt;p&gt;Parallel Adapter, which places adapter layers alongside specific layers (SA or FFN) instead of after them; Multi-head Parallel Adapter, which divides the parallel adapter into multiple heads, each affecting the head attention output in SA; and Scaled Parallel Adapter, which adds a scaling term after the parallel adapter layer, similar to LoRA.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;NOAH 和 AUTOPEFT 分别基于 AutoFormer 和贝叶斯优化算法，自动探索不同任务下最优的 PEFT 组合，显著提高了微调策略的适应性与性能，展示了 NAS 在 PEFT 优化中的强大潜力。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2403.14608&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Parameter-Efficient Fine-Tuning for Large Models:  A Comprehensive Survey&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>【论文阅读笔记】LORA:LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</title>
         <link>https://Sazerac-kk.github.io/p/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0loralow-rank-adaptation-of-large-language-models/</link>
         <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
