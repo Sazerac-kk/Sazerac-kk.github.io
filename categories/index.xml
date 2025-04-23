@@ -7,12 +7,28 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Sazerac</copyright>
-        <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 23 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>DeepLearning</title>
         <link>https://Sazerac-kk.github.io/categories/deeplearning/</link>
-        <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+        <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
         
         <guid>https://Sazerac-kk.github.io/categories/deeplearning/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FineTune</title>
+        <link>https://Sazerac-kk.github.io/categories/finetune/</link>
+        <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/categories/finetune/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LLM</title>
+        <link>https://Sazerac-kk.github.io/categories/llm/</link>
+        <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://Sazerac-kk.github.io/categories/llm/</guid>
         <description></description>
         </item>
         <item>
@@ -21,14 +37,6 @@
         <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
         
         <guid>https://Sazerac-kk.github.io/categories/finetuning/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>LLM</title>
-        <link>https://Sazerac-kk.github.io/categories/llm/</link>
-        <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/llm/</guid>
         <description></description>
         </item>
         <item>
