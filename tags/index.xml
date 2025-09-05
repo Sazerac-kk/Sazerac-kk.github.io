@@ -1,11 +1,121 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Tags on Sazerac</title>
-        <link>https://Sazerac-kk.github.io/tags/</link>
-        <description>Recent content in Tags on Sazerac</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <copyright>Sazerac</copyright><atom:link href="https://Sazerac-kk.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    </channel>
+  <channel>
+    <title>Tags on My blog</title>
+    <link>http://localhost:63820/tags/</link>
+    <description>Recent content in Tags on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Index</title>
+      <link>http://localhost:63820/tags/index/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/index/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Demo</title>
+      <link>http://localhost:63820/tags/demo/</link>
+      <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/demo/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Shortcode</title>
+      <link>http://localhost:63820/tags/shortcode/</link>
+      <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/shortcode/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Css</title>
+      <link>http://localhost:63820/tags/css/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/css/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Html</title>
+      <link>http://localhost:63820/tags/html/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/html/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:63820/tags/markdown/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/markdown/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Emoji</title>
+      <link>http://localhost:63820/tags/emoji/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/emoji/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Thumbnail</title>
+      <link>http://localhost:63820/tags/thumbnail/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/thumbnail/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>生活</title>
+      <link>http://localhost:63820/tags/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/%E7%94%9F%E6%B4%BB/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>http://localhost:63820/tags/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/tags/%E9%9A%8F%E7%AC%94/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+  </channel>
 </rss>

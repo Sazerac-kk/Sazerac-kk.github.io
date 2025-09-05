@@ -1,140 +1,132 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Categories on Sazerac</title>
-        <link>https://Sazerac-kk.github.io/categories/</link>
-        <description>Recent content in Categories on Sazerac</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <copyright>Sazerac</copyright>
-        <lastBuildDate>Wed, 23 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>DeepLearning</title>
-        <link>https://Sazerac-kk.github.io/categories/deeplearning/</link>
-        <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/deeplearning/</guid>
+  <channel>
+    <title>Categories on My blog</title>
+    <link>http://localhost:63820/categories/</link>
+    <description>Recent content in Categories on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepLearning</title>
+      <link>http://localhost:63820/categories/deeplearning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/deeplearning/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>FineTune</title>
-        <link>https://Sazerac-kk.github.io/categories/finetune/</link>
-        <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/finetune/</guid>
+      
+    </item>
+    
+    <item>
+      <title>FineTuning</title>
+      <link>http://localhost:63820/categories/finetuning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/finetuning/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>LLM</title>
-        <link>https://Sazerac-kk.github.io/categories/llm/</link>
-        <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/llm/</guid>
+      
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>http://localhost:63820/categories/llm/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/llm/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>FineTuning</title>
-        <link>https://Sazerac-kk.github.io/categories/finetuning/</link>
-        <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/finetuning/</guid>
+      
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>http://localhost:63820/categories/nlp/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/nlp/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Torch</title>
-        <link>https://Sazerac-kk.github.io/categories/torch/</link>
-        <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/torch/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Data-Structure</title>
+      <link>http://localhost:63820/categories/data-structure/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/data-structure/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>NLP</title>
-        <link>https://Sazerac-kk.github.io/categories/nlp/</link>
-        <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/nlp/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:63820/categories/python/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/python/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Data-Structure</title>
-        <link>https://Sazerac-kk.github.io/categories/data-structure/</link>
-        <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/data-structure/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Tokenizer</title>
+      <link>http://localhost:63820/categories/tokenizer/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/categories/tokenizer/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Python</title>
-        <link>https://Sazerac-kk.github.io/categories/python/</link>
-        <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/python/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>http://localhost:63820/categories/math/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/categories/math/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Tokenizer</title>
-        <link>https://Sazerac-kk.github.io/categories/tokenizer/</link>
-        <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/tokenizer/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>http://localhost:63820/categories/regularization/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/categories/regularization/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Anaconda</title>
-        <link>https://Sazerac-kk.github.io/categories/anaconda/</link>
-        <pubDate>Tue, 08 Oct 2024 23:02:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/anaconda/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Syntax</title>
+      <link>http://localhost:63820/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/syntax/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Vscode</title>
-        <link>https://Sazerac-kk.github.io/categories/vscode/</link>
-        <pubDate>Tue, 08 Oct 2024 23:02:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/vscode/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Themes</title>
+      <link>http://localhost:63820/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/categories/themes/</guid>
+      
         <description></description>
-        </item>
-        <item>
-        <title>Math</title>
-        <link>https://Sazerac-kk.github.io/categories/math/</link>
-        <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/math/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Regularization</title>
-        <link>https://Sazerac-kk.github.io/categories/regularization/</link>
-        <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/regularization/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Computer Vision</title>
-        <link>https://Sazerac-kk.github.io/categories/computer-vision/</link>
-        <pubDate>Tue, 24 Sep 2024 23:02:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/computer-vision/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Experiment</title>
-        <link>https://Sazerac-kk.github.io/categories/experiment/</link>
-        <pubDate>Tue, 24 Sep 2024 23:02:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/experiment/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Test</title>
-        <link>https://Sazerac-kk.github.io/categories/test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/categories/test/</guid>
-        <description>&lt;img src="https://Sazerac-kk.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
-        </item>
-        
-    </channel>
+      
+    </item>
+    
+  </channel>
 </rss>

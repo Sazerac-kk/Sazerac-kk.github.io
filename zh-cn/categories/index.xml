@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 我的博客</title>
+    <link>http://localhost:63820/zh-cn/categories/</link>
+    <description>Recent content in Categories on 我的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepLearning</title>
+      <link>http://localhost:63820/zh-cn/categories/deeplearning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/deeplearning/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>FineTuning</title>
+      <link>http://localhost:63820/zh-cn/categories/finetuning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/finetuning/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>http://localhost:63820/zh-cn/categories/llm/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/llm/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>http://localhost:63820/zh-cn/categories/nlp/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/nlp/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data-Structure</title>
+      <link>http://localhost:63820/zh-cn/categories/data-structure/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/data-structure/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:63820/zh-cn/categories/python/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/python/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Tokenizer</title>
+      <link>http://localhost:63820/zh-cn/categories/tokenizer/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/tokenizer/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>http://localhost:63820/zh-cn/categories/math/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/math/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>http://localhost:63820/zh-cn/categories/regularization/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/regularization/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Syntax</title>
+      <link>http://localhost:63820/zh-cn/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/syntax/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Themes</title>
+      <link>http://localhost:63820/zh-cn/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/categories/themes/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

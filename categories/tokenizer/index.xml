@@ -1,193 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Tokenizer on Sazerac</title>
-        <link>https://Sazerac-kk.github.io/categories/tokenizer/</link>
-        <description>Recent content in Tokenizer on Sazerac</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <copyright>Sazerac</copyright>
-        <lastBuildDate>Sat, 12 Apr 2025 13:45:07 +0800</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/tokenizer/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>使用SentencePiece工具如何使用中文语料训练一个分词模型</title>
-        <link>https://Sazerac-kk.github.io/p/%E4%BD%BF%E7%94%A8sentencepiece%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E8%AF%AD%E6%96%99%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%88%86%E8%AF%8D%E6%A8%A1%E5%9E%8B/</link>
-        <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
-        
-        <guid>https://Sazerac-kk.github.io/p/%E4%BD%BF%E7%94%A8sentencepiece%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E8%AF%AD%E6%96%99%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%88%86%E8%AF%8D%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/reflection-mountains-old-buildings-lake-with-wooden-pier-foreground.jpg" alt="Featured image of post 使用SentencePiece工具如何使用中文语料训练一个分词模型" /&gt;&lt;h2 id=&#34;分词器tokenizer&#34;&gt;分词器(Tokenizer)
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;将字符序列转化为数字序列&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;三种颗粒度：word、char、subword(平衡前两者的优缺点)。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;常用的subword算法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BPE：即字节对编码。其核心思想是从字母开始，不断找词频最高、且连续的两个token合并，直到达到目标词数。&lt;/li&gt;
-&lt;li&gt;BBPE：BBPE核心思想将BPE的从字符级别扩展到子节（Byte）级别。BPE的一个问题是如果遇到了unicode编码，基本字符集可能会很大。BBPE就是以一个字节为一种“字符”，不管实际字符集用了几个字节来表示一个字符。这样的话，基础字符集的大小就锁定在了256（2^8）。采用BBPE的好处是可以跨语言共用词表，显著压缩词表的大小。而坏处就是，对于类似中文这样的语言，一段文字的序列长度会显著增长。&lt;/li&gt;
-&lt;li&gt;WordPiece算法可以看作是BPE的变种。不同的是，WordPiece基于概率生成新的subword而不是下一最高频字节对。WordPiece算法也是每次从词表中选出两个子词合并成新的子词。BPE选择频数最高的相邻子词合并，而WordPiece选择使得语言模型概率最大的相邻子词加入词表。&lt;/li&gt;
-&lt;li&gt;Unigram：它和 BPE 以及 WordPiece 从表面上看一个大的不同是，前两者都是初始化一个小词表，然后一个个增加到限定的词汇量，而 Unigram Language Model 却是先初始一个大词表，接着通过语言模型评估不断减少词表，直到限定词汇量。&lt;/li&gt;
-&lt;li&gt;SentencePiece：SentencePiece它是谷歌推出的子词开源工具包，它是把一个句子看作一个整体，再拆成片段，而没有保留天然的词语的概念。一般地，它把空格也当作一种特殊字符来处理，再用BPE或者Unigram算法来构造词汇表。SentencePiece除了集成了BPE、ULM子词算法之外，SentencePiece还能支持字符和词级别的分词。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;主流的模型采用的分词算法：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/v2-7d13943ddb85c7b1b2324cd0fc6be369_1440w.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;sentencepiece简介&#34;&gt;SentencePiece简介
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;SentencePiece 是一种无监督的文本 tokenizer 和 detokenizer，主要用于基于神经网络的文本生成系统，其中，词汇量在神经网络模型训练之前就已经预先确定了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;SentencePiece 实现了&lt;strong&gt;subword&lt;/strong&gt;单元（例如，字节对编码 (BPE)）和 unigram 语言模型），并可以直接从原始句子训练字词模型(subword model)。 这使得我们可以制作一个不依赖于特定语言的预处理和后处理的纯粹的端到端系统。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用它处理中文、英文、韩文甚至混合语言的文本&lt;/li&gt;
-&lt;li&gt;构建一个&lt;strong&gt;纯粹的数据驱动、端到端&lt;/strong&gt;的 NLP 系统&lt;/li&gt;
-&lt;li&gt;不用做语言特定的适配，这对多语言系统特别有用&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;从原始句子开始训练；&lt;/li&gt;
-&lt;li&gt;唯一Token数量是预先确定的；&lt;/li&gt;
-&lt;li&gt;空格被视为基本符号。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;环境安装&#34;&gt;环境安装
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;SentencePiece分为两部分：训练模型和使用模型。其中，训练模型部分是用C语言实现的，可编译二进程程序执行，训练结束后生成一个model文件和一个词典文件。&lt;/p&gt;
-&lt;p&gt;模型使用部分同时支持二进制程序和Python调用两种方式，训练完生成的词典数据是明文，可编辑，因此，也可以用其他任何语言进行读取和使用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;从 C++ 源构建和安装 SentencePiece 命令行工具&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;由于我们需要命令行工具模型训练，因此，我们需要先安装 SentencePiece 命令行工具。&lt;/p&gt;
-&lt;p&gt;构建 SentencePiece 需要以下工具和库：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;cmake&lt;/li&gt;
-&lt;li&gt;C++11 编译器&lt;/li&gt;
-&lt;li&gt;gperftools 库（可选的，可以获得 10-40% 的性能提升）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在 Ubuntu 上，可以使用 apt-get 安装构建工具：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install cmake build-essential pkg-config libgoogle-perftools-dev
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;接下来，按如下方式构建和安装命令行工具。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/google/sentencepiece.git 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd sentencepiece
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir build
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd build
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cmake ..
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make -j $(nproc)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make install
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ldconfig -v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;查看命令使用文档：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;spm_train --help
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;使用pip安装sentencepiece库&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;SentencePiece 提供了支持 SentencePiece 训练和分割的 Python 包装器。 由于后续会基于Python语言使用模型，因此，使用 pip 安装 SentencePiece 的 Python 二进制包。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install sentencepiece
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;训练模型&#34;&gt;&lt;strong&gt;训练模型&lt;/strong&gt;
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用红楼梦作为数据集&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;由于官网只提供英语和日语数据，如果使用中文进行模型训练的话，需要先下载中文训练数据。本文使用 &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//github.com/shjwudp/shu/blob/master/books/%E7%BA%A2%E6%A5%BC%E6%A2%A6.txt&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;红楼梦&lt;/a&gt;&lt;/strong&gt;（需要自行预先清洗下数据）进行模型训练。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;spm_train --input=train.txt --model_prefix=./tokenizer --vocab_size=4000 --character_coverage=0.9995 --model_type=bpe
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;参数说明：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;ndash;input: 训练语料文件，可以传递以逗号分隔的文件列表。文件格式为每行一个句子。 无需运行tokenizer、normalizer或preprocessor。 默认情况下，SentencePiece 使用 Unicode NFKC 规范化输入。&lt;/li&gt;
-&lt;li&gt;&amp;ndash;model_prefix：输出模型名称前缀。 训练完成后将生成 &amp;lt;model_name&amp;gt;.model 和 &amp;lt;model_name&amp;gt;.vocab 文件。&lt;/li&gt;
-&lt;li&gt;&amp;ndash;vocab_size：训练后的词表大小，例如：8000、16000 或 32000&lt;/li&gt;
-&lt;li&gt;&amp;ndash;character_coverage：模型覆盖的字符数量，对于字符集丰富的语言（如日语或中文）推荐默认值为 0.9995，对于其他字符集较小的语言推荐默认值为 1.0。&lt;/li&gt;
-&lt;li&gt;&amp;ndash;model_type：模型类型。 可选值：unigram（默认）、bpe、char 或 word 。 使用word类型时，必须对输入句子进行pretokenized。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;模型输出文件(词表及模型权重)：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; ls -al model_path
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看词表：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; head -n20 vocab_path
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;参考文档：&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/630696264&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/630696264&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Tokenizer on My blog</title>
+    <link>http://localhost:63820/categories/tokenizer/</link>
+    <description>Recent content in Tokenizer on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Apr 2025 13:45:07 +0800</lastBuildDate><atom:link href="http://localhost:63820/categories/tokenizer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Train a Chinese Tokenizer Model Using SentencePiece</title>
+      <link>http://localhost:63820/list/sentencepiece/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/list/sentencepiece/</guid>
+      
+        <description>&lt;h1 id=&#34;what-is-sentencepiece&#34;&gt;What is SentencePiece&lt;/h1&gt;</description>
+      
+    </item>
+    
+  </channel>
 </rss>

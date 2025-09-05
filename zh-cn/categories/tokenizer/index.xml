@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tokenizer on 我的博客</title>
+    <link>http://localhost:63820/zh-cn/categories/tokenizer/</link>
+    <description>Recent content in Tokenizer on 我的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 12 Apr 2025 13:45:07 +0800</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/categories/tokenizer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用SentencePiece工具如何使用中文语料训练一个分词模型</title>
+      <link>http://localhost:63820/zh-cn/list/sentencepiece/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/sentencepiece/</guid>
+      
+        <description>&lt;p&gt;什么是 sentencepiece 。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>我的博客</title>
+    <link>http://localhost:63820/zh-cn/</link>
+    <description>Recent content on 我的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文阅读笔记】Parameter-Efficient Fine-Tuning</title>
+      <link>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</guid>
+      
+        <description>&lt;p&gt;各种轻量级微调方法的汇总&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>【论文阅读笔记】LORA:LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</title>
+      <link>http://localhost:63820/zh-cn/list/lora/</link>
+      <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/lora/</guid>
+      
+        <description>&lt;p&gt;LoRA 是一种轻量级的大模型微调技术。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>【论文阅读笔记】Attention is all your need</title>
+      <link>http://localhost:63820/zh-cn/list/attentionisallyouneed/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/attentionisallyouneed/</guid>
+      
+        <description>&lt;p&gt;记录这篇经典佳作：Attention is all your need.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Trie树的定义与算法</title>
+      <link>http://localhost:63820/zh-cn/list/trie%E6%A0%91/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/trie%E6%A0%91/</guid>
+      
+        <description>&lt;p&gt;算法：Trie 树&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>使用SentencePiece工具如何使用中文语料训练一个分词模型</title>
+      <link>http://localhost:63820/zh-cn/list/sentencepiece/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/sentencepiece/</guid>
+      
+        <description>&lt;p&gt;什么是 sentencepiece 。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Math Typesetting</title>
+      <link>http://localhost:63820/zh-cn/daily/math-typesetting/</link>
+      <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/daily/math-typesetting/</guid>
+      
+        <description>A brief guide to setup and use KaTeX</description>
+      
+    </item>
+    
+    <item>
+      <title>Deep Learning: What is regularisation ?</title>
+      <link>http://localhost:63820/zh-cn/list/regularization/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/regularization/</guid>
+      
+        <description>&lt;p&gt;正则化的分类和优劣比较&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Awards</title>
+      <link>http://localhost:63820/zh-cn/awards/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/awards/</guid>
+      
+        <description>Hugo Awards, an annual literary award for the best science fiction or fantasy works</description>
+      
+    </item>
+    
+    <item>
+      <title>Certifications</title>
+      <link>http://localhost:63820/zh-cn/certifications/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/certifications/</guid>
+      
+        <description>Hugo Certifications</description>
+      
+    </item>
+    
+    <item>
+      <title>The Figure Shortcode</title>
+      <link>http://localhost:63820/zh-cn/daily/figure-shortcode/</link>
+      <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/daily/figure-shortcode/</guid>
+      
+        <description>&lt;p&gt;Hugo has &lt;code&gt;figure&lt;/code&gt; shortcode built-in, so you can easily add figure captions or hyperlink rel attributes to images. Documentations can be found here:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:63820/zh-cn/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/archives/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>http://localhost:63820/zh-cn/daily/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/daily/markdown-syntax/</guid>
+      
+        <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+      
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>http://localhost:63820/zh-cn/daily/emoji-support-copy/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/daily/emoji-support-copy/</guid>
+      
+        <description>Guide to emoji usage in Hugo</description>
+      
+    </item>
+    
+    <item>
+      <title>Guide to Thumbnails in Hugo</title>
+      <link>http://localhost:63820/zh-cn/daily/image-test/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/daily/image-test/</guid>
+      
+        <description>Guide to Thumbnails in Hugo</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:63820/zh-cn/imprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/imprint/</guid>
+      
+        <description>&lt;h1 id=&#34;legal-disclosure&#34;&gt;Legal Disclosure&lt;/h1&gt;
+&lt;p&gt;Information in accordance with the applicable law&lt;/p&gt;
+&lt;p&gt;Jane Doe&lt;br&gt;
+Anatole Street 10&lt;br&gt;
+2016 GoHugo&lt;br&gt;
+Germany&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>我的日记</title>
+      <link>http://localhost:63820/zh-cn/daily/emoji-support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/daily/emoji-support/</guid>
+      
+        <description>今天的随笔</description>
+      
+    </item>
+    
+  </channel>
+</rss>

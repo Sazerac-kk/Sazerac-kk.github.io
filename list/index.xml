@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My blog</title>
+    <link>http://localhost:63820/list/</link>
+    <description>Recent content in Posts on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/list/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Notes: Parameter-Efficient Fine-Tuning</title>
+      <link>http://localhost:63820/list/overviewoffine_tuning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/list/overviewoffine_tuning/</guid>
+      
+        <description>&lt;p&gt;A collection of lightweight fine-tuning methods.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Paper Notes: Low-Rank Adaptation of Large Language Models</title>
+      <link>http://localhost:63820/list/lora/</link>
+      <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/list/lora/</guid>
+      
+        <description>&lt;p&gt;LoRA is a lightweight fine-tuning technique for large models.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Paper Notes: Attention is All You Need</title>
+      <link>http://localhost:63820/list/attentionisallyouneed/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/list/attentionisallyouneed/</guid>
+      
+        <description>&lt;p&gt;Notes on this classic masterpiece: &lt;em&gt;Attention is All You Need&lt;/em&gt;.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Definition and Algorithms of Trie</title>
+      <link>http://localhost:63820/list/trie/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/list/trie/</guid>
+      
+        <description>&lt;p&gt;Trie Algorithm&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>How to Train a Chinese Tokenizer Model Using SentencePiece</title>
+      <link>http://localhost:63820/list/sentencepiece/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/list/sentencepiece/</guid>
+      
+        <description>&lt;h1 id=&#34;what-is-sentencepiece&#34;&gt;What is SentencePiece&lt;/h1&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Deep Learning: What is regularisation ?</title>
+      <link>http://localhost:63820/list/regularization/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/list/regularization/</guid>
+      
+        <description>&lt;h1 id=&#34;categories-and-comparison-of-regularization-methods&#34;&gt;Categories and Comparison of Regularization Methods&lt;/h1&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

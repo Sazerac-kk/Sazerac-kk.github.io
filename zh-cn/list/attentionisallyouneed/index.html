@@ -1,0 +1,907 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="zh-cn"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=63820&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <title>
+    
+      
+        【论文阅读笔记】Attention is all your need |
+      Sazerac Wang
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.148.2"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Sazerac Wang" />
+  <meta
+    name="description"
+    content="王凯凯"
+  />
+  
+  
+        <link rel="stylesheet" href="/css/anatole.css" />
+      
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="http://localhost:63820/zh-cn/list/attentionisallyouneed/" />
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.8724ddf9268dee451060f191961647573c7f592fbccc6d858746236b3f915813.js"
+      integrity="sha256-hyTd&#43;SaN7kUQYPGRlhZHVzx/WS&#43;8zG2Fh0Yjaz&#43;RWBM="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:63820/images/site-feature-image.png">
+  <meta name="twitter:title" content="【论文阅读笔记】Attention is all your need">
+  <meta name="twitter:description" content="记录这篇经典佳作：Attention is all your need.">
+
+
+
+  
+  <meta property="og:url" content="http://localhost:63820/zh-cn/list/attentionisallyouneed/">
+  <meta property="og:site_name" content="我的博客">
+  <meta property="og:title" content="【论文阅读笔记】Attention is all your need">
+  <meta property="og:description" content="记录这篇经典佳作：Attention is all your need.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="list">
+    <meta property="article:published_time" content="2025-04-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-14T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:63820/images/site-feature-image.png">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "list",
+        "name": "【论文阅读笔记】Attention is all your need",
+        "headline": "【论文阅读笔记】Attention is all your need",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003e记录这篇经典佳作：Attention is all your need.\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "license": "",
+        
+        "inLanguage": "zh-cn",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:63820\/zh-cn\/list\/attentionisallyouneed\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Sazerac"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Sazerac"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Sazerac"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Sazerac"
+        },
+        "dateCreated": "2025-04-14T00:00:00.00Z",
+        "datePublished": "2025-04-14T00:00:00.00Z",
+        "dateModified": "2025-04-14T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Sazerac",
+            "url": "http://localhost:63820/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/localhost:63820\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "http://localhost:63820/images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "http:\/\/localhost:63820\/zh-cn\/list\/attentionisallyouneed\/",
+        "wordCount" : "505",
+        "genre" : [ 
+      
+      "DeepLearning"
+
+    
+      
+        ,
+
+      
+      "NLP"
+
+    ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+
+  
+  
+  
+    
+          <link
+            rel="stylesheet"
+            href="/css/katex.css"
+            integrity="sha512-G&#43;oCKKieQtUzWNhprOMa35XKURS9yhyKtbm9/m0OOUykuK3/U6dKkqJIxGOoQh/T3MibO5FL8xd2QNhZd/wILA=="
+            crossorigin="anonymous"
+          />
+        
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/zh-cn">I&#39;m Sazerac Wang</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>王凯凯</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://x.com/SazeracWang"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Linkedin"
+            title="Linkedin"
+          >
+            <i class="fa-brands fa-twitter fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Sazerac-kk/"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fa-brands fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.xiaohongshu.com/user/profile/62a6b83c000000001b028284"
+            target="_blank"
+            rel="noopener me"
+            aria-label="instagram"
+            title="instagram"
+          >
+            <i class="fa-brands fa-instagram fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:sazeracwang@gmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="e-mail"
+            title="e-mail"
+          >
+            <i class="fa-solid fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Sazerac Wang
+        2025
+      
+    </li>
+    
+      <li class="footer__item">
+        <a
+          class="link"
+          href="/zh-cn/imprint/"
+          
+          title=""
+        >
+          版权
+        </a>
+      </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/zh-cn/"
+              
+              title=""
+              >主页</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/zh-cn/posts/"
+              
+              title=""
+              >文章</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/zh-cn/list/"
+              
+              title=""
+              >列表</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/zh-cn/daily/"
+              
+              title=""
+              >日记</a
+            >
+          </li>
+        
+
+      
+        
+        
+
+          <li class="nav__list-item">
+            <div class="optionswitch">
+              <input class="optionswitch__picker" type="checkbox" id="4" hidden />
+
+              
+              
+                
+
+              
+                
+
+              
+
+
+              <label class="optionswitch__label" for="4"
+                >成就 <i class="fa fa-angle-down" aria-hidden="true"></i
+              ></label>
+
+              <div class="optionswitch__triangle"></div>
+              <ul class="optionswitch__list">
+                
+                  <li class="optionswitch__list-item">
+                    
+                    <a
+                      href="/zh-cn/awards/"
+                      
+                      title=""
+                      >奖项</a
+                    >
+                  </li>
+                
+                  <li class="optionswitch__list-item">
+                    
+                    <a
+                      href="/zh-cn/certifications/"
+                      
+                      title=""
+                      >证书</a
+                    >
+                  </li>
+                
+              </ul>
+            </div>
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+        <li class="nav__list-item">
+          <div class="optionswitch">
+            <input class="optionswitch__picker" type="checkbox" id="languagepicker" hidden />
+            <label class="optionswitch__label" for="languagepicker"
+              >中文 <i class="fa fa-angle-down" aria-hidden="true"></i
+            ></label>
+            <div class="optionswitch__triangle"></div>
+            <ul class="optionswitch__list">
+              
+                <li class="optionswitch__list-item">
+                  <a href="/list/attentionisallyouneed/" title="EN"
+                    ><span
+                      
+                      aria-label="EN"
+                      >EN</span
+                    >
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </li>
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>【论文阅读笔记】Attention Is All Your Need</h1>
+      
+      <p>记录这篇经典佳作：Attention is all your need.</p>
+<h2 id="attention-is-all-your-need">Attention is all your need</h2>
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/image-20250414211210753.png" alt="image-20250414211210753" style="zoom:50%;" />
+<ul>
+<li>发表于 <strong>NeurlIPS 2017</strong> ，引用量 <strong>17W+</strong> 。</li>
+<li>Contribution：原本是应用于 翻译类 任务的，后被各种模型应用并拓展到非NLP领域。</li>
+<li>主要创新点：
+<ul>
+<li>Transformer架构；</li>
+<li>多头注意力机制；</li>
+<li>Encoder 与 Decoder。</li>
+</ul>
+</li>
+</ul>
+<h2 id="background">BackGround</h2>
+<ul>
+<li>
+<p>Word2vec：</p>
+<ul>
+<li>
+<p>Embedding：</p>
+<p>Text representation 的目的是将非结构化数据转化为结构化数据，而其中有三种基本方法：</p>
+<ol>
+<li>One-hot representation | one-hot representation：一词一位</li>
+<li>Integer encoding：整数编码</li>
+<li>Word embedding：向量编码，有三种优势：(1)他可以通过低维向量来表达文本，而不是像one-hot和原字符一样长;(2)语义相近的词距离相近；(3)它用途广泛，可用于不同的任务。</li>
+</ol>
+</li>
+<li>
+<p>有两种主流的 Embedding 方法：Word2vec 和 GloVe。</p>
+</li>
+<li>
+<p>Word2vec：
+这是一种获取单词向量的统计方法。2013年，谷歌的Mikolov提出了一套新的单词嵌入方法。</p>
+<p><a href="https://easyai.tech/en/ai-definition/word2vec/">https://easyai.tech/en/ai-definition/word2vec/</a></p>
+<p>该算法有2种训练模式：</p>
+<ul>
+<li>
+<p>通过上下文预测当前单词</p>
+</li>
+<li>
+<p>从当前单词中预测上下文</p>
+</li>
+</ul>
+</li>
+<li>
+<p>GloVe是Word2vec方法的延伸，它结合了Global statistics 和Word2vec的基于上下文的学习。</p>
+</li>
+<li>
+<p>与分词器(SentencePiece)区别</p>
+<table>
+  <thead>
+      <tr>
+          <th>项目</th>
+          <th>分词器</th>
+          <th>Word2Vec</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>功能</td>
+          <td>把文本切分成词</td>
+          <td>把词转换成向量</td>
+      </tr>
+      <tr>
+          <td>先后顺序</td>
+          <td>在前：得到词列表</td>
+          <td>在后：学习词向量</td>
+      </tr>
+      <tr>
+          <td>是否必须</td>
+          <td>Word2Vec 需要明确的词单位进行训练，所以必须依赖分词器（尤其是中文）</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<h3 id="embedding">Embedding</h3>
+<ul>
+<li>
+<p>Input Embedding 就是把自然语言转化为对应向量，此文章方法就是用Word2vec。</p>
+</li>
+<li>
+<p>Positional Embedding 有两种方法：1)类似于 Input Embedding，训练一个模型；2)直接用函数表示。</p>
+<p>2)的公示如下，纬度和Input Embedding相同，其中$pos$表示位置$i$表示纬度(也就是Input向量化后的个数)：
+</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>P</mi><msub><mi>E</mi><mrow><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo separator="true">,</mo><mn>2</mn><mi>i</mi><mo stretchy="false">)</mo></mrow></msub></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mrow><mrow></mrow><mo>=</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">/</mi><msup><mn>10000</mn><mrow><mn>2</mn><mi>i</mi><mi mathvariant="normal">/</mi><msub><mi>d</mi><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub></mrow></msup><mo stretchy="false">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>P</mi><msub><mi>E</mi><mrow><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo separator="true">,</mo><mn>2</mn><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mrow><mrow></mrow><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">/</mi><msup><mn>10000</mn><mrow><mn>2</mn><mi>i</mi><mi mathvariant="normal">/</mi><msub><mi>d</mi><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub></mrow></msup><mo stretchy="false">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+  \begin{aligned} {P E_{( p o s, 2 i )}} &amp; {{}=s i n ( p o s / 1 0 0 0 0^{2 i / d_{\mathrm{m o d e l}}} )} \\ {P E_{( p o s, 2 i+1 )}} &amp; {{}=c o s ( p o s / 1 0 0 0 0^{2 i / d_{\mathrm{m o d e l}}} )} \\ \end{aligned}
+  </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.196em;vertical-align:-1.348em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.848em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">os</span><span class="mpunct mtight">,</span><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-2.312em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">os</span><span class="mpunct mtight">,</span><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.348em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.848em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mord mathnormal">os</span><span class="mord">/1000</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span><span class="mord mtight">/</span><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">model</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span style="top:-2.312em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">cos</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mord mathnormal">os</span><span class="mord">/1000</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">i</span><span class="mord mtight">/</span><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">model</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.348em;"><span></span></span></span></span></span></span></span></span></span></span></span><p>
+为什么这么设置？——可能只是为了计算方便。❌</p>
+<table>
+  <thead>
+      <tr>
+          <th>问题</th>
+          <th>回答</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>用 sin 和 cos 是为了方便吗？</td>
+          <td>❌ 不是，它是有数学含义和表达动机的</td>
+      </tr>
+      <tr>
+          <td>为什么 2i 用 sin，2i+1 用 cos？</td>
+          <td>为了引入相位差、增强表达能力、增加维度间互补性</td>
+      </tr>
+      <tr>
+          <td>这种设计的好处是什么？</td>
+          <td>正交性、相位信息、多频率合成、支持相对位置推理等</td>
+      </tr>
+  </tbody>
+</table>
+<p>数学特征：$PE_{(pos,2i)}^2 + PE_{(pos,2i+1)}^2=1$</p>
+<p>好处在于：a)对于比训练长度更长的句子，例如最长为20，但是输入为21，照样可以对位置进行编码；b)容易计算出相对位置。</p>
+<p><strong>不同纬度的embedding编码差异：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151130064.png" alt="image-20250415112708866"></p>
+</li>
+<li>
+<p>最终输入X：
+</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>X</mi><mo>=</mo><mi>I</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mo>+</mo><mi>P</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">
+  X= Input+Postional
+  </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal">p</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">os</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">na</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span></span></span></li>
+</ul>
+<h3 id="self-attention">Self-Attention</h3>
+<p><strong>The four words &ldquo;with power and sum&rdquo; can be highly summarized</strong></p>
+<ul>
+<li>
+<p>核心思想就是：<strong>“从关注全部到关注重点。”</strong></p>
+</li>
+<li>
+<p>Attention 机制最早是在计算机视觉里应用的，随后在 NLP 领域也开始应用了，真正发扬光大是在 NLP 领域，因为 2018 年 <a href="https://easyai.tech/ai-definition/bert/">BERT</a> 和 GPT 的效果出奇的好，进而走红。而 <a href="https://easyai.tech/ai-definition/transformer/">Transformer</a> 和 Attention 这些核心开始被大家重点关注。</p>
+</li>
+<li>
+<p>三大优点：参数少、速度快、效果好。</p>
+</li>
+<li>
+<p>解决了RNN不能并行化的问题，使之不再依赖于上一步的输出。并且使长距离信息不再被弱化了，因为Attention只关注重点信息，就算文章很长，Attention也能抓住重点。</p>
+<p>Attention 不依赖前一步，而是：</p>
+<ul>
+<li><strong>一次性拿到所有输入（如一个句子中所有词）</strong></li>
+<li><strong>对每个词都计算和其他所有词的相关性（打分）</strong></li>
+<li><strong>用这些相关性加权组合输入</strong></li>
+</ul>
+<p>这样，<strong>所有词之间的依赖可以一起计算</strong>，就能并行了。</p>
+<hr>
+<p>🌟 <strong>举个例子</strong></p>
+<p>输入句子（英文举例）：
+<code>&quot;The cat sat on the mat&quot;</code></p>
+<p>假设我们要计算第一个词 <code>&quot;The&quot;</code> 的表示：</p>
+<p><strong>Attention 会做什么？</strong></p>
+<p>它会对每个词计算和 <code>&quot;The&quot;</code> 的相关性（打分），比如：</p>
+<table>
+  <thead>
+      <tr>
+          <th>词</th>
+          <th>相关性分数（attention score）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>The</td>
+          <td>0.1</td>
+      </tr>
+      <tr>
+          <td>cat</td>
+          <td>0.3</td>
+      </tr>
+      <tr>
+          <td>sat</td>
+          <td>0.2</td>
+      </tr>
+      <tr>
+          <td>on</td>
+          <td>0.1</td>
+      </tr>
+      <tr>
+          <td>the</td>
+          <td>0.1</td>
+      </tr>
+      <tr>
+          <td>mat</td>
+          <td>0.2</td>
+      </tr>
+  </tbody>
+</table>
+<p>然后用这些分数对各个词的表示进行加权求和，得出 <code>&quot;The&quot;</code> 的新表示。</p>
+<p>⚠️ 这里每个词的 attention 都可以<strong>同时计算</strong>，因为它们只依赖输入序列，不需要等上一个词的结果！</p>
+</li>
+<li>
+<p>Attetion的原理</p>
+<p>下面是使用 <strong>Encoder-Decoder</strong> 模型的机器翻译的演示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/1ab35-2019-11-13-attention-encoderdecoder.gif" alt="Principle of Attention"></p>
+<p>Attention既可以应用在 <strong>Encoder-Decoder</strong> 模型中，也可以脱离其应用。</p>
+<ul>
+<li>
+<p>Attention 的三步分解</p>
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/efa5b-2019-11-13-3step.png" alt="Attention principle 3 step decomposition" style="zoom:50%;" />
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">x</mi></mrow><mrow><mo fence="true">(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac><mo fence="true">)</mo></mrow><mi>V</mi><mspace></mspace><mi>Q</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>K</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+    \mathrm{A t t e n t i o n} ( Q, K, V )=\mathrm{s o f t m a x} \left( \frac{Q K^{T}} {\sqrt{d_{k}}} \right) V\\
+    Q(m,n),K(m,n),V(m,n)
+    </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Attention</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4684em;vertical-align:-0.95em;"></span><span class="mord"><span class="mord mathrm">softmax</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183em;"><span style="top:-2.2528em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8572em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8172em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1828em;"><span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span><p>Step1:$Q$(query)与$K^T$(key)做矩阵乘法运算；</p>
+<p>Step2:归一化Step1得到的权重(weight)；</p>
+<p>Step3:Step2中得到的矩阵(m,m)乘$V$(Value)，得到矩阵纬度为(m,n)。</p>
+</li>
+<li>
+<p>解释一下上一步 $Q,K,V$ 怎么来的，是输入自然语言经过编码得到的 $X$ 转化而来的。</p>
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/1.jpg" alt="1" style="zoom:50%;" />
+</li>
+<li>
+<p>“<strong>多头注意力机制</strong>”中的“多头”（<strong>multi-head</strong>）是指<strong>将注意力机制拆成多个并行的子注意力机制（称为“头”）</strong>，每个头都能从不同的子空间中学习信息。这种设计是 Transformer 架构中注意力机制的核心思想之一。
+</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mrow><mrow></mrow><mrow><mrow></mrow><mrow><mrow></mrow><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi></mrow><mo stretchy="false">(</mo><msub><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow><mn>1</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow><mi>h</mi></msub><mo stretchy="false">)</mo><msup><mi>W</mi><mi>O</mi></msup></mrow></mrow></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mrow><mrow></mrow><mrow><mrow></mrow><mrow><msub><mrow><mi mathvariant="normal">w</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mtext> </mtext><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow><mi>i</mi></msub><mo>=</mo><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false">(</mo><mi>Q</mi><msubsup><mi>W</mi><mi>i</mi><mi>Q</mi></msubsup><mo separator="true">,</mo><mi>K</mi><msubsup><mi>W</mi><mi>i</mi><mi>K</mi></msubsup><mo separator="true">,</mo><mi>V</mi><msubsup><mi>W</mi><mi>i</mi><mi>V</mi></msubsup><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+    \begin{aligned} {{\mathrm{M u l t i H e a d}}} &amp; {{} {{} {{} ( Q, K, V )=\mathrm{C o n c a t} ( \mathrm{h e a d}_{1},..., \mathrm{h e a d}_{h} ) W^{O}}}} \\ {{}} &amp; {{} {{} {\mathrm{w h e r e ~ h e a d}_{i}=\mathrm{A t t e n t i o n} ( Q W_{i}^{Q}, K W_{i}^{K}, V W_{i}^{V} )}}} \\ \end{aligned} 
+    </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.1706em;vertical-align:-1.3353em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8353em;"><span style="top:-3.944em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mord"><span class="mord mathrm">MultiHead</span></span></span></span></span></span><span style="top:-2.3247em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3353em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8353em;"><span style="top:-3.944em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathrm">Concat</span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathrm">head</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">head</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-2.3247em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"></span><span class="mord"><span class="mord"><span class="mord"><span class="mord mathrm">where</span><span class="mspace nobreak"> </span><span class="mord mathrm">head</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathrm">Attention</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9592em;"><span style="top:-2.4231em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.1809em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">Q</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.453em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3353em;"><span></span></span></span></span></span></span></span></span></span></span></span><p>
+<strong>解释一下：</strong></p>
+<p>传统注意力机制中，我们有一个<strong>查询向量</strong>（Query）、<strong>键向量</strong>（Key）和<strong>值向量</strong>（Value），通过这些向量计算注意力分数，然后加权求和得到结果。</p>
+<p>多头注意力机制的做法是：</p>
+<ol>
+<li>把输入的 Query、Key、Value 各自线性变换成多个“头”，比如 8 个；</li>
+<li>每个头用自己的 Query/Key/Value 执行一次注意力机制，得到一个输出；</li>
+<li>把所有头的输出拼接在一起，再做一次线性变换，得到最终的输出。</li>
+</ol>
+<p>这样做的好处是：</p>
+<ul>
+<li>每个头可以关注输入的不同部分（比如不同位置、不同特征维度），主要体现就是前期处理的线性函数不同；</li>
+<li>增强模型表达能力，让模型可以从多个“角度”理解信息。</li>
+</ul>
+<p><strong>形象比喻：</strong></p>
+<p>可以把“多头”想象成一个人在读文章时有多个视角——比如一个视角关注人物关系，一个视角看时间线，一个视角看因果关系……最后把这些不同角度的信息整合在一起，理解更全面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151131971.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="add--norm">Add &amp; Norm</h3>
+<ul>
+<li>
+<p>Add指的是 <strong>“残差连接”</strong> ，通常用于解决多层网络训练中的问题，让其只关注当前的差异部分，在ResNet中经常用到：
+</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mi>d</mi><mi>d</mi><mo>=</mo><mi>X</mi><mo>+</mo><mi>M</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>i</mi><mi>H</mi><mi>e</mi><mi>a</mi><mi>d</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+  Add = X + MultiHead(X)
+  </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">dd</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">u</span><span class="mord mathnormal">lt</span><span class="mord mathnormal">i</span><span class="mord mathnormal">He</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span></span><p>
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151147133.png" alt="Drawing 2025-04-15 11.42.33.excalidraw" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>Norm指的是 Layer Normaliaztion，会将每一层的输入都转化成均值方差都一样的，这样可以加快收敛。</p>
+</li>
+</ul>
+<h3 id="feed-forward">Feed Forward</h3>
+<ul>
+<li>
+<p>两层：第一层使用一个 ReLU ，第二层直接输出
+</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>F</mi><mi>F</mi><mi>N</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>c</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>x</mi><msub><mi>W</mi><mn>1</mn></msub><mo>+</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false">)</mo><msub><mi>W</mi><mn>2</mn></msub><mo>+</mo><msub><mi>b</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">
+  FFN(x) = mac(0,xW_1+b_1)W_2 + b_2
+  </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">FFN</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">c</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></li>
+<li>
+<p>虽然线性转换在不同位置之间相同，但是它们使用的参数层与层之间不同。</p>
+<table>
+  <thead>
+      <tr>
+          <th>部分</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FFN结构</td>
+          <td>两层全连接 + ReLU，中间升维再降维</td>
+      </tr>
+      <tr>
+          <td>应用方式</td>
+          <td>每个位置独立处理、共享参数</td>
+      </tr>
+      <tr>
+          <td>参数变化</td>
+          <td>不同层有不同参数</td>
+      </tr>
+      <tr>
+          <td>计算优化角度</td>
+          <td>可以视为两个 1x1 卷积</td>
+      </tr>
+      <tr>
+          <td>输入/输出维度</td>
+          <td>输入输出都是 512，中间是 2048</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>
+<p><strong>这部分还是缺乏更深刻的理解，回去找资料学习一下。</strong></p>
+</li>
+</ul>
+<h3 id="mask">MASK</h3>
+<ul>
+<li>
+<p>在输出再输入的过程中，进行MutiHeadAttention之前，需要进行一步MASK。</p>
+</li>
+<li>
+<p>原因：翻译工作一般是顺序翻译，在翻译当前信息时只能知道前面信息而不能知道后面的。
+</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mrow><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">x</mi></mrow><mrow><mo fence="true">(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup><mi>M</mi></mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac><mo fence="true">)</mo></mrow><mi>V</mi><mspace></mspace><mi>Q</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>K</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+  \mathrm{A t t e n t i o n} ( Q, K, V )=\mathrm{s o f t m a x} \left( \frac{Q K^{T}M} {\sqrt{d_{k}}} \right) V\\
+  Q(m,n),K(m,n),V(m,n)
+  </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Attention</span></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4684em;vertical-align:-0.95em;"></span><span class="mord"><span class="mord mathrm">softmax</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183em;"><span style="top:-2.2528em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8572em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8172em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1828em;"><span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span><p>
+<img src="https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202504151346873.jpg" alt="1"></p>
+</li>
+</ul>
+<h3 id="decoder-结构">Decoder 结构</h3>
+<ul>
+<li>两部分输入，一个是之前的输出再输入，一个是当前输入。</li>
+<li>此部分 $K,V$ 矩阵来源于 Encoder 的输出，而 $Q$ 来源于Decoder第一步分的输出。</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Fu4m1F7Bd/?spm_id_from=333.337.search-card.all.click&amp;vd_source=ce96bf7a5ef8aa5c97afae092ead118a">小白也能听懂的 transformer模型原理详解 self- attention 多头注意力机制 encoder decoder 机器翻译</a></li>
+<li><a href="https://easyai.tech/en/ai-definition/attention/">Attention mechanism</a></li>
+<li><a href="https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html">Vaswani, Ashish, et al. &ldquo;Attention is all you need.&rdquo; <em>Advances in neural information processing systems</em> 30 (2017).</a></li>
+</ul></div>
+    <div class="post__footer">
+      
+        <span><a class="category" href="/zh-cn/categories/deeplearning/">DeepLearning</a><a class="category" href="/zh-cn/categories/nlp/">NLP</a></span>
+
+
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Sazerac Wang
+        2025
+      
+    </li>
+    
+      <li class="footer__item">
+        <a
+          class="link"
+          href="/zh-cn/imprint/"
+          
+          title=""
+        >
+          版权
+        </a>
+      </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

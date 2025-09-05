@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DeepLearning on 我的博客</title>
+    <link>http://localhost:63820/zh-cn/categories/deeplearning/</link>
+    <description>Recent content in DeepLearning on 我的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/categories/deeplearning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文阅读笔记】Parameter-Efficient Fine-Tuning</title>
+      <link>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</guid>
+      
+        <description>&lt;p&gt;各种轻量级微调方法的汇总&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>【论文阅读笔记】LORA:LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</title>
+      <link>http://localhost:63820/zh-cn/list/lora/</link>
+      <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/lora/</guid>
+      
+        <description>&lt;p&gt;LoRA 是一种轻量级的大模型微调技术。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>【论文阅读笔记】Attention is all your need</title>
+      <link>http://localhost:63820/zh-cn/list/attentionisallyouneed/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/attentionisallyouneed/</guid>
+      
+        <description>&lt;p&gt;记录这篇经典佳作：Attention is all your need.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>使用SentencePiece工具如何使用中文语料训练一个分词模型</title>
+      <link>http://localhost:63820/zh-cn/list/sentencepiece/</link>
+      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/sentencepiece/</guid>
+      
+        <description>&lt;p&gt;什么是 sentencepiece 。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Deep Learning: What is regularisation ?</title>
+      <link>http://localhost:63820/zh-cn/list/regularization/</link>
+      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
+      
+      <guid>http://localhost:63820/zh-cn/list/regularization/</guid>
+      
+        <description>&lt;p&gt;正则化的分类和优劣比较&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
