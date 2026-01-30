@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multi Agents on My blog</title>
+    <link>https://Sazerac-kk.github.io/categories/multi-agents/</link>
+    <description>Recent content in Multi Agents on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/categories/multi-agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Notes: Why Do Multi-Agent LLM System Fail?</title>
+      <link>https://Sazerac-kk.github.io/list/why-do-multi-agent-llm-system-fail_en/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://Sazerac-kk.github.io/list/why-do-multi-agent-llm-system-fail_en/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;MAST-Data: The first multi-agent system dataset to characterize MAS failure dynamics, guiding the development of better future systems.&lt;/li&gt;
+&lt;li&gt;Build the first Multi-Agent System Failure Taxonomy (MAST).&lt;/li&gt;
+&lt;li&gt;The entire process is divided into 14 distinct failure modes, grouped into 3 categories:
+&lt;ul&gt;
+&lt;li&gt;System Design Issues&lt;/li&gt;
+&lt;li&gt;Inter-Agent Misalignment&lt;/li&gt;
+&lt;li&gt;Task Verification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Develop an LLM-as-a-Judge pipeline with high consistency with human annotations.&lt;/li&gt;
+&lt;li&gt;Found that the primary cause of MAS task failures is system design issues, which cannot be simply summarized as prompt and LLM limitations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202601131614827.png&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

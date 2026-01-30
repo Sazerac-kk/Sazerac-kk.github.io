@@ -6,7 +6,18 @@
     <description>Recent content in Categories on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multi Agents</title>
+      <link>https://Sazerac-kk.github.io/zh-cn/categories/multi-agents/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://Sazerac-kk.github.io/zh-cn/categories/multi-agents/</guid>
+      
+        <description></description>
+      
+    </item>
+    
     <item>
       <title>DeepLearning</title>
       <link>https://Sazerac-kk.github.io/zh-cn/categories/deeplearning/</link>

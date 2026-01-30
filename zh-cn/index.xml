@@ -6,7 +6,31 @@
     <description>Recent content on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Notes: Why Do Multi-Agent LLM System Fail?</title>
+      <link>https://Sazerac-kk.github.io/zh-cn/list/why-do-multi-agent-llm-system-fail/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://Sazerac-kk.github.io/zh-cn/list/why-do-multi-agent-llm-system-fail/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;MAST-Data: 是第一个概述MAS故障动态的多代理系统数据集，以指导更好的未来系统的开发。&lt;/li&gt;
+&lt;li&gt;Build the first Multi-Agent System Failure Taxonomy(MAST)。&lt;/li&gt;
+&lt;li&gt;整个过程分成14种不同的失效模式，聚为3类。：
+&lt;ul&gt;
+&lt;li&gt;系统设计问题&lt;/li&gt;
+&lt;li&gt;智能体间错位&lt;/li&gt;
+&lt;li&gt;任务验证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;开发一个与人类注释高度一致的 LLM-as a-Judge 的 pipline&lt;/li&gt;
+&lt;li&gt;发现MAS任务失败的原因大多数还是系统设计问题，并非简单的 prompt 和 LLM limitations 所能概括的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Sazerac-kk/pictures/img/macnote/202601131614827.png&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>【论文阅读笔记】Parameter-Efficient Fine-Tuning</title>
       <link>https://Sazerac-kk.github.io/zh-cn/list/overviewoffine_tuning/</link>
