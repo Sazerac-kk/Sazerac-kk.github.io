@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FineTuning on 我的博客</title>
-    <link>http://localhost:63820/zh-cn/categories/finetuning/</link>
+    <link>https://Sazerac-kk.github.io/zh-cn/categories/finetuning/</link>
     <description>Recent content in FineTuning on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/categories/finetuning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/categories/finetuning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【论文阅读笔记】Parameter-Efficient Fine-Tuning</title>
-      <link>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/list/overviewoffine_tuning/</link>
       <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/list/overviewoffine_tuning/</guid>
       
         <description>&lt;p&gt;各种轻量级微调方法的汇总&lt;/p&gt;</description>
       

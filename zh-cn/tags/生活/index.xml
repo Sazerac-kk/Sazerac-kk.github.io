@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>生活 on 我的博客</title>
-    <link>http://localhost:63820/zh-cn/tags/%E7%94%9F%E6%B4%BB/</link>
+    <link>https://Sazerac-kk.github.io/zh-cn/tags/%E7%94%9F%E6%B4%BB/</link>
     <description>Recent content in 生活 on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="http://localhost:63820/zh-cn/tags/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="https://Sazerac-kk.github.io/zh-cn/tags/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我的日记</title>
-      <link>http://localhost:63820/zh-cn/daily/emoji-support/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/daily/emoji-support/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/daily/emoji-support/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/daily/emoji-support/</guid>
       
         <description>今天的随笔</description>
       

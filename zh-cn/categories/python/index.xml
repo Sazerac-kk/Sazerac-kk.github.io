@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on 我的博客</title>
-    <link>http://localhost:63820/zh-cn/categories/python/</link>
+    <link>https://Sazerac-kk.github.io/zh-cn/categories/python/</link>
     <description>Recent content in Python on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 13 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/categories/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Trie树的定义与算法</title>
-      <link>http://localhost:63820/zh-cn/list/trie%E6%A0%91/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/list/trie%E6%A0%91/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/list/trie%E6%A0%91/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/list/trie%E6%A0%91/</guid>
       
         <description>&lt;p&gt;算法：Trie 树&lt;/p&gt;</description>
       

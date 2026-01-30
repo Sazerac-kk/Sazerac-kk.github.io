@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My blog</title>
-    <link>http://localhost:63820/</link>
+    <link>https://Sazerac-kk.github.io/</link>
     <description>Recent content on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Paper Notes: Parameter-Efficient Fine-Tuning</title>
-      <link>http://localhost:63820/list/overviewoffine_tuning/</link>
+      <link>https://Sazerac-kk.github.io/list/overviewoffine_tuning/</link>
       <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/list/overviewoffine_tuning/</guid>
+      <guid>https://Sazerac-kk.github.io/list/overviewoffine_tuning/</guid>
       
         <description>&lt;p&gt;A collection of lightweight fine-tuning methods.&lt;/p&gt;</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Paper Notes: Low-Rank Adaptation of Large Language Models</title>
-      <link>http://localhost:63820/list/lora/</link>
+      <link>https://Sazerac-kk.github.io/list/lora/</link>
       <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/list/lora/</guid>
+      <guid>https://Sazerac-kk.github.io/list/lora/</guid>
       
         <description>&lt;p&gt;LoRA is a lightweight fine-tuning technique for large models.&lt;/p&gt;</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Paper Notes: Attention is All You Need</title>
-      <link>http://localhost:63820/list/attentionisallyouneed/</link>
+      <link>https://Sazerac-kk.github.io/list/attentionisallyouneed/</link>
       <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/list/attentionisallyouneed/</guid>
+      <guid>https://Sazerac-kk.github.io/list/attentionisallyouneed/</guid>
       
         <description>&lt;p&gt;Notes on this classic masterpiece: &lt;em&gt;Attention is All You Need&lt;/em&gt;.&lt;/p&gt;</description>
       
@@ -42,54 +42,32 @@
     
     <item>
       <title>Definition and Algorithms of Trie</title>
-      <link>http://localhost:63820/list/trie/</link>
+      <link>https://Sazerac-kk.github.io/list/trie/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/list/trie/</guid>
+      <guid>https://Sazerac-kk.github.io/list/trie/</guid>
       
         <description>&lt;p&gt;Trie Algorithm&lt;/p&gt;</description>
       
     </item>
     
     <item>
-      <title>How to Train a Chinese Tokenizer Model Using SentencePiece</title>
-      <link>http://localhost:63820/list/sentencepiece/</link>
-      <pubDate>Sat, 12 Apr 2025 13:45:07 +0800</pubDate>
-      
-      <guid>http://localhost:63820/list/sentencepiece/</guid>
-      
-        <description>&lt;h1 id=&#34;what-is-sentencepiece&#34;&gt;What is SentencePiece&lt;/h1&gt;</description>
-      
-    </item>
-    
-    <item>
       <title>Math Typesetting</title>
-      <link>http://localhost:63820/daily/math-typesetting/</link>
+      <link>https://Sazerac-kk.github.io/daily/math-typesetting/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/math-typesetting/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/math-typesetting/</guid>
       
         <description>A brief guide to setup and use KaTeX</description>
       
     </item>
     
     <item>
-      <title>Deep Learning: What is regularisation ?</title>
-      <link>http://localhost:63820/list/regularization/</link>
-      <pubDate>Wed, 02 Oct 2024 23:02:07 +0800</pubDate>
-      
-      <guid>http://localhost:63820/list/regularization/</guid>
-      
-        <description>&lt;h1 id=&#34;categories-and-comparison-of-regularization-methods&#34;&gt;Categories and Comparison of Regularization Methods&lt;/h1&gt;</description>
-      
-    </item>
-    
-    <item>
       <title>Awards</title>
-      <link>http://localhost:63820/awards/</link>
+      <link>https://Sazerac-kk.github.io/awards/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/awards/</guid>
+      <guid>https://Sazerac-kk.github.io/awards/</guid>
       
         <description>Hugo Awards, an annual literary award for the best science fiction or fantasy works</description>
       
@@ -97,10 +75,10 @@
     
     <item>
       <title>Certifications</title>
-      <link>http://localhost:63820/certifications/</link>
+      <link>https://Sazerac-kk.github.io/certifications/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/certifications/</guid>
+      <guid>https://Sazerac-kk.github.io/certifications/</guid>
       
         <description>Hugo Certifications</description>
       
@@ -108,10 +86,10 @@
     
     <item>
       <title>The Figure Shortcode</title>
-      <link>http://localhost:63820/daily/figure-shortcode/</link>
+      <link>https://Sazerac-kk.github.io/daily/figure-shortcode/</link>
       <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/figure-shortcode/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/figure-shortcode/</guid>
       
         <description>&lt;p&gt;Hugo has &lt;code&gt;figure&lt;/code&gt; shortcode built-in, so you can easily add figure captions or hyperlink rel attributes to images. Documentations can be found here:&lt;/p&gt;</description>
       
@@ -119,10 +97,10 @@
     
     <item>
       <title></title>
-      <link>http://localhost:63820/archives/</link>
+      <link>https://Sazerac-kk.github.io/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/archives/</guid>
+      <guid>https://Sazerac-kk.github.io/archives/</guid>
       
         <description></description>
       
@@ -130,10 +108,10 @@
     
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>http://localhost:63820/daily/markdown-syntax/</link>
+      <link>https://Sazerac-kk.github.io/daily/markdown-syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/markdown-syntax/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/markdown-syntax/</guid>
       
         <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
       
@@ -141,10 +119,10 @@
     
     <item>
       <title>Emoji Support</title>
-      <link>http://localhost:63820/daily/emoji-support-copy/</link>
+      <link>https://Sazerac-kk.github.io/daily/emoji-support-copy/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/emoji-support-copy/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/emoji-support-copy/</guid>
       
         <description>Guide to emoji usage in Hugo</description>
       
@@ -152,10 +130,10 @@
     
     <item>
       <title>Guide to Thumbnails in Hugo</title>
-      <link>http://localhost:63820/daily/image-test/</link>
+      <link>https://Sazerac-kk.github.io/daily/image-test/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/image-test/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/image-test/</guid>
       
         <description>Guide to Thumbnails in Hugo</description>
       
@@ -163,10 +141,10 @@
     
     <item>
       <title></title>
-      <link>http://localhost:63820/imprint/</link>
+      <link>https://Sazerac-kk.github.io/imprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/imprint/</guid>
+      <guid>https://Sazerac-kk.github.io/imprint/</guid>
       
         <description>&lt;h1 id=&#34;legal-disclosure&#34;&gt;Legal Disclosure&lt;/h1&gt;
 &lt;p&gt;Information in accordance with the applicable law&lt;/p&gt;
@@ -179,10 +157,10 @@ Germany&lt;/p&gt;</description>
     
     <item>
       <title>我的日记</title>
-      <link>http://localhost:63820/daily/emoji-support/</link>
+      <link>https://Sazerac-kk.github.io/daily/emoji-support/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/emoji-support/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/emoji-support/</guid>
       
         <description>今天的随笔</description>
       

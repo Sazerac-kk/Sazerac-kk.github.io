@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 我的博客</title>
-    <link>http://localhost:63820/zh-cn/tags/</link>
+    <link>https://Sazerac-kk.github.io/zh-cn/tags/</link>
     <description>Recent content in Tags on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/zh-cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/zh-cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Index</title>
-      <link>http://localhost:63820/zh-cn/tags/index/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/index/</link>
       <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/index/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/index/</guid>
       
         <description></description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Demo</title>
-      <link>http://localhost:63820/zh-cn/tags/demo/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/demo/</link>
       <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/demo/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/demo/</guid>
       
         <description></description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Shortcode</title>
-      <link>http://localhost:63820/zh-cn/tags/shortcode/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/shortcode/</link>
       <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/shortcode/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/shortcode/</guid>
       
         <description></description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Css</title>
-      <link>http://localhost:63820/zh-cn/tags/css/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/css/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/css/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/css/</guid>
       
         <description></description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Html</title>
-      <link>http://localhost:63820/zh-cn/tags/html/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/html/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/html/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/html/</guid>
       
         <description></description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>Markdown</title>
-      <link>http://localhost:63820/zh-cn/tags/markdown/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/markdown/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/markdown/</guid>
       
         <description></description>
       
@@ -75,10 +75,10 @@
     
     <item>
       <title>Emoji</title>
-      <link>http://localhost:63820/zh-cn/tags/emoji/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/emoji/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/emoji/</guid>
       
         <description></description>
       
@@ -86,10 +86,10 @@
     
     <item>
       <title>Thumbnail</title>
-      <link>http://localhost:63820/zh-cn/tags/thumbnail/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/thumbnail/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/thumbnail/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/thumbnail/</guid>
       
         <description></description>
       
@@ -97,10 +97,10 @@
     
     <item>
       <title>生活</title>
-      <link>http://localhost:63820/zh-cn/tags/%E7%94%9F%E6%B4%BB/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/%E7%94%9F%E6%B4%BB/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/%E7%94%9F%E6%B4%BB/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/%E7%94%9F%E6%B4%BB/</guid>
       
         <description></description>
       
@@ -108,10 +108,10 @@
     
     <item>
       <title>随笔</title>
-      <link>http://localhost:63820/zh-cn/tags/%E9%9A%8F%E7%AC%94/</link>
+      <link>https://Sazerac-kk.github.io/zh-cn/tags/%E9%9A%8F%E7%AC%94/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/zh-cn/tags/%E9%9A%8F%E7%AC%94/</guid>
+      <guid>https://Sazerac-kk.github.io/zh-cn/tags/%E9%9A%8F%E7%AC%94/</guid>
       
         <description></description>
       

@@ -2,574 +2,509 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:63820/zh-cn/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/"
+                href="https://Sazerac-kk.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/"
+                href="https://Sazerac-kk.github.io/zh-cn/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/list/overviewoffine_tuning/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/list/overviewoffine_tuning/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/list/overviewoffine_tuning/"
+                href="https://Sazerac-kk.github.io/list/overviewoffine_tuning/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/list/overviewoffine_tuning/"
+                href="https://Sazerac-kk.github.io/zh-cn/list/overviewoffine_tuning/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/"
+                href="https://Sazerac-kk.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/deeplearning/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/deeplearning/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/deeplearning/"
+                href="https://Sazerac-kk.github.io/categories/deeplearning/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/deeplearning/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/deeplearning/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/finetuning/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/finetuning/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/finetuning/"
+                href="https://Sazerac-kk.github.io/categories/finetuning/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/finetuning/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/finetuning/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/index/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/index/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/index/"
+                href="https://Sazerac-kk.github.io/tags/index/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/index/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/index/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/llm/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/llm/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/llm/"
+                href="https://Sazerac-kk.github.io/categories/llm/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/llm/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/llm/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/list/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/list/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/list/"
+                href="https://Sazerac-kk.github.io/list/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/list/"
+                href="https://Sazerac-kk.github.io/zh-cn/list/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/"
+                href="https://Sazerac-kk.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/list/lora/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/list/lora/</loc>
     <lastmod>2025-04-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/list/lora/"
+                href="https://Sazerac-kk.github.io/list/lora/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/list/lora/"
+                href="https://Sazerac-kk.github.io/zh-cn/list/lora/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/list/attentionisallyouneed/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/list/attentionisallyouneed/</loc>
     <lastmod>2025-04-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/list/attentionisallyouneed/"
+                href="https://Sazerac-kk.github.io/list/attentionisallyouneed/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/list/attentionisallyouneed/"
+                href="https://Sazerac-kk.github.io/zh-cn/list/attentionisallyouneed/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/nlp/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/nlp/</loc>
     <lastmod>2025-04-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/nlp/"
+                href="https://Sazerac-kk.github.io/categories/nlp/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/nlp/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/nlp/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/data-structure/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/data-structure/</loc>
     <lastmod>2025-04-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/data-structure/"
+                href="https://Sazerac-kk.github.io/categories/data-structure/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/data-structure/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/data-structure/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/python/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/python/</loc>
     <lastmod>2025-04-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/python/"
+                href="https://Sazerac-kk.github.io/categories/python/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/python/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/python/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/list/trie%E6%A0%91/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/list/trie%E6%A0%91/</loc>
     <lastmod>2025-04-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/tokenizer/</loc>
-    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:63820/categories/tokenizer/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/tokenizer/"
-                />
-  </url><url>
-    <loc>http://localhost:63820/zh-cn/list/sentencepiece/</loc>
-    <lastmod>2025-04-12T13:45:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:63820/list/sentencepiece/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/list/sentencepiece/"
-                />
-  </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/</loc>
     <lastmod>2025-02-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/"
+                href="https://Sazerac-kk.github.io/daily/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/math-typesetting/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/math-typesetting/</loc>
     <lastmod>2025-02-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/math-typesetting/"
+                href="https://Sazerac-kk.github.io/daily/math-typesetting/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/math-typesetting/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/math-typesetting/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/list/regularization/</loc>
-    <lastmod>2024-10-02T23:02:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:63820/list/regularization/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/list/regularization/"
-                />
-  </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/math/</loc>
-    <lastmod>2024-10-02T23:02:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:63820/categories/math/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/math/"
-                />
-  </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/regularization/</loc>
-    <lastmod>2024-10-02T23:02:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:63820/categories/regularization/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/regularization/"
-                />
-  </url><url>
-    <loc>http://localhost:63820/zh-cn/awards/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/awards/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/awards/"
+                href="https://Sazerac-kk.github.io/awards/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/awards/"
+                href="https://Sazerac-kk.github.io/zh-cn/awards/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/certifications/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/certifications/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/certifications/"
+                href="https://Sazerac-kk.github.io/certifications/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/certifications/"
+                href="https://Sazerac-kk.github.io/zh-cn/certifications/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/demo/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/demo/</loc>
     <lastmod>2021-03-13T21:47:41+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/demo/"
+                href="https://Sazerac-kk.github.io/tags/demo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/demo/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/demo/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/shortcode/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/shortcode/</loc>
     <lastmod>2021-03-13T21:47:41+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/shortcode/"
+                href="https://Sazerac-kk.github.io/tags/shortcode/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/shortcode/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/shortcode/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/figure-shortcode/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/figure-shortcode/</loc>
     <lastmod>2021-03-13T21:47:41+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/figure-shortcode/"
+                href="https://Sazerac-kk.github.io/daily/figure-shortcode/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/figure-shortcode/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/figure-shortcode/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/archives/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/archives/"
+                href="https://Sazerac-kk.github.io/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/archives/"
+                href="https://Sazerac-kk.github.io/zh-cn/archives/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/css/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/css/"
+                href="https://Sazerac-kk.github.io/tags/css/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/css/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/css/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/html/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/html/"
+                href="https://Sazerac-kk.github.io/tags/html/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/html/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/html/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/markdown/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/markdown/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/markdown/"
+                href="https://Sazerac-kk.github.io/tags/markdown/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/markdown/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/markdown/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/markdown-syntax/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/markdown-syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/markdown-syntax/"
+                href="https://Sazerac-kk.github.io/daily/markdown-syntax/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/markdown-syntax/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/markdown-syntax/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/series/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/series/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/series/"
+                href="https://Sazerac-kk.github.io/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/series/"
+                href="https://Sazerac-kk.github.io/zh-cn/series/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/syntax/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/syntax/"
+                href="https://Sazerac-kk.github.io/categories/syntax/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/syntax/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/syntax/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/categories/themes/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/categories/themes/"
+                href="https://Sazerac-kk.github.io/categories/themes/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/categories/themes/"
+                href="https://Sazerac-kk.github.io/zh-cn/categories/themes/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/series/themes-guide/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/series/themes-guide/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/series/themes-guide/"
+                href="https://Sazerac-kk.github.io/series/themes-guide/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/series/themes-guide/"
+                href="https://Sazerac-kk.github.io/zh-cn/series/themes-guide/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/emoji/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/emoji/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/emoji/"
+                href="https://Sazerac-kk.github.io/tags/emoji/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/emoji/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/emoji/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/emoji-support-copy/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/emoji-support-copy/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/emoji-support-copy/"
+                href="https://Sazerac-kk.github.io/daily/emoji-support-copy/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/emoji-support-copy/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/emoji-support-copy/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/image-test/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/image-test/</loc>
     <lastmod>2019-03-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/image-test/"
+                href="https://Sazerac-kk.github.io/daily/image-test/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/image-test/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/image-test/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/thumbnail/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/thumbnail/</loc>
     <lastmod>2019-03-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/thumbnail/"
+                href="https://Sazerac-kk.github.io/tags/thumbnail/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/thumbnail/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/thumbnail/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/imprint/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/imprint/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/imprint/"
+                href="https://Sazerac-kk.github.io/imprint/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/imprint/"
+                href="https://Sazerac-kk.github.io/zh-cn/imprint/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/posts/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/posts/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/posts/"
+                href="https://Sazerac-kk.github.io/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/posts/"
+                href="https://Sazerac-kk.github.io/zh-cn/posts/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/%E7%94%9F%E6%B4%BB/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/%E7%94%9F%E6%B4%BB/"
+                href="https://Sazerac-kk.github.io/tags/%E7%94%9F%E6%B4%BB/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/%E7%94%9F%E6%B4%BB/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/%E7%94%9F%E6%B4%BB/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/tags/%E9%9A%8F%E7%AC%94/"
+                href="https://Sazerac-kk.github.io/tags/%E9%9A%8F%E7%AC%94/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/tags/%E9%9A%8F%E7%AC%94/"
+                href="https://Sazerac-kk.github.io/zh-cn/tags/%E9%9A%8F%E7%AC%94/"
                 />
   </url><url>
-    <loc>http://localhost:63820/zh-cn/daily/emoji-support/</loc>
+    <loc>https://Sazerac-kk.github.io/zh-cn/daily/emoji-support/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:63820/daily/emoji-support/"
+                href="https://Sazerac-kk.github.io/daily/emoji-support/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:63820/zh-cn/daily/emoji-support/"
+                href="https://Sazerac-kk.github.io/zh-cn/daily/emoji-support/"
                 />
   </url>
 </urlset>

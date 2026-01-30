@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Daily on My blog</title>
-    <link>http://localhost:63820/daily/</link>
+    <link>https://Sazerac-kk.github.io/daily/</link>
     <description>Recent content in Daily on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:63820/daily/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://Sazerac-kk.github.io/daily/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math Typesetting</title>
-      <link>http://localhost:63820/daily/math-typesetting/</link>
+      <link>https://Sazerac-kk.github.io/daily/math-typesetting/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/math-typesetting/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/math-typesetting/</guid>
       
         <description>A brief guide to setup and use KaTeX</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>The Figure Shortcode</title>
-      <link>http://localhost:63820/daily/figure-shortcode/</link>
+      <link>https://Sazerac-kk.github.io/daily/figure-shortcode/</link>
       <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/figure-shortcode/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/figure-shortcode/</guid>
       
         <description>&lt;p&gt;Hugo has &lt;code&gt;figure&lt;/code&gt; shortcode built-in, so you can easily add figure captions or hyperlink rel attributes to images. Documentations can be found here:&lt;/p&gt;</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>http://localhost:63820/daily/markdown-syntax/</link>
+      <link>https://Sazerac-kk.github.io/daily/markdown-syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/markdown-syntax/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/markdown-syntax/</guid>
       
         <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Emoji Support</title>
-      <link>http://localhost:63820/daily/emoji-support-copy/</link>
+      <link>https://Sazerac-kk.github.io/daily/emoji-support-copy/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/emoji-support-copy/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/emoji-support-copy/</guid>
       
         <description>Guide to emoji usage in Hugo</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Guide to Thumbnails in Hugo</title>
-      <link>http://localhost:63820/daily/image-test/</link>
+      <link>https://Sazerac-kk.github.io/daily/image-test/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/image-test/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/image-test/</guid>
       
         <description>Guide to Thumbnails in Hugo</description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>我的日记</title>
-      <link>http://localhost:63820/daily/emoji-support/</link>
+      <link>https://Sazerac-kk.github.io/daily/emoji-support/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:63820/daily/emoji-support/</guid>
+      <guid>https://Sazerac-kk.github.io/daily/emoji-support/</guid>
       
         <description>今天的随笔</description>
       
